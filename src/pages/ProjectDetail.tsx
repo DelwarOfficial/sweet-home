@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MapPin, Ruler, Building, Layers, Compass, CheckCircle, ArrowLeft, FileDown, Calendar } from "lucide-react";
+import { MapPin, Ruler, Building, Layers, Compass, CheckCircle, ArrowLeft, FileDown, Calendar, Eye, X } from "lucide-react";
 import { useLang, t } from "@/lib/i18n";
 import { projects } from "@/lib/projects-data";
 
@@ -8,6 +9,8 @@ const ProjectDetail = () => {
   const { slug } = useParams();
   const { lang } = useLang();
   const project = projects.find((p) => p.slug === slug);
+  const [activeImage, setActiveImage] = useState(0);
+  const [previewPdf, setPreviewPdf] = useState(false);
 
   if (!project) {
     return (
@@ -24,6 +27,8 @@ const ProjectDetail = () => {
     { icon: Building, label: t("Floors", "তলা", lang), value: project.floors },
     { icon: Compass, label: t("Facing", "মুখ", lang), value: project.facing },
   ];
+
+  const projectImages = project.images && project.images.length > 0 ? project.images : (project.image ? [project.image] : []);
 
   return (
     <div className="pt-20">
@@ -45,9 +50,42 @@ const ProjectDetail = () => {
         <div className="container-wide">
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
-              <div className="aspect-video bg-secondary rounded-xl flex items-center justify-center">
-                <Building className="w-16 h-16 text-muted-foreground/30" />
-              </div>
+              {projectImages.length === 0 ? (
+                <div className="aspect-[4/5] lg:aspect-[5/4] bg-[#F1F5F9] rounded-2xl flex items-center justify-center border border-[rgba(15,47,70,0.10)]">
+                  <Building className="w-16 h-16 text-[#94A3B8]/30" />
+                </div>
+              ) : projectImages.length === 1 ? (
+                <div className="aspect-[4/5] lg:aspect-[5/4] bg-gradient-to-br from-[#0F2F46]/5 to-[#0A4D68]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[rgba(15,47,70,0.10)] relative">
+                  <img
+                    src={projectImages[0]}
+                    alt={lang === "bn" ? project.nameBn : project.name}
+                    className="w-full h-full object-contain p-4 drop-shadow-lg"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(15,47,70,0.05)] pointer-events-none" />
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  <div className="aspect-[4/5] lg:aspect-[5/4] bg-gradient-to-br from-[#0F2F46]/5 to-[#0A4D68]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[rgba(15,47,70,0.10)] relative">
+                    <img
+                      src={projectImages[activeImage]}
+                      alt={lang === "bn" ? project.nameBn : project.name}
+                      className="w-full h-full object-contain p-4 drop-shadow-lg transition-opacity duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(15,47,70,0.05)] pointer-events-none" />
+                  </div>
+                  <div className="flex gap-3 overflow-x-auto pb-2 px-1 snap-x scrollbar-hide">
+                    {projectImages.map((img, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setActiveImage(i)}
+                        className={`relative h-20 w-28 shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-300 ${activeImage === i ? 'border-[#C9A227] shadow-md opacity-100 scale-105' : 'border-transparent opacity-50 hover:opacity-100'}`}
+                      >
+                        <img src={img} alt={`Thumbnail ${i}`} className="w-full h-full object-cover" loading="lazy" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div>
                 <h2 className="text-2xl font-heading font-semibold mb-3">{t("Overview", "সংক্ষিপ্ত বিবরণ", lang)}</h2>
@@ -84,9 +122,32 @@ const ProjectDetail = () => {
                 ))}
               </div>
 
-              <button className="w-full flex items-center justify-center gap-2 py-3 rounded-lg gold-gradient text-accent-foreground font-semibold text-sm">
-                <FileDown className="w-4 h-4" /> {t("Download Brochure", "ব্রোশিউর ডাউনলোড", lang)}
-              </button>
+              {project.brochure ? (
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href={encodeURI(project.brochure)}
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg bg-gradient-to-r from-[#C9A227] to-[#e0bc46] text-[#0F2F46] shadow-md font-bold text-sm hover:opacity-90 transition-opacity"
+                  >
+                    <FileDown className="w-4 h-4" /> {t("Download", "ডাউনলোড", lang)}
+                  </a>
+                  <button
+                    onClick={() => setPreviewPdf(true)}
+                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg bg-[#F1F5F9] text-[#0F2F46] border border-[rgba(15,47,70,0.15)] font-semibold text-sm hover:bg-[#0F2F46] hover:text-white transition-all duration-300"
+                  >
+                    <Eye className="w-4 h-4" /> {t("Preview", "প্রিভিউ", lang)}
+                  </button>
+                </div>
+              ) : (
+                <button
+                  disabled
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-[#F1F5F9] text-[#94A3B8] border border-[rgba(15,47,70,0.05)] font-semibold text-sm cursor-not-allowed"
+                >
+                  <FileDown className="w-4 h-4" /> {t("Brochure Coming Soon", "ব্রোশিউর শীঘ্রই আসছে", lang)}
+                </button>
+              )}
               <button className="w-full flex items-center justify-center gap-2 py-3 rounded-lg border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors">
                 <Calendar className="w-4 h-4" /> {t("Schedule Site Visit", "সাইট ভিজিট শিডিউল", lang)}
               </button>
@@ -94,6 +155,30 @@ const ProjectDetail = () => {
           </div>
         </div>
       </section>
+
+      {previewPdf && project.brochure && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0F2F46]/80 backdrop-blur-sm p-4 sm:p-6">
+          <div className="bg-white w-full max-w-5xl h-[85vh] rounded-[24px] shadow-2xl overflow-hidden flex flex-col scale-100 animate-in fade-in zoom-in-95 duration-200">
+            <div className="flex justify-between items-center p-4 border-b border-[rgba(15,47,70,0.10)] bg-[#F8FAFC]">
+              <h3 className="font-heading font-bold text-[#0F2F46] flex items-center gap-2">
+                <Eye className="w-5 h-5 text-[#C9A227]" />
+                {t("Brochure Preview", "ব্রোশিউর প্রিভিউ", lang)}
+              </h3>
+              <button onClick={() => setPreviewPdf(false)} className="p-2 hover:bg-[#F1F5F9] rounded-full text-[#475569] transition-colors">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="flex-1 w-full bg-[#E2E8F0]">
+              <iframe
+                src={`${encodeURI(project.brochure)}#toolbar=0&view=FitH`}
+                className="w-full h-full border-none"
+                title={`${project.name} Brochure`}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };

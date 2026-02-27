@@ -1,0 +1,13 @@
+@font-face {
+	font-family: 'Times Bangla';
+	src: url('times.eot');
+	src: url('times.eot?#iefix') format('embedded-opentype'),
+		url('times.woff2') format('woff2'),
+		url('times.woff') format('woff'),
+		url('times.ttf') format('truetype'),
+		url('times.otf') format('opentype'),
+		url('times.svg#TimesBangla') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}

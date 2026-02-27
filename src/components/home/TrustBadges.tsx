@@ -3,8 +3,8 @@ import { Award, Shield, Building2 } from "lucide-react";
 import { useLang, t } from "@/lib/i18n";
 
 const badges = [
-  { icon: Shield, labelEn: "REHAB Enlisted", labelBn: "REHAB তালিকাভুক্ত" },
-  { icon: Building2, labelEn: "RAJUK Approved", labelBn: "RAJUK অনুমোদিত" },
+  { icon: Shield, labelEn: "REHAB Enlisted", labelBn: "রিহ্যাব তালিকাভুক্ত" },
+  { icon: Building2, labelEn: "RAJUK Approved", labelBn: "রাজউক অনুমোদিত" },
   { icon: Award, labelEn: "Best Taxpayer Award", labelBn: "সেরা করদাতা পুরস্কার" },
 ];
 
@@ -22,16 +22,16 @@ const TrustBadges = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="flex items-center gap-4 p-6 rounded-xl border border-border bg-background hover:border-gold/40 transition-colors"
+              className="flex items-center gap-4 p-6 rounded-xl border border-[rgba(15,47,70,0.10)] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="w-14 h-14 rounded-lg gold-gradient flex items-center justify-center shrink-0">
-                <badge.icon className="w-6 h-6 text-accent-foreground" />
+              <div className="w-14 h-14 rounded-lg bg-[#F1F5F9] flex items-center justify-center shrink-0">
+                <badge.icon className="w-6 h-6 text-[#0A4D68]" />
               </div>
               <div>
-                <h3 className="font-heading font-semibold text-foreground">
+                <h3 className="font-heading font-semibold text-[#1E293B]">
                   {lang === "bn" ? badge.labelBn : badge.labelEn}
                 </h3>
-                <p className="text-xs text-muted-foreground mt-0.5">
+                <p className="text-xs text-[#475569] mt-1 font-medium">
                   {t("Verified Certification", "যাচাইকৃত সনদ", lang)}
                 </p>
               </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
-import { useLang } from "@/lib/i18n";
+import { useLang, t } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
@@ -22,12 +22,14 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <div className="container-wide flex items-center justify-between h-16 md:h-20 px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-full gold-gradient flex items-center justify-center">
-            <span className="font-heading font-bold text-accent-foreground text-sm">S&D</span>
-          </div>
-          <div className="hidden sm:block">
-            <p className="font-heading font-bold text-foreground text-sm leading-tight">S & D Sweet Home</p>
-            <p className="text-[10px] text-muted-foreground">Developers Ltd.</p>
+          <img
+            src="/sd Logo.webp"
+            alt="S & D Sweet Home Developers Ltd. Logo"
+            className="w-10 h-10 object-contain"
+          />
+          <div className="flex flex-col">
+            <p className="font-heading font-bold text-foreground text-xs sm:text-sm leading-tight whitespace-nowrap">S & D Sweet Home</p>
+            <p className="text-[9px] sm:text-[10px] text-muted-foreground whitespace-nowrap">Developers Ltd.</p>
           </div>
         </Link>
 
@@ -36,11 +38,10 @@ const Navbar = () => {
             <Link
               key={link.to}
               to={link.to}
-              className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                location.pathname === link.to
-                  ? "text-accent-foreground bg-accent/20"
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-              }`}
+              className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${location.pathname === link.to
+                ? "text-[#0F2F46] bg-[#F1F5F9] shadow-sm font-semibold"
+                : "text-[#475569] hover:text-[#0F2F46] hover:bg-[#F1F5F9]"
+                }`}
             >
               {lang === "bn" ? link.labelBn : link.labelEn}
             </Link>
@@ -50,14 +51,14 @@ const Navbar = () => {
         <div className="flex items-center gap-2">
           <button
             onClick={toggle}
-            className="px-2.5 py-1.5 text-xs font-medium border border-border rounded-md hover:bg-secondary transition-colors"
+            className="px-3 py-1.5 text-xs font-semibold border border-[rgba(15,47,70,0.15)] text-[#0F2F46] rounded-full hover:bg-[#F1F5F9] hover:shadow-sm transition-all duration-300"
           >
             {lang === "en" ? "বাংলা" : "EN"}
           </button>
           <a href="tel:+8801XXXXXXXXX" className="hidden md:flex">
-            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-navy-light gap-1.5">
+            <Button size="sm" className="bg-gradient-to-r from-[#0F2F46] to-[#0A4D68] text-white hover:opacity-90 shadow-md gap-1.5 rounded-full px-5">
               <Phone className="w-3.5 h-3.5" />
-              Call Now
+              {t("Call Now", "কল করুন", lang)}
             </Button>
           </a>
           <button className="lg:hidden p-2" onClick={() => setOpen(!open)}>
@@ -74,11 +75,10 @@ const Navbar = () => {
                 key={link.to}
                 to={link.to}
                 onClick={() => setOpen(false)}
-                className={`px-3 py-2.5 text-sm font-medium rounded-md transition-colors ${
-                  location.pathname === link.to
-                    ? "text-accent-foreground bg-accent/20"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                }`}
+                className={`px-3 py-2.5 text-sm font-medium rounded-md transition-colors ${location.pathname === link.to
+                  ? "text-accent-foreground bg-accent/20"
+                  : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                  }`}
               >
                 {lang === "bn" ? link.labelBn : link.labelEn}
               </Link>

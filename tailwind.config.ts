@@ -12,8 +12,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Playfair Display"', 'serif'],
-        body: ['"DM Sans"', 'sans-serif'],
+        heading: ['var(--font-heading)', '"Playfair Display"', 'serif'],
+        body: ['var(--font-body)', '"DM Sans"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

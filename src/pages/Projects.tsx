@@ -7,11 +7,7 @@ import { projects } from "@/lib/projects-data";
 
 type Filter = "all" | "ongoing" | "upcoming" | "completed";
 
-const statusColors: Record<string, string> = {
-  ongoing: "bg-blue-500/10 text-blue-600 border-blue-200",
-  upcoming: "bg-amber-500/10 text-amber-600 border-amber-200",
-  completed: "bg-emerald-500/10 text-emerald-600 border-emerald-200",
-};
+
 
 const Projects = () => {
   const { lang } = useLang();
@@ -46,11 +42,10 @@ const Projects = () => {
               <button
                 key={f.key}
                 onClick={() => setFilter(f.key)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  filter === f.key
-                    ? "gold-gradient text-accent-foreground"
-                    : "bg-secondary text-muted-foreground hover:text-foreground"
-                }`}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${filter === f.key
+                  ? "gold-gradient text-accent-foreground"
+                  : "bg-secondary text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 {lang === "bn" ? f.labelBn : f.labelEn}
               </button>
@@ -69,14 +64,36 @@ const Projects = () => {
                   to={`/projects/${project.slug}`}
                   className="group block bg-card rounded-xl border border-border overflow-hidden hover:border-gold/40 hover:shadow-lg transition-all"
                 >
-                  <div className="aspect-[4/3] bg-secondary relative">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Building className="w-12 h-12 text-muted-foreground/30" />
-                    </div>
-                    <div className="absolute top-3 left-3">
-                      <span className={`text-xs font-medium px-2.5 py-1 rounded-full border ${statusColors[project.status]}`}>
-                        {t(project.status.charAt(0).toUpperCase() + project.status.slice(1), project.status === "ongoing" ? "চলমান" : project.status === "upcoming" ? "আসন্ন" : "সম্পন্ন", lang)}
-                      </span>
+                  <div className="aspect-[4/3] bg-secondary relative overflow-hidden">
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={lang === "bn" ? project.nameBn : project.name}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Building className="w-12 h-12 text-muted-foreground/30" />
+                      </div>
+                    )}
+                    <div className="absolute top-4 left-4 z-20">
+                      {project.status === "ongoing" && (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[11px] sm:text-xs font-semibold rounded-full bg-[#0F2F46]/90 text-white shadow-md backdrop-blur-sm transition-all duration-300">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                          {t("Ongoing", "চলমান", lang)}
+                        </span>
+                      )}
+                      {project.status === "completed" && (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[11px] sm:text-xs font-semibold rounded-full bg-[#C9A227]/90 text-white shadow-md backdrop-blur-sm transition-all duration-300">
+                          {t("Completed", "সম্পন্ন", lang)}
+                        </span>
+                      )}
+                      {project.status === "upcoming" && (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[11px] sm:text-xs font-semibold rounded-full bg-[#088395]/90 text-white shadow-md backdrop-blur-sm transition-all duration-300">
+                          {t("Upcoming", "আসন্ন", lang)}
+                        </span>
+                      )}
                     </div>
                   </div>
                   <div className="p-5">

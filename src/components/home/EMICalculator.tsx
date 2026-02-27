@@ -22,7 +22,7 @@ const EMICalculator = () => {
   const fmt = (n: number) => new Intl.NumberFormat("en-BD").format(Math.round(n));
 
   return (
-    <section className="section-padding bg-card">
+    <section className="section-padding bg-[#F1F5F9]">
       <div className="container-wide">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
@@ -38,7 +38,7 @@ const EMICalculator = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-8 bg-background rounded-xl border border-border p-6 md:p-8"
+            className="grid md:grid-cols-2 gap-8 bg-white rounded-[20px] shadow-[0_10px_25px_rgba(0,0,0,0.08)] border border-[rgba(15,47,70,0.10)] p-6 md:p-8"
           >
             <div className="space-y-6">
               {[
@@ -68,7 +68,7 @@ const EMICalculator = () => {
             </div>
 
             <div className="flex flex-col justify-center">
-              <div className="bg-primary rounded-xl p-6 text-primary-foreground space-y-4">
+              <div className="bg-[#0F2F46] rounded-[16px] p-6 md:p-8 text-white space-y-5 shadow-lg">
                 <div className="flex items-center gap-2 mb-2">
                   <Calculator className="w-5 h-5 text-gold" />
                   <h3 className="font-heading font-semibold">{t("Your EMI", "আপনার ইএমআই", lang)}</h3>
@@ -77,7 +77,7 @@ const EMICalculator = () => {
                   <p className="text-3xl font-heading font-bold text-gold">৳ {fmt(emi)}</p>
                   <p className="text-xs opacity-70 mt-1">{t("per month", "প্রতি মাসে", lang)}</p>
                 </div>
-                <div className="border-t border-primary-foreground/20 pt-4 space-y-2 text-sm">
+                <div className="border-t border-white/10 pt-5 space-y-3 text-sm">
                   <div className="flex justify-between">
                     <span className="opacity-70">{t("Loan Amount", "ঋণের পরিমাণ", lang)}</span>
                     <span>৳ {fmt(loanAmount)}</span>

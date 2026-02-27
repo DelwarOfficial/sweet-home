@@ -15,7 +15,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0F2F46]/85 to-[#0A4D68]/70" />
       </div>
 
       <div className="relative z-10 container-wide px-4 sm:px-6 lg:px-8 pt-20">
@@ -26,14 +26,14 @@ const HeroSection = () => {
           className="max-w-2xl"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold/40 bg-gold/10 text-gold text-xs font-medium mb-6">
-            <Home className="w-3.5 h-3.5" />
-            {t("REHAB & RAJUK Enlisted Developer", "REHAB ও RAJUK তালিকাভুক্ত ডেভেলপার", lang)}
+            <Home className="w-3.5 h-3.5 mb-0.5" />
+            {t("REHAB & RAJUK Enlisted Developer", "রিহ্যাব ও রাজউক তালিকাভুক্ত ডেভেলপার", lang)}
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground leading-tight mb-6">
-            {t("Building Dreams,", "স্বপ্ন গড়ি,", lang)}
+            <span className="text-white">{t("Building Dreams,", "স্বপ্ন গড়ি,", lang)}</span>
             <br />
-            <span className="text-gold-gradient">
+            <span className="text-[#C9A227] mt-1 block">
               {t("Delivering Trust", "বিশ্বাস দিই", lang)}
             </span>
           </h1>
@@ -51,7 +51,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-3xl bg-card/95 backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-2xl"
+          className="max-w-3xl bg-card rounded-xl p-4 md:p-6 shadow-[0_10px_25px_rgba(0,0,0,0.15)] border border-[rgba(15,47,70,0.10)]"
         >
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="flex items-center gap-2 bg-secondary rounded-lg px-3 py-2.5">
@@ -81,7 +81,7 @@ const HeroSection = () => {
               </select>
             </div>
           </div>
-          <button className="w-full sm:w-auto mt-3 px-6 py-2.5 gold-gradient rounded-lg text-accent-foreground font-semibold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+          <button className="w-full sm:w-auto mt-4 px-8 py-3 bg-gradient-to-r from-[#C9A227] to-[#e0bc46] rounded-lg text-[#0F2F46] font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-md">
             <Search className="w-4 h-4" />
             {t("Search Properties", "প্রপার্টি খুঁজুন", lang)}
           </button>

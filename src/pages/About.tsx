@@ -17,7 +17,7 @@ const About = () => {
             <p className="text-lg opacity-80 leading-relaxed">
               {t(
                 "A REHAB & RAJUK enlisted real estate developer committed to building trust, quality, and lasting homes in Dhaka and Chandpur.",
-                "ঢাকা ও চাঁদপুরে বিশ্বাস, মান ও স্থায়ী বাড়ি তৈরিতে প্রতিশ্রুতিবদ্ধ একটি REHAB ও RAJUK তালিকাভুক্ত রিয়েল এস্টেট ডেভেলপার।",
+                "ঢাকা ও চাঁদপুরে বিশ্বাস, মান ও স্থায়ী বাড়ি তৈরিতে প্রতিশ্রুতিবদ্ধ একটি রিহ্যাব ও রাজউক তালিকাভুক্ত রিয়েল এস্টেট ডেভেলপার।",
                 lang
               )}
             </p>

@@ -1,0 +1,123 @@
+import { motion } from "framer-motion";
+import { Building, ShieldCheck } from "lucide-react";
+import { useLang, t } from "@/lib/i18n";
+
+const partners = [
+    { name: "GPH Ispat", logo: "/Sister Concern/GPH-ISPAT.png" },
+    { name: "Partex", logo: "/Sister Concern/Partex.png" },
+    { name: "RFL", logo: "/Sister Concern/RFL.png" },
+    { name: "Aman Cement", logo: "/Sister Concern/aman-cement.png.webp" },
+    { name: "Bashundhara Cement", logo: "/Sister Concern/bashundhara-cement.png" },
+    { name: "BTB", logo: "/Sister Concern/btb.png.webp" },
+    { name: "National Polymer", logo: "/Sister Concern/national-polymer.png.webp" },
+    { name: "Supercrete Cement", logo: "/Sister Concern/supercrete-cement.png" },
+];
+
+const SisterConcern = () => {
+    const { lang } = useLang();
+
+    return (
+        <section className="section-padding bg-[#F8FAFC] border-t border-[rgba(15,47,70,0.10)]">
+            <div className="container-wide">
+                <div className="text-center mb-12">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#C9A227]/40 bg-[#C9A227]/10 text-[#0F2F46] font-semibold text-xs mb-4">
+                        <ShieldCheck className="w-3.5 h-3.5 text-[#C9A227]" />
+                        {t("Quality Assurance", "মান নিশ্চিতকরণ", lang)}
+                    </div>
+                    <h2 className="text-3xl md:text-4xl font-heading font-bold text-[#0F2F46] mb-4">
+                        {t("Our Sister Concerns", "আমাদের সহযোগী প্রতিষ্ঠান", lang)}
+                    </h2>
+                    <p className="text-[#475569] max-w-2xl mx-auto leading-relaxed">
+                        {t(
+                            "Supported by Messrs Diba Enterprise and Messrs Sabiya Enterprise. Our sister concerns ensure a robust supply chain, providing premium grade materials and unwavering quality assurance across all our projects.",
+                            "মেসার্স দিবা এন্টারপ্রাইজ এবং মেসার্স সাবিয়া এন্টারপ্রাইজের মাধ্যমে সমর্থিত। আমাদের সহযোগী প্রতিষ্ঠানগুলি একটি মজবুত সরবরাহ শৃঙ্খলা নিশ্চিত করে, যা আমাদের সকল প্রকল্পে প্রিমিয়াম গ্রেড সামগ্রী এবং নির্ভরযোগ্য মান নিশ্চিত করে।",
+                            lang
+                        )}
+                    </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6 mb-12">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="group flex items-start gap-4 p-6 md:p-8 rounded-[20px] bg-gradient-to-br from-[#ffffff] to-[#f8fafc] border border-[rgba(15,47,70,0.08)] shadow-[0_12px_30px_rgba(15,47,70,0.08)] hover:-translate-y-[6px] hover:shadow-[0_20px_40px_rgba(15,47,70,0.12)] transition-all duration-250 ease-out"
+                    >
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0F2F46] to-[#0A4D68] flex items-center justify-center shrink-0 shadow-inner">
+                            <Building className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                            <h3 className="font-heading font-bold text-lg text-[#1E293B] mb-2 relative inline-block">
+                                {t("Messrs Diba Enterprise", "মেসার্স দিবা এন্টারপ্রাইজ", lang)}
+                                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#C9A227] transition-all duration-300 group-hover:w-full rounded-full"></span>
+                            </h3>
+                            <p className="text-sm text-[#475569] leading-relaxed">
+                                {t(
+                                    "As a key pillar of our supply chain, Diba Enterprise specializes in sourcing elite construction materials directly from the nation's most trusted manufacturers.",
+                                    "আমাদের সরবরাহ শৃঙ্খলের একটি মূল স্তম্ভ হিসাবে, দিবা এন্টারপ্রাইজ দেশের সবচেয়ে বিশ্বস্ত নির্মাতাদের কাছ থেকে উচ্চমানের নির্মাণ সামগ্রী সংগ্রহ করতে বিশেষজ্ঞ।",
+                                    lang
+                                )}
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="group flex items-start gap-4 p-6 md:p-8 rounded-[20px] bg-gradient-to-br from-[#ffffff] to-[#f8fafc] border border-[rgba(15,47,70,0.08)] shadow-[0_12px_30px_rgba(15,47,70,0.08)] hover:-translate-y-[6px] hover:shadow-[0_20px_40px_rgba(15,47,70,0.12)] transition-all duration-250 ease-out"
+                    >
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0F2F46] to-[#0A4D68] flex items-center justify-center shrink-0 shadow-inner">
+                            <Building className="w-5 h-5 text-white" />
+                        </div>
+                        <div>
+                            <h3 className="font-heading font-bold text-lg text-[#1E293B] mb-2 relative inline-block">
+                                {t("Messrs Sabiya Enterprise", "মেসার্স সাবিয়া এন্টারপ্রাইজ", lang)}
+                                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#C9A227] transition-all duration-300 group-hover:w-full rounded-full"></span>
+                            </h3>
+                            <p className="text-sm text-[#475569] leading-relaxed">
+                                {t(
+                                    "Dedicated to uncompromising quality control operations, ensuring only structurally perfect raw materials make their way into our residential developments.",
+                                    "উচ্চমানের মান নিয়ন্ত্রণ পরিচালনায় নিবেদিত, নিশ্চিত করে যে কেবল কাঠামোগতভাবে নিখুঁত কাঁচামাল আমাদের আবাসিক প্রকল্পগুলিতে প্রবেশ করে।",
+                                    lang
+                                )}
+                            </p>
+                        </div>
+                    </motion.div>
+                </div>
+
+                <div>
+                    <div className="flex flex-col items-center justify-center mb-10">
+                        <h4 className="text-sm font-semibold text-[#475569] uppercase tracking-[0.15em] mb-4 text-center">
+                            {t("Our Trusted Material Partners", "আমাদের বিশ্বস্ত নির্মাণ সামগ্রী পার্টনার", lang)}
+                        </h4>
+                        <div className="w-16 h-0.5 bg-[#C9A227] rounded-full"></div>
+                    </div>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        className="grid grid-cols-2 lg:grid-cols-4 lg:gap-8 gap-4 px-2"
+                    >
+                        {partners.map((partner, i) => (
+                            <div
+                                key={i}
+                                className="bg-white rounded-[16px] p-5 md:p-7 flex items-center justify-center shadow-[0_8px_20px_rgba(0,0,0,0.05)] border border-[rgba(15,47,70,0.06)] hover:scale-105 hover:shadow-[0_12px_30px_rgba(10,77,104,0.15)] transition-all duration-300 ease-out"
+                            >
+                                <img
+                                    src={partner.logo}
+                                    alt={partner.name}
+                                    className="w-full h-auto max-h-16 md:max-h-20 object-contain"
+                                    loading="lazy"
+                                />
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default SisterConcern;
