@@ -30,7 +30,7 @@ const SisterConcern = () => {
                     <p className="text-[#475569] max-w-2xl mx-auto leading-relaxed">
                         {t(
                             "Supported by Messrs Diba Enterprise and Messrs Sabiya Enterprise. Our sister concerns ensure a robust supply chain, providing premium grade materials and unwavering quality assurance across all our projects.",
-                            "মেসার্স দিবা এন্টারপ্রাইজ এবং মেসার্স সাবিয়া এন্টারপ্রাইজের মাধ্যমে সমর্থিত। আমাদের সহযোগী প্রতিষ্ঠানগুলি একটি মজবুত সরবরাহ শৃঙ্খলা নিশ্চিত করে, যা আমাদের সকল প্রকল্পে প্রিমিয়াম গ্রেড সামগ্রী এবং নির্ভরযোগ্য মান নিশ্চিত করে।",
+                            "মেসার্স দিবা এন্টারপ্রাইজ এবং মেসার্স সাবিয়া এন্টারপ্রাইজের সহায়তায় পরিচালিত। আমাদের সহযোগী প্রতিষ্ঠানগুলো একটি শক্তিশালী সাপ্লাই চেইন নিশ্চিত করে। এর মাধ্যমে প্রতিটি প্রকল্পে প্রিমিয়াম গ্রেডের সরঞ্জাম এবং নিরবচ্ছিন্ন গুণগত মান বজায় রাখা হয়।",
                             lang
                         )}
                     </p>
@@ -54,7 +54,7 @@ const SisterConcern = () => {
                             <p className="text-sm text-[#475569] leading-relaxed">
                                 {t(
                                     "As a key pillar of our supply chain, Diba Enterprise specializes in sourcing elite construction materials directly from the nation's most trusted manufacturers.",
-                                    "আমাদের সরবরাহ শৃঙ্খলের একটি মূল স্তম্ভ হিসাবে, দিবা এন্টারপ্রাইজ দেশের সবচেয়ে বিশ্বস্ত নির্মাতাদের কাছ থেকে উচ্চমানের নির্মাণ সামগ্রী সংগ্রহ করতে বিশেষজ্ঞ।",
+                                    "আমাদের সাপ্লাই চেইনের মূল ভিত্তি হিসেবে কাজ করছে দিবা এন্টারপ্রাইজ। দেশের সবচেয়ে নির্ভরযোগ্য নির্মাতাদের কাছ থেকে উন্নত মানের নির্মাণসামগ্রী সংগ্রহ করতে তারা বিশেষভাবে পারদর্শী।",
                                     lang
                                 )}
                             </p>
@@ -79,7 +79,7 @@ const SisterConcern = () => {
                             <p className="text-sm text-[#475569] leading-relaxed">
                                 {t(
                                     "Dedicated to uncompromising quality control operations, ensuring only structurally perfect raw materials make their way into our residential developments.",
-                                    "উচ্চমানের মান নিয়ন্ত্রণ পরিচালনায় নিবেদিত, নিশ্চিত করে যে কেবল কাঠামোগতভাবে নিখুঁত কাঁচামাল আমাদের আবাসিক প্রকল্পগুলিতে প্রবেশ করে।",
+                                    "আপসহীন মান নিয়ন্ত্রণ কার্যক্রমে নিবেদিত। তারা নিশ্চিত করে, যেন শুধুমাত্র কাঠামোগতভাবে নিখুঁত কাঁচামাল আমাদের আবাসিক প্রকল্পগুলোতে ব্যবহৃত হয়।",
                                     lang
                                 )}
                             </p>

@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 const navLinks = [
   { to: "/", labelEn: "Home", labelBn: "হোম" },
   { to: "/about", labelEn: "About Us", labelBn: "আমাদের সম্পর্কে" },
-  { to: "/projects", labelEn: "Projects", labelBn: "প্রকল্পসমূহ" },
+  { to: "/projects", labelEn: "Projects", labelBn: "প্রকল্প" },
   { to: "/enterprises", labelEn: "Enterprises", labelBn: "এন্টারপ্রাইজ" },
-  { to: "/media", labelEn: "Media", labelBn: "মিডিয়া" },
+  { to: "/media", labelEn: "Media", labelBn: "মিডিয়া" },
   { to: "/contact", labelEn: "Contact", labelBn: "যোগাযোগ" },
 ];
 

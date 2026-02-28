@@ -58,7 +58,7 @@ const HeroSection = () => {
             <div className="flex items-center gap-2 bg-secondary rounded-lg px-3 py-2.5">
               <MapPin className="w-4 h-4 text-muted-foreground shrink-0" />
               <select className="bg-transparent text-sm text-foreground w-full outline-none">
-                <option>{t("All Locations", "সব এলাকা", lang)}</option>
+                <option>{t("All Locations", "সকল এলাকা", lang)}</option>
                 <option>Dhaka</option>
                 <option>Chandpur</option>
               </select>
@@ -66,7 +66,7 @@ const HeroSection = () => {
             <div className="flex items-center gap-2 bg-secondary rounded-lg px-3 py-2.5">
               <Home className="w-4 h-4 text-muted-foreground shrink-0" />
               <select className="bg-transparent text-sm text-foreground w-full outline-none">
-                <option>{t("All Status", "সব স্ট্যাটাস", lang)}</option>
+                <option>{t("All Status", "সকল স্ট্যাটাস", lang)}</option>
                 <option>{t("Ongoing", "চলমান", lang)}</option>
                 <option>{t("Upcoming", "আসন্ন", lang)}</option>
                 <option>{t("Completed", "সম্পন্ন", lang)}</option>

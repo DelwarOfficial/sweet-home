@@ -14,17 +14,17 @@ const ProjectDetail = () => {
   if (!project) {
     return (
       <div className="pt-20 section-padding text-center">
-        <h1 className="text-2xl font-heading font-bold">{t("Project not found", "প্রকল্প পাওয়া যায়নি", lang)}</h1>
-        <Link to="/projects" className="text-gold-dark mt-4 inline-block">{t("← Back to projects", "← প্রকল্পে ফিরুন", lang)}</Link>
+        <h1 className="text-2xl font-heading font-bold">{t("Project not found", "প্রকল্প পাওয়া যায়নি", lang)}</h1>
+        <Link to="/projects" className="text-gold-dark mt-4 inline-block">{t("← Back to projects", "← প্রজেক্টে ফিরে যান", lang)}</Link>
       </div>
     );
   }
 
   const details = [
-    { icon: Ruler, label: t("Flat Size", "ফ্ল্যাট সাইজ", lang), value: project.flatSize },
-    { icon: Layers, label: t("Land Area", "জমির আয়তন", lang), value: project.landArea },
+    { icon: Ruler, label: t("Flat Size", "ফ্ল্যাটের সাইজ", lang), value: project.flatSize },
+    { icon: Layers, label: t("Land Area", "জমির পরিমাণ", lang), value: project.landArea },
     { icon: Building, label: t("Floors", "তলা", lang), value: project.floors },
-    { icon: Compass, label: t("Facing", "মুখ", lang), value: project.facing },
+    { icon: Compass, label: t("Facing", "মুখী", lang), value: project.facing },
   ];
 
   const projectImages = project.images && project.images.length > 0 ? project.images : (project.image ? [project.image] : []);
@@ -34,7 +34,7 @@ const ProjectDetail = () => {
       <section className="section-padding navy-gradient text-primary-foreground">
         <div className="container-wide">
           <Link to="/projects" className="inline-flex items-center gap-1 text-sm opacity-70 hover:opacity-100 mb-4 transition-opacity">
-            <ArrowLeft className="w-4 h-4" /> {t("All Projects", "সব প্রকল্প", lang)}
+            <ArrowLeft className="w-4 h-4" /> {t("All Projects", "সব প্রজেক্ট", lang)}
           </Link>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-2">{lang === "bn" ? project.nameBn : project.name}</h1>
@@ -94,7 +94,7 @@ const ProjectDetail = () => {
               </div>
 
               <div>
-                <h2 className="text-2xl font-heading font-semibold mb-4">{t("Amenities", "সুবিধাসমূহ", lang)}</h2>
+                <h2 className="text-2xl font-heading font-semibold mb-4">{t("Amenities", "সুযোগ-সুবিধা", lang)}</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {project.amenities.map((a) => (
                     <div key={a} className="flex items-center gap-2 text-sm text-foreground">
@@ -107,7 +107,7 @@ const ProjectDetail = () => {
 
             <div className="space-y-6">
               <div className="bg-card rounded-xl border border-border p-6 space-y-4">
-                <h3 className="font-heading font-semibold">{t("Project Details", "প্রকল্পের বিবরণ", lang)}</h3>
+                <h3 className="font-heading font-semibold">{t("Project Details", "প্রকল্পের বিস্তারিত", lang)}</h3>
                 {details.map((d) => (
                   <div key={d.label} className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
@@ -144,17 +144,16 @@ const ProjectDetail = () => {
                   disabled
                   className="w-full flex items-center justify-center gap-2 py-3 rounded-lg bg-[#F1F5F9] text-[#94A3B8] border border-[rgba(15,47,70,0.05)] font-semibold text-sm cursor-not-allowed"
                 >
-                  <FileDown className="w-4 h-4" /> {t("Brochure Coming Soon", "ব্রোশিউর শীঘ্রই আসছে", lang)}
+                  <FileDown className="w-4 h-4" /> {t("Brochure Coming Soon", "ব্রোশার শিঘ্রই আসবে", lang)}
                 </button>
               )}
               <button className="w-full flex items-center justify-center gap-2 py-3 rounded-lg border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors">
-                <Calendar className="w-4 h-4" /> {t("Schedule Site Visit", "সাইট ভিজিট শিডিউল", lang)}
+                <Calendar className="w-4 h-4" /> {t("Schedule Site Visit", "সাইট ভিজিটের সময় নির্ধারণ করুন", lang)}
               </button>
             </div>
           </div>
         </div>
       </section>
-
 
 
     </div>

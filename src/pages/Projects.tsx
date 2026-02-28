@@ -27,7 +27,7 @@ const Projects = () => {
       <section className="section-padding navy-gradient text-primary-foreground">
         <div className="container-wide">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-3">
-            {t("Our Projects", "আমাদের প্রকল্পসমূহ", lang)}
+            {t("Our Projects", "আমাদের প্রকল্প", lang)}
           </h1>
           <p className="text-lg opacity-80">
             {t("Premium residential developments in Dhaka & Chandpur", "ঢাকা ও চাঁদপুরে প্রিমিয়াম আবাসিক উন্নয়ন", lang)}

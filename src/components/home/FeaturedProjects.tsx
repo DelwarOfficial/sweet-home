@@ -14,12 +14,12 @@ const FeaturedProjects = () => {
       <div className="container-wide">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
-            {t("Featured Projects", "বিশেষ প্রকল্পসমূহ", lang)}
+            {t("Featured Projects", "বিশেষ প্রকল্প", lang)}
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
             {t(
               "Discover premium residential developments crafted with excellence",
-              "উৎকর্ষতার সাথে তৈরি প্রিমিয়াম আবাসিক উন্নয়ন আবিষ্কার করুন",
+              "উৎকর্ষতার সাথে নির্মিত প্রিমিয়াম আবাসিক উন্নয়নগুলো ঘুরে দেখুন",
               lang
             )}
           </p>
