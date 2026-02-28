@@ -10,7 +10,6 @@ const ProjectDetail = () => {
   const { lang } = useLang();
   const project = projects.find((p) => p.slug === slug);
   const [activeImage, setActiveImage] = useState(0);
-  const [previewPdf, setPreviewPdf] = useState(false);
 
   if (!project) {
     return (
@@ -127,18 +126,18 @@ const ProjectDetail = () => {
                   <a
                     href={encodeURI(project.brochure)}
                     download
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg bg-gradient-to-r from-[#C9A227] to-[#e0bc46] text-[#0F2F46] shadow-md font-bold text-sm hover:opacity-90 transition-opacity"
                   >
                     <FileDown className="w-4 h-4" /> {t("Download", "ডাউনলোড", lang)}
                   </a>
-                  <button
-                    onClick={() => setPreviewPdf(true)}
+                  <a
+                    href={`${encodeURI(project.brochure)}#view=FitH&toolbar=1`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg bg-[#F1F5F9] text-[#0F2F46] border border-[rgba(15,47,70,0.15)] font-semibold text-sm hover:bg-[#0F2F46] hover:text-white transition-all duration-300"
                   >
                     <Eye className="w-4 h-4" /> {t("Preview", "প্রিভিউ", lang)}
-                  </button>
+                  </a>
                 </div>
               ) : (
                 <button
@@ -156,28 +155,7 @@ const ProjectDetail = () => {
         </div>
       </section>
 
-      {previewPdf && project.brochure && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0F2F46]/80 backdrop-blur-sm p-4 sm:p-6">
-          <div className="bg-white w-full max-w-5xl h-[85vh] rounded-[24px] shadow-2xl overflow-hidden flex flex-col scale-100 animate-in fade-in zoom-in-95 duration-200">
-            <div className="flex justify-between items-center p-4 border-b border-[rgba(15,47,70,0.10)] bg-[#F8FAFC]">
-              <h3 className="font-heading font-bold text-[#0F2F46] flex items-center gap-2">
-                <Eye className="w-5 h-5 text-[#C9A227]" />
-                {t("Brochure Preview", "ব্রোশিউর প্রিভিউ", lang)}
-              </h3>
-              <button onClick={() => setPreviewPdf(false)} className="p-2 hover:bg-[#F1F5F9] rounded-full text-[#475569] transition-colors">
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-            <div className="flex-1 w-full bg-[#E2E8F0]">
-              <iframe
-                src={`${encodeURI(project.brochure)}#toolbar=0&view=FitH`}
-                className="w-full h-full border-none"
-                title={`${project.name} Brochure`}
-              />
-            </div>
-          </div>
-        </div>
-      )}
+
 
     </div>
   );

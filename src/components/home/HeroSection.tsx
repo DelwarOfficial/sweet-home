@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Search, MapPin, Home, Ruler } from "lucide-react";
 import { useLang, t } from "@/lib/i18n";
-import heroImage from "@/assets/hero-building.jpg";
+import heroImage from "@/assets/hero-image-2.jpeg";
 
 const HeroSection = () => {
   const { lang } = useLang();
@@ -14,6 +14,7 @@ const HeroSection = () => {
           alt="Premium residential building by S & D Sweet Home Developers"
           className="w-full h-full object-cover"
           loading="eager"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0F2F46]/85 to-[#0A4D68]/70" />
       </div>
