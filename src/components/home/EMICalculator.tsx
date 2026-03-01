@@ -38,14 +38,14 @@ const EMICalculator = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-8 bg-white rounded-2xl shadow-premium border border-border p-6 md:p-8"
+            className="grid md:grid-cols-2 gap-8 bg-card rounded-2xl shadow-premium border border-border p-6 md:p-8"
           >
             <div className="space-y-6">
               {[
-                { label: t("Property Price (৳)", "সম্পত্তির মূল্য (৳)", lang), value: price, set: setPrice, min: 1000000, max: 50000000, step: 500000 },
-                { label: t("Down Payment (৳)", "ডাউন পেমেন্ট (৳)", lang), value: down, set: setDown, min: 0, max: price, step: 100000 },
-                { label: t("Interest Rate (%)", "সুদের হার (%)", lang), value: rate, set: setRate, min: 1, max: 20, step: 0.5 },
-                { label: t("Loan Duration (Years)", "লোনের মেয়াদ (বছর)", lang), value: years, set: setYears, min: 1, max: 30, step: 1 },
+                { label: t("Property Price (৳)", "সম্পত্তির মূল্য (৳)", lang), value: price, onChange: (v: number) => { setPrice(v); if (down > v) setDown(v); }, min: 1000000, max: 50000000, step: 500000 },
+                { label: t("Down Payment (৳)", "ডাউন পেমেন্ট (৳)", lang), value: down, onChange: (v: number) => setDown(v > price ? price : v), min: 0, max: Math.max(price, 100000), step: 100000 },
+                { label: t("Interest Rate (%)", "সুদের হার (%)", lang), value: rate, onChange: setRate, min: 1, max: 20, step: 0.5 },
+                { label: t("Loan Duration (Years)", "লোনের মেয়াদ (বছর)", lang), value: years, onChange: setYears, min: 1, max: 30, step: 1 },
               ].map((field) => (
                 <div key={field.label}>
                   <div className="flex justify-between text-sm mb-2">
@@ -60,15 +60,15 @@ const EMICalculator = () => {
                     max={field.max}
                     step={field.step}
                     value={field.value}
-                    onChange={(e) => field.set(Number(e.target.value))}
-                    className="w-full accent-gold h-2 rounded-lg cursor-pointer"
+                    onChange={(e) => field.onChange(Number(e.target.value))}
+                    className="w-full accent-gold h-2 bg-secondary dark:bg-border rounded-lg cursor-pointer"
                   />
                 </div>
               ))}
             </div>
 
             <div className="flex flex-col justify-center">
-              <div className="bg-primary rounded-2xl p-6 md:p-8 text-white space-y-6 shadow-premium">
+              <div className="bg-navy rounded-2xl p-6 md:p-8 text-white space-y-6 shadow-premium">
                 <div className="flex items-center gap-2 mb-2">
                   <Calculator className="w-5 h-5 text-gold" />
                   <h3 className="font-heading font-semibold">{t("Your EMI", "আপনার ইএমআই", lang)}</h3>

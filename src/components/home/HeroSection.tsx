@@ -39,7 +39,7 @@ const HeroSection = () => {
             </span>
           </h1>
 
-          <p className="text-lg text-primary-foreground/80 mb-6 max-w-lg leading-relaxed">
+          <p className="text-lg text-white/80 mb-6 max-w-lg leading-relaxed">
             {t(
               "Premium residential & commercial developments in Dhaka and Chandpur. Award-winning excellence since inception.",
               "ঢাকা ও চাঁদপুরে প্রিমিয়াম আবাসিক ও বাণিজ্যিক উন্নয়ন। প্রতিষ্ঠালগ্ন থেকে পুরস্কারজয়ী উৎকর্ষ।",
