@@ -16,7 +16,7 @@ const HeroSection = () => {
           loading="eager"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0F2F46]/85 to-[#0A4D68]/70" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(15,47,70,0.85) 0%, rgba(10,77,104,0.72) 100%)" }} />
       </div>
 
       <div className="relative z-10 container-wide px-4 sm:px-6 lg:px-8 pt-20">
@@ -34,25 +34,40 @@ const HeroSection = () => {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground leading-tight mb-6">
             <span className="text-white">{t("Building Dreams,", "স্বপ্ন গড়ি,", lang)}</span>
             <br />
-            <span className="text-[#C9A227] mt-1 block">
+            <span className="text-gold mt-1 block">
               {t("Delivering Trust", "বিশ্বাস দিই", lang)}
             </span>
           </h1>
 
-          <p className="text-lg text-primary-foreground/80 mb-10 max-w-lg leading-relaxed">
+          <p className="text-lg text-primary-foreground/80 mb-6 max-w-lg leading-relaxed">
             {t(
               "Premium residential & commercial developments in Dhaka and Chandpur. Award-winning excellence since inception.",
               "ঢাকা ও চাঁদপুরে প্রিমিয়াম আবাসিক ও বাণিজ্যিক উন্নয়ন। প্রতিষ্ঠালগ্ন থেকে পুরস্কারজয়ী উৎকর্ষ।",
               lang
             )}
           </p>
+
+          <div className="flex flex-wrap items-center gap-4 mb-10 text-sm font-medium text-white/90">
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold"></span>
+              {t("REHAB & RAJUK Enlisted", "রিহ্যাব ও রাজউক তালিকাভুক্ত", lang)}
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold"></span>
+              {t("Award Recognition (Best Taxpayer)", "সেরা করদাতা পুরস্কার", lang)}
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold"></span>
+              {t("Dhaka & Chandpur Projects", "ঢাকা ও চাঁদপুর প্রকল্প", lang)}
+            </div>
+          </div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-3xl bg-card rounded-xl p-4 md:p-6 shadow-[0_10px_25px_rgba(0,0,0,0.15)] border border-[rgba(15,47,70,0.10)]"
+          className="max-w-3xl bg-card rounded-2xl p-4 md:p-6 shadow-premium border border-border"
         >
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="flex items-center gap-2 bg-secondary rounded-lg px-3 py-2.5">
@@ -82,7 +97,7 @@ const HeroSection = () => {
               </select>
             </div>
           </div>
-          <button className="w-full sm:w-auto mt-4 px-8 py-3 bg-gradient-to-r from-[#C9A227] to-[#e0bc46] rounded-lg text-[#0F2F46] font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-md">
+          <button className="w-full sm:w-auto mt-4 px-8 py-3 bg-gradient-to-r from-gold to-gold-light rounded-2xl text-navy font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-premium">
             <Search className="w-4 h-4" />
             {t("Search Properties", "প্রপার্টি খুঁজুন", lang)}
           </button>

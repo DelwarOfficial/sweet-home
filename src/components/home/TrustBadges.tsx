@@ -22,7 +22,7 @@ const TrustBadges = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="flex items-center gap-4 p-6 rounded-xl border border-[rgba(15,47,70,0.10)] bg-white hover:shadow-[0_10px_25px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300"
+              className="flex items-center gap-4 p-6 rounded-2xl border border-border bg-white shadow-subtle hover:shadow-premium hover:-translate-y-1 transition-all duration-300"
             >
               <div className="w-14 h-14 rounded-lg bg-[#F1F5F9] flex items-center justify-center shrink-0">
                 <badge.icon className="w-6 h-6 text-[#0A4D68]" />

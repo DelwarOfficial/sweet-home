@@ -36,7 +36,7 @@ const FeaturedProjects = () => {
             >
               <Link
                 to={`/projects/${project.slug}`}
-                className="group block bg-card rounded-xl border border-border overflow-hidden hover:border-gold/40 hover:shadow-lg transition-all duration-300"
+                className="group block bg-card rounded-2xl border border-border overflow-hidden hover:border-gold/40 hover:shadow-premium transition-all duration-300"
               >
                 <div className="aspect-[4/3] bg-secondary relative overflow-hidden">
                   {project.image ? (
@@ -94,7 +94,7 @@ const FeaturedProjects = () => {
         <div className="text-center mt-10">
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border border-border text-foreground font-medium text-sm hover:bg-secondary transition-colors"
           >
             {t("View All Projects", "সব প্রকল্প দেখুন", lang)}
             <ArrowRight className="w-4 h-4" />

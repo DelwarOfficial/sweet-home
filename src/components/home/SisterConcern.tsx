@@ -20,14 +20,14 @@ const SisterConcern = () => {
         <section className="section-padding bg-[#F8FAFC] border-t border-[rgba(15,47,70,0.10)]">
             <div className="container-wide">
                 <div className="text-center mb-12">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#C9A227]/40 bg-[#C9A227]/10 text-[#0F2F46] font-semibold text-xs mb-4">
-                        <ShieldCheck className="w-3.5 h-3.5 text-[#C9A227]" />
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold/40 bg-gold/10 text-primary font-semibold text-xs mb-4">
+                        <ShieldCheck className="w-3.5 h-3.5 text-gold" />
                         {t("Quality Assurance", "মান নিশ্চিতকরণ", lang)}
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-heading font-bold text-[#0F2F46] mb-4">
+                    <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
                         {t("Our Sister Concerns", "আমাদের সহযোগী প্রতিষ্ঠান", lang)}
                     </h2>
-                    <p className="text-[#475569] max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
                         {t(
                             "Supported by Messrs Diba Enterprise and Messrs Sabiya Enterprise. Our sister concerns ensure a robust supply chain, providing premium grade materials and unwavering quality assurance across all our projects.",
                             "মেসার্স দিবা এন্টারপ্রাইজ এবং মেসার্স সাবিয়া এন্টারপ্রাইজের সহায়তায় পরিচালিত। আমাদের সহযোগী প্রতিষ্ঠানগুলো একটি শক্তিশালী সাপ্লাই চেইন নিশ্চিত করে। এর মাধ্যমে প্রতিটি প্রকল্পে প্রিমিয়াম গ্রেডের সরঞ্জাম এবং নিরবচ্ছিন্ন গুণগত মান বজায় রাখা হয়।",
@@ -41,7 +41,7 @@ const SisterConcern = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="group flex items-start gap-4 p-6 md:p-8 rounded-[20px] bg-gradient-to-br from-[#ffffff] to-[#f8fafc] border border-[rgba(15,47,70,0.08)] shadow-[0_12px_30px_rgba(15,47,70,0.08)] hover:-translate-y-[6px] hover:shadow-[0_20px_40px_rgba(15,47,70,0.12)] transition-all duration-250 ease-out"
+                        className="group flex items-start gap-4 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-[#ffffff] to-[#f8fafc] border border-border shadow-subtle hover:-translate-y-[6px] hover:shadow-premium transition-all duration-250 ease-out"
                     >
                         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0F2F46] to-[#0A4D68] flex items-center justify-center shrink-0 shadow-inner">
                             <Building className="w-5 h-5 text-white" />
@@ -66,7 +66,7 @@ const SisterConcern = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="group flex items-start gap-4 p-6 md:p-8 rounded-[20px] bg-gradient-to-br from-[#ffffff] to-[#f8fafc] border border-[rgba(15,47,70,0.08)] shadow-[0_12px_30px_rgba(15,47,70,0.08)] hover:-translate-y-[6px] hover:shadow-[0_20px_40px_rgba(15,47,70,0.12)] transition-all duration-250 ease-out"
+                        className="group flex items-start gap-4 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-[#ffffff] to-[#f8fafc] border border-border shadow-subtle hover:-translate-y-[6px] hover:shadow-premium transition-all duration-250 ease-out"
                     >
                         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0F2F46] to-[#0A4D68] flex items-center justify-center shrink-0 shadow-inner">
                             <Building className="w-5 h-5 text-white" />
@@ -103,12 +103,12 @@ const SisterConcern = () => {
                         {partners.map((partner, i) => (
                             <div
                                 key={i}
-                                className="bg-white rounded-[16px] p-5 md:p-7 flex items-center justify-center shadow-[0_8px_20px_rgba(0,0,0,0.05)] border border-[rgba(15,47,70,0.06)] hover:scale-105 hover:shadow-[0_12px_30px_rgba(10,77,104,0.15)] transition-all duration-300 ease-out"
+                                className="bg-white rounded-2xl p-6 md:p-8 flex items-center justify-center shadow-subtle border border-border hover:scale-105 hover:shadow-premium transition-all duration-300 ease-out h-32 md:h-40"
                             >
                                 <img
                                     src={partner.logo}
                                     alt={partner.name}
-                                    className="w-full h-auto max-h-16 md:max-h-20 object-contain"
+                                    className="w-full h-full max-h-16 md:max-h-24 object-contain"
                                     loading="lazy"
                                 />
                             </div>

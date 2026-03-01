@@ -10,41 +10,41 @@
     --font-heading: "Playfair Display", serif;
     --font-body: "DM Sans", sans-serif;
 
-    --background: 40 20% 98%;
-    --foreground: 220 40% 13%;
+    --background: 210 40% 98%; /* #F8FAFC Light BG */
+    --foreground: 215 33% 18%; /* #1E293B Text Primary */
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 40% 13%;
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 215 33% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 40% 13%;
+    --popover-foreground: 215 33% 18%;
 
-    --primary: 200 100% 24%;
+    --primary: 205 65% 17%; /* #0F2F46 Primary Navy */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 198 20% 96%;
-    --secondary-foreground: 200 100% 15%;
+    --secondary: 210 40% 96%; /* #F1F5F9 Section BG */
+    --secondary-foreground: 205 65% 17%;
 
-    --muted: 220 15% 93%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 19% 35%; /* #475569 Text Secondary */
 
-    --accent: 198 100% 47%;
-    --accent-foreground: 200 100% 15%;
+    --accent: 188 90% 31%; /* #088395 Accent Teal */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
-    --ring: 198 100% 47%;
+    --border: 202 24% 92%; /* Subtle border approx rgba(15,47,70,0.10) */
+    --input: 202 24% 92%;
+    --ring: 46 68% 47%; /* #C9A227 Premium Gold */
 
-    --radius: 0.5rem;
+    --radius: 1rem; /* 16px base radius for cards/buttons */
 
-    --gold: 198 100% 47%;
-    --gold-light: 198 100% 70%;
-    --gold-dark: 198 100% 35%;
-    --navy: 200 100% 24%;
-    --navy-light: 200 80% 35%;
+    --gold: 46 68% 47%; /* #C9A227 */
+    --gold-light: 46 80% 60%;
+    --gold-dark: 46 80% 30%;
+    --navy: 205 65% 17%; /* #0F2F46 Main Navy */
+    --navy-light: 197 83% 22%; /* #0A4D68 Primary Blue */
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -57,25 +57,25 @@
   }
 
   .dark {
-    --background: 220 40% 7%;
-    --foreground: 40 20% 95%;
-    --card: 220 40% 10%;
-    --card-foreground: 40 20% 95%;
-    --popover: 220 40% 10%;
-    --popover-foreground: 40 20% 95%;
-    --primary: 198 100% 47%;
-    --primary-foreground: 200 100% 24%;
-    --secondary: 220 30% 18%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 220 30% 18%;
-    --muted-foreground: 220 10% 60%;
-    --accent: 198 100% 47%;
-    --accent-foreground: 200 100% 24%;
+    --background: 205 65% 10%;
+    --foreground: 210 40% 98%;
+    --card: 205 65% 12%;
+    --card-foreground: 210 40% 98%;
+    --popover: 205 65% 12%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 46 68% 47%; /* Gold in dark mode */
+    --primary-foreground: 205 65% 17%;
+    --secondary: 205 65% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 205 65% 15%;
+    --muted-foreground: 215 19% 70%;
+    --accent: 188 90% 31%; /* Teal */
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 220 30% 20%;
-    --input: 220 30% 20%;
-    --ring: 198 100% 47%;
+    --border: 205 65% 20%;
+    --input: 205 65% 20%;
+    --ring: 46 68% 47%;
   }
 
   html[lang="bn"] {

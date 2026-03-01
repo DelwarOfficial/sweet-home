@@ -74,6 +74,10 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        premium: "0 8px 30px rgba(15, 47, 70, 0.08)",
+        subtle: "0 2px 10px rgba(15, 47, 70, 0.05)",
+      },
       keyframes: {
         "accordion-down": { from: { height: "0" }, to: { height: "var(--radix-accordion-content-height)" } },
         "accordion-up": { from: { height: "var(--radix-accordion-content-height)" }, to: { height: "0" } },
