@@ -8,7 +8,7 @@ const StickyCTA = () => {
     <div className="fixed bottom-0 left-0 right-0 z-40 bg-card/95 backdrop-blur-md border-t border-border p-3 md:hidden">
       <div className="flex items-center gap-2">
         <a
-          href="tel:+8801XXXXXXXXX"
+          href="tel:+8801806999979"
           className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-medium"
         >
           <Phone className="w-4 h-4" />

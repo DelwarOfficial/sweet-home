@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Award, Users, Target, Eye, Shield, FileCheck } from "lucide-react";
+import { Award, Users, Target, Eye, Shield, FileCheck, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLang, t } from "@/lib/i18n";
 
 const About = () => {
@@ -66,6 +67,12 @@ const About = () => {
                 lang
               )}
             </p>
+            <div className="mb-8">
+              <Link to="/managing-director-message" className="inline-flex items-center gap-2 text-primary font-bold hover:text-gold transition-colors">
+                {t("Read Full Message", "সম্পূর্ণ বার্তা পড়ুন", lang)}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
             <div className="flex items-center justify-center gap-4">
               {[Shield, FileCheck, Award].map((Icon, i) => (
                 <div key={i} className="w-12 h-12 rounded-full gold-gradient flex items-center justify-center">

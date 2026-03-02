@@ -1,5 +1,6 @@
 import HeroSection from "@/components/home/HeroSection";
 import TrustBadges from "@/components/home/TrustBadges";
+import MDMessage from "@/components/home/MDMessage";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import EMICalculator from "@/components/home/EMICalculator";
 import SisterConcern from "@/components/home/SisterConcern";
@@ -10,6 +11,7 @@ const Index = () => {
     <>
       <HeroSection />
       <TrustBadges />
+      <MDMessage />
       <FeaturedProjects />
       <EMICalculator />
       <SisterConcern />

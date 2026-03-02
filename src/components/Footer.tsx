@@ -37,6 +37,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-slate-300">
               <li><Link to="/projects" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("Our Projects", "আমাদের প্রকল্প", lang)}</Link></li>
               <li><Link to="/about" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("About Us", "আমাদের সম্পর্কে", lang)}</Link></li>
+              <li><Link to="/managing-director-message" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("MD's Message", "এমডি'র বার্তা", lang)}</Link></li>
               <li><Link to="/enterprises" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("Enterprises", "এন্টারপ্রাইজ", lang)}</Link></li>
               <li><Link to="/contact" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("Contact", "যোগাযোগ", lang)}</Link></li>
             </ul>
@@ -48,7 +49,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-4 text-sm text-slate-300">
               <li className="flex gap-2"><MapPin className="w-4 h-4 mt-0.5 shrink-0" /> Aftabnagar, Dhaka</li>
-              <li className="flex gap-2"><Phone className="w-4 h-4 mt-0.5 shrink-0" /> +880 1XXXXXXXXX</li>
+              <li className="flex gap-2"><Phone className="w-4 h-4 mt-0.5 shrink-0" /> +880 1806-999979</li>
               <li className="flex gap-2"><Mail className="w-4 h-4 mt-0.5 shrink-0" /> info@sdsweethome.com</li>
             </ul>
           </div>
@@ -59,7 +60,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-4 text-sm text-slate-300">
               <li className="flex gap-2"><MapPin className="w-4 h-4 mt-0.5 shrink-0" /> Chandpur Sadar, Chandpur</li>
-              <li className="flex gap-2"><Phone className="w-4 h-4 mt-0.5 shrink-0" /> +880 1XXXXXXXXX</li>
+              <li className="flex gap-2"><Phone className="w-4 h-4 mt-0.5 shrink-0" /> +880 1806-999979</li>
             </ul>
           </div>
         </div>

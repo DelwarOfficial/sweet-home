@@ -82,7 +82,7 @@ const Navbar = () => {
           >
             {lang === "en" ? "বাংলা" : "EN"}
           </button>
-          <a href="tel:+8801XXXXXXXXX" className="hidden md:flex">
+          <a href="tel:+8801806999979" className="hidden md:flex">
             <Button size="sm" className="bg-gradient-to-r from-primary to-navy-light text-white hover:opacity-90 shadow-premium gap-1.5 rounded-full px-5">
               <Phone className="w-3.5 h-3.5" />
               {t("Call Now", "কল করুন", lang)}

@@ -32,17 +32,23 @@ const HeroSection = () => {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground leading-tight mb-6">
-            <span className="text-white">{t("Building Dreams,", "স্বপ্ন গড়ি,", lang)}</span>
+            <span className="text-white">{t("Building the Future", "ভবিষ্যৎ নির্মাণে", lang)}</span>
             <br />
             <span className="text-gold mt-1 block">
-              {t("Delivering Trust", "বিশ্বাস দিই", lang)}
+              {t("Delivering Trust", "বিশ্বাসের প্রতিশ্রুতি", lang)}
             </span>
           </h1>
 
           <p className="text-lg text-white/80 mb-6 max-w-lg leading-relaxed">
             {t(
-              "Premium residential & commercial developments in Dhaka and Chandpur. Award-winning excellence since inception.",
-              "ঢাকা ও চাঁদপুরে প্রিমিয়াম আবাসিক ও বাণিজ্যিক উন্নয়ন। প্রতিষ্ঠালগ্ন থেকে পুরস্কারজয়ী উৎকর্ষ।",
+              "A Trusted Name in Residential & Commercial Development",
+              "আবাসিক ও বাণিজ্যিক উন্নয়নে বিশ্বস্ত নাম",
+              lang
+            )}
+            <br />
+            {t(
+              "S & D Sweet Home Developers",
+              "এস এন্ড ডি সুইট হোম ডেভেলপারস",
               lang
             )}
           </p>

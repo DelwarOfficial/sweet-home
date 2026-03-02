@@ -14,6 +14,7 @@ import Enterprises from "./pages/Enterprises";
 import Media from "./pages/Media";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import ManagingDirectorMessage from "./pages/ManagingDirectorMessage";
 
 const App = () => (
   <TooltipProvider>
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/enterprises" element={<Enterprises />} />
           <Route path="/media" element={<Media />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/managing-director-message" element={<ManagingDirectorMessage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

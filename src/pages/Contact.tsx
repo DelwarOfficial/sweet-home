@@ -22,8 +22,8 @@ const Contact = () => {
   };
 
   const offices = [
-    { titleEn: "Dhaka Office", titleBn: "ঢাকা অফিস", address: "Aftabnagar, Dhaka-1212", phone: "+880 1XXXXXXXXX", email: "dhaka@sdsweethome.com", mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.5!2d90.43!3d23.77!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQ2JzEyLjAiTiA5MMKwMjUnNDguMCJF!5e0!3m2!1sen!2sbd!4v1!" },
-    { titleEn: "Chandpur Office", titleBn: "চাঁদপুর অফিস", address: "Chandpur Sadar, Chandpur", phone: "+880 1XXXXXXXXX", email: "chandpur@sdsweethome.com", mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.5!2d90.65!3d23.23!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDEzJzQ4LjAiTiA5MMKwMzknMDAuMCJF!5e0!3m2!1sen!2sbd!4v1!" },
+    { titleEn: "Dhaka Office", titleBn: "ঢাকা অফিস", address: "Aftabnagar, Dhaka-1212", phone: "+880 1806-999979", email: "dhaka@sdsweethome.com", mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.5!2d90.43!3d23.77!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQ2JzEyLjAiTiA5MMKwMjUnNDguMCJF!5e0!3m2!1sen!2sbd!4v1!" },
+    { titleEn: "Chandpur Office", titleBn: "চাঁদপুর অফিস", address: "Chandpur Sadar, Chandpur", phone: "+880 1806-999979", email: "chandpur@sdsweethome.com", mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.5!2d90.65!3d23.23!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDEzJzQ4LjAiTiA5MMKwMzknMDAuMCJF!5e0!3m2!1sen!2sbd!4v1!" },
   ];
 
   return (
