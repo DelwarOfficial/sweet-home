@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLang, t } from "@/lib/i18n";
 import { ChevronRight, Home } from "lucide-react";
-import mdImage from "@/assets/md-latif-tapadar.jpg";
+import mdImage from "@/assets/md-latif-tapader.jpg";
 import mdTextRawBn from "@/assets/Md-text.txt?raw";
 import mdTextRawEn from "@/assets/Md-text-en.txt?raw";
 
@@ -54,7 +54,7 @@ const SEO = () => {
     const personStructuredData = {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Md. Latif Tapadar",
+        "name": "Md. Latif Tapader",
         "jobTitle": "Managing Director",
         "worksFor": {
             "@type": "Organization",
@@ -127,7 +127,7 @@ const ManagingDirectorMessage = () => {
                             <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-full lg:h-auto lg:aspect-[4/5] relative rounded-3xl overflow-hidden border border-border shadow-subtle mb-6 bg-secondary/50">
                                 <img
                                     src={mdImage}
-                                    alt="Md. Latif Tapadar – Managing Director of S & D Sweet Home Developers Ltd."
+                                    alt="Md. Latif Tapader – Managing Director of S & D Sweet Home Developers Ltd."
                                     loading="eager"
                                     decoding="async"
                                     width={400}
@@ -137,7 +137,7 @@ const ManagingDirectorMessage = () => {
                             </div>
                             <div className="text-center lg:text-left w-full">
                                 <h2 className="font-heading font-bold text-2xl text-primary mb-1">
-                                    {t("Md. Latif Tapadar", "মোঃ লতিফ তাপাদার", lang)}
+                                    {t("Md. Latif Tapader", "মোঃ লতিফ তপাদার", lang)}
                                 </h2>
                                 <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-widest">
                                     {t("Managing Director", "ব্যবস্থাপনা পরিচালক", lang)}
