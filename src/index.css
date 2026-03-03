@@ -124,6 +124,20 @@
     background: linear-gradient(135deg, hsl(var(--navy)) 0%, hsl(var(--navy-light)) 100%);
   }
 
+  .dark .navy-gradient {
+    background: linear-gradient(180deg, rgba(11, 34, 57, 0.9) 0%, rgba(11, 34, 57, 0.6) 100%);
+    @apply border-b border-white/10;
+  }
+
+  .dark .navy-gradient h1,
+  .dark .navy-gradient h2 {
+    @apply text-slate-50 drop-shadow-sm;
+  }
+
+  .dark .navy-gradient p {
+    @apply text-slate-300 drop-shadow-sm;
+  }
+
   .text-gold-gradient {
     background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%);
     -webkit-background-clip: text;

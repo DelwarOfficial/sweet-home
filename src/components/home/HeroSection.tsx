@@ -1,10 +1,38 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Search, MapPin, Home, Ruler } from "lucide-react";
 import { useLang, t } from "@/lib/i18n";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-image-2.jpeg";
 
 const HeroSection = () => {
   const { lang } = useLang();
+  const navigate = useNavigate();
+
+  // Search States
+  const [location, setLocation] = useState("");
+  const [status, setStatus] = useState("");
+  const [size, setSize] = useState("");
+
+  const handleSearch = () => {
+    const params = new URLSearchParams();
+    if (location && location !== "All Locations" && location !== "সকল এলাকা") {
+      params.append("location", location);
+    }
+    if (status && status !== "All Status" && status !== "সকল স্ট্যাটাস") {
+      // Map Bangla back to English for consistent URL querying if needed
+      let formattedStatus = status;
+      if (status === "চলমান") formattedStatus = "Ongoing";
+      if (status === "আসন্ন") formattedStatus = "Upcoming";
+      if (status === "সম্পন্ন") formattedStatus = "Completed";
+      params.append("status", formattedStatus);
+    }
+    if (size && size !== "Any Size" && size !== "যেকোনো সাইজ") {
+      params.append("size", size);
+    }
+
+    navigate(`/projects?${params.toString()}`);
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -78,32 +106,47 @@ const HeroSection = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="flex items-center gap-2 bg-secondary rounded-lg px-3 py-2.5">
               <MapPin className="w-4 h-4 text-muted-foreground shrink-0" />
-              <select className="bg-transparent text-sm text-foreground w-full outline-none">
-                <option>{t("All Locations", "সকল এলাকা", lang)}</option>
-                <option>Dhaka</option>
-                <option>Chandpur</option>
+              <select
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className="bg-transparent text-sm text-foreground w-full outline-none"
+              >
+                <option value="">{t("All Locations", "সকল এলাকা", lang)}</option>
+                <option value="Dhaka">Dhaka</option>
+                <option value="Chandpur">Chandpur</option>
               </select>
             </div>
             <div className="flex items-center gap-2 bg-secondary rounded-lg px-3 py-2.5">
               <Home className="w-4 h-4 text-muted-foreground shrink-0" />
-              <select className="bg-transparent text-sm text-foreground w-full outline-none">
-                <option>{t("All Status", "সকল স্ট্যাটাস", lang)}</option>
-                <option>{t("Ongoing", "চলমান", lang)}</option>
-                <option>{t("Upcoming", "আসন্ন", lang)}</option>
-                <option>{t("Completed", "সম্পন্ন", lang)}</option>
+              <select
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+                className="bg-transparent text-sm text-foreground w-full outline-none"
+              >
+                <option value="">{t("All Status", "সকল স্ট্যাটাস", lang)}</option>
+                <option value="Ongoing">{t("Ongoing", "চলমান", lang)}</option>
+                <option value="Upcoming">{t("Upcoming", "আসন্ন", lang)}</option>
+                <option value="Completed">{t("Completed", "সম্পন্ন", lang)}</option>
               </select>
             </div>
             <div className="flex items-center gap-2 bg-secondary rounded-lg px-3 py-2.5">
               <Ruler className="w-4 h-4 text-muted-foreground shrink-0" />
-              <select className="bg-transparent text-sm text-foreground w-full outline-none">
-                <option>{t("Any Size", "যেকোনো সাইজ", lang)}</option>
-                <option>1000-1200 sqft</option>
-                <option>1200-1400 sqft</option>
-                <option>1400-1600 sqft</option>
+              <select
+                value={size}
+                onChange={(e) => setSize(e.target.value)}
+                className="bg-transparent text-sm text-foreground w-full outline-none"
+              >
+                <option value="">{t("Any Size", "যেকোনো সাইজ", lang)}</option>
+                <option value="1000-1200">1000-1200 sqft</option>
+                <option value="1200-1400">1200-1400 sqft</option>
+                <option value="1400-1600">1400-1600 sqft</option>
               </select>
             </div>
           </div>
-          <button className="w-full sm:w-auto mt-4 px-8 py-3 bg-gradient-to-r from-gold to-gold-light rounded-2xl text-navy font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-premium">
+          <button
+            onClick={handleSearch}
+            className="w-full sm:w-auto mt-4 px-8 py-3 bg-gradient-to-r from-gold to-gold-light rounded-2xl text-navy font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-premium"
+          >
             <Search className="w-4 h-4" />
             {t("Search Properties", "প্রপার্টি খুঁজুন", lang)}
           </button>

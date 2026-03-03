@@ -1,19 +1,63 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { MapPin, ArrowRight, Building } from "lucide-react";
 import { useLang, t } from "@/lib/i18n";
 import { projects } from "@/lib/projects-data";
 
 type Filter = "all" | "ongoing" | "upcoming" | "completed";
 
-
-
 const Projects = () => {
   const { lang } = useLang();
   const [filter, setFilter] = useState<Filter>("all");
+  const { search } = useLocation();
 
-  const filtered = filter === "all" ? projects : projects.filter((p) => p.status === filter);
+  const searchParams = useMemo(() => new URLSearchParams(search), [search]);
+  const paramLocation = searchParams.get("location");
+  const paramStatus = searchParams.get("status");
+  const paramSize = searchParams.get("size");
+
+  const filtered = useMemo(() => {
+    let result = projects;
+
+    // Apply Local Tab Filter
+    if (filter !== "all") {
+      result = result.filter((p) => p.status === filter);
+    }
+
+    // Apply URL Query String Filters from Hero Search
+    if (paramLocation) {
+      result = result.filter((p) =>
+        p.location.toLowerCase().includes(paramLocation.toLowerCase()) ||
+        p.locationBn.toLowerCase().includes(paramLocation.toLowerCase())
+      );
+    }
+
+    if (paramStatus) {
+      result = result.filter((p) =>
+        p.status.toLowerCase() === paramStatus.toLowerCase()
+      );
+    }
+
+    if (paramSize) {
+      // Since data holds text like "1000 - 1200 sq.ft", 
+      // a basic string extraction approach for size
+      result = result.filter((p) => {
+        // Create regex to extract numbers from project size
+        const match = paramSize.match(/(\d+)-(\d+)/);
+        if (!match) return true;
+
+        const [_, min, max] = match;
+        const sizeNumMatch = p.flatSize.match(/(\d+)/);
+        if (!sizeNumMatch) return true;
+
+        const sizeNum = parseInt(sizeNumMatch[0]);
+        return sizeNum >= parseInt(min) && sizeNum <= parseInt(max);
+      });
+    }
+
+    return result;
+  }, [filter, paramLocation, paramStatus, paramSize]);
 
   const filters: { key: Filter; labelEn: string; labelBn: string }[] = [
     { key: "all", labelEn: "All", labelBn: "সব" },
@@ -37,6 +81,22 @@ const Projects = () => {
 
       <section className="section-padding bg-background">
         <div className="container-wide">
+
+          {/* Active Search Param Indicator */}
+          {(paramLocation || paramStatus || paramSize) && (
+            <div className="mb-6 p-4 bg-secondary border border-border rounded-xl text-sm flex items-center justify-between">
+              <div>
+                <span className="text-muted-foreground mr-2">{t("Showing results for:", "ফলাফল দেখানো হচ্ছে:", lang)}</span>
+                <span className="font-semibold text-foreground">
+                  {[paramLocation, paramStatus, paramSize].filter(Boolean).join(" • ")}
+                </span>
+              </div>
+              <Link to="/projects" className="text-gold hover:text-gold-dark font-medium underline">
+                {t("Clear Filters", "ফিল্টার মুছুন", lang)}
+              </Link>
+            </div>
+          )}
+
           <div className="flex flex-wrap gap-2 mb-8">
             {filters.map((f) => (
               <button
@@ -53,7 +113,7 @@ const Projects = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((project, i) => (
+            {filtered.length > 0 ? filtered.map((project, i) => (
               <motion.div
                 key={project.slug}
                 initial={{ opacity: 0, y: 20 }}
@@ -110,7 +170,11 @@ const Projects = () => {
                   </div>
                 </Link>
               </motion.div>
-            ))}
+            )) : (
+              <div className="col-span-full py-20 text-center text-muted-foreground">
+                {t("No projects match your search criteria.", "আপনার অনুসন্ধানের সাথে কোন প্রকল্প মেলেনি।", lang)}
+              </div>
+            )}
           </div>
         </div>
       </section>
