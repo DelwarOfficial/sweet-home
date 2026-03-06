@@ -28,7 +28,7 @@ const BlogList = () => {
                 <div className="container-wide">
                     <div className="max-w-2xl">
                         <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-                            {t("Our Blog & Insights", "আমাদের ব্লগ ও অন্তর্দৃষ্টি", lang)}
+                            {t("Our Blog & Insights", "আমাদের ব্লগ ও নির্দেশিকা", lang)}
                         </h1>
                         <p className="text-lg opacity-80 leading-relaxed">
                             {t(
@@ -49,8 +49,8 @@ const BlogList = () => {
                         <button
                             onClick={() => setActiveCategory("all")}
                             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === "all"
-                                    ? "bg-primary text-primary-foreground"
-                                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                                ? "bg-primary text-primary-foreground"
+                                : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                                 }`}
                         >
                             {t("All Articles", "সব প্রবন্ধ", lang)}
@@ -60,8 +60,8 @@ const BlogList = () => {
                                 key={category.id}
                                 onClick={() => setActiveCategory(category.id)}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === category.id
-                                        ? "bg-primary text-primary-foreground"
-                                        : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                                    ? "bg-primary text-primary-foreground"
+                                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                                     }`}
                             >
                                 {lang === "bn" ? category.labelBn : category.labelEn}
