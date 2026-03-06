@@ -15,6 +15,8 @@ import Media from "./pages/Media";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import ManagingDirectorMessage from "./pages/ManagingDirectorMessage";
+import BlogList from "./pages/BlogList";
+import BlogPost from "./pages/BlogPost";
 
 const App = () => (
   <TooltipProvider>
@@ -32,6 +34,8 @@ const App = () => (
           <Route path="/media" element={<Media />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/managing-director-message" element={<ManagingDirectorMessage />} />
+          <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

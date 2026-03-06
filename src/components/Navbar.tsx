@@ -10,6 +10,7 @@ const navLinks = [
   { to: "/projects", labelEn: "Projects", labelBn: "প্রকল্প" },
   { to: "/enterprises", labelEn: "Enterprises", labelBn: "এন্টারপ্রাইজ" },
   { to: "/media", labelEn: "Media", labelBn: "মিডিয়া" },
+  { to: "/blog", labelEn: "Blog", labelBn: "ব্লগ" },
   { to: "/contact", labelEn: "Contact", labelBn: "যোগাযোগ" },
 ];
 
