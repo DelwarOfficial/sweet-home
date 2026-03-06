@@ -11,18 +11,49 @@ const About = () => {
       {/* Hero */}
       <section className="section-padding navy-gradient text-primary-foreground">
         <div className="container-wide">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-              {t("About S & D Sweet Home", "এস অ্যান্ড ডি সুইট হোম সম্পর্কে", lang)}
+              {t("About S & D Sweet Home Developers Ltd.", "এস অ্যান্ড ডি সুইট হোম ডেভেলপারস লিমিটেড সম্পর্কে", lang)}
             </h1>
-            <p className="text-lg opacity-80 leading-relaxed">
+            <p className="text-xl md:text-2xl font-medium mb-3">
               {t(
-                "A REHAB & RAJUK enlisted real estate developer committed to building trust, quality, and lasting homes in Dhaka and Chandpur.",
-                "ঢাকা ও চাঁদপুরে বিশ্বাস, মান ও স্থায়ী বাড়ি তৈরিতে প্রতিশ্রুতিবদ্ধ একটি রিহ্যাব ও রাজউক তালিকাভুক্ত রিয়েল এস্টেট ডেভেলপার।",
+                "A REHAB & RAJUK enlisted real estate developer building premium residential apartments in Dhaka and Chandpur.",
+                "ঢাকা ও চাঁদপুরে প্রিমিয়াম আবাসিক অ্যাপার্টমেন্ট নির্মাণকারী রিহ্যাব ও রাজউক তালিকাভুক্ত রিয়েল এস্টেট ডেভেলপার।",
                 lang
               )}
             </p>
+            <p className="text-lg opacity-80 leading-relaxed">
+              {t(
+                "S & D Sweet Home Developers Ltd. is a trusted real estate developer in Bangladesh specializing in residential and commercial projects with modern architecture, quality materials, and long-term investment value.",
+                "এস অ্যান্ড ডি সুইট হোম ডেভেলপারস লিমিটেড বাংলাদেশের একটি বিশ্বস্ত রিয়েল এস্টেট ডেভেলপার, যারা আধুনিক স্থাপত্য, মানসম্পন্ন উপকরণ এবং দীর্ঘমেয়াদী বিনিয়োগ মূল্যের সাথে আবাসিক এবং বাণিজ্যিক প্রকল্পে বিশেষজ্ঞ।",
+                lang
+              )}
+            </p>
+
+            {/* Hidden SEO Content */}
+            <div className="sr-only">
+              <h2>Real Estate Developer in Dhaka and Chandpur</h2>
+              <p>
+                S & D Sweet Home Developers Ltd. develops modern residential apartments and commercial properties across Dhaka and Chandpur. The company focuses on quality construction, trusted materials, and comfortable urban living.
+              </p>
+            </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* SEO Introduction Section */}
+      <section className="section-padding bg-background pb-0">
+        <div className="container-wide text-center max-w-3xl mx-auto">
+          <h2 className="text-2xl font-heading font-bold mb-4">
+            {t("Trusted Real Estate Developer in Bangladesh", "বাংলাদেশের বিশ্বস্ত রিয়েল এস্টেট ডেভেলপার", lang)}
+          </h2>
+          <p className="text-muted-foreground leading-relaxed">
+            {t(
+              "S & D Sweet Home Developers Ltd. is a REHAB and RAJUK enlisted real estate developer committed to delivering high-quality apartments in prime locations of Dhaka and Chandpur.",
+              "এস অ্যান্ড ডি সুইট হোম ডেভেলপারস লিমিটেড রিহ্যাব এবং রাজউক তালিকাভুক্ত একটি রিয়েল এস্টেট ডেভেলপার যারা ঢাকা এবং চাঁদপুরের প্রধান অবস্থানগুলোতে উচ্চমানের অ্যাপার্টমেন্ট প্রদানে প্রতিশ্রুতিবদ্ধ।",
+              lang
+            )}
+          </p>
         </div>
       </section>
 
