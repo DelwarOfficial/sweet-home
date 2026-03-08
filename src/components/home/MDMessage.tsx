@@ -73,9 +73,10 @@ const MDMessage = () => {
                             <Link
                                 to="/managing-director-message"
                                 className="mt-6 inline-flex items-center gap-2 text-primary font-bold hover:text-gold transition-colors self-start group px-4 py-2 -ml-4 rounded-lg hover:bg-secondary"
+                                aria-label={t("Read the Managing Director's Message from S & D Sweet Home", "এস অ্যান্ড ডি সুইট হোম-এর ব্যবস্থাপনা পরিচালকের বার্তাটি পড়ুন", lang)}
                             >
-                                {t("Read More", "আরও পড়ুন", lang)}
-                                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                                {t("Read the full Managing Director's Message", "ব্যবস্থাপনা পরিচালকের সম্পূর্ণ বার্তাটি পড়ুন", lang)}
+                                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                             </Link>
                         </div>
 

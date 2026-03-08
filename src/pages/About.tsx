@@ -99,9 +99,9 @@ const About = () => {
               )}
             </p>
             <div className="mb-8">
-              <Link to="/managing-director-message" className="inline-flex items-center gap-2 text-primary font-bold hover:text-gold transition-colors">
-                {t("Read Full Message", "সম্পূর্ণ বার্তা পড়ুন", lang)}
-                <ArrowRight className="w-4 h-4" />
+              <Link to="/managing-director-message" className="inline-flex items-center gap-2 text-primary font-bold hover:text-gold transition-colors" aria-label={t("Read the Managing Director's Message from S & D Sweet Home", "এস অ্যান্ড ডি সুইট হোম-এর ব্যবস্থাপনা পরিচালকের বার্তাটি পড়ুন", lang)}>
+                {t("Read the full Managing Director's Message", "ব্যবস্থাপনা পরিচালকের সম্পূর্ণ বার্তাটি পড়ুন", lang)}
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
             </div>
             <div className="flex items-center justify-center gap-4">

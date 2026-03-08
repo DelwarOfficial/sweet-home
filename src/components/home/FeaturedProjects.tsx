@@ -97,9 +97,10 @@ const FeaturedProjects = () => {
             <Link
               to="/projects"
               className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-gold-dark transition-colors group whitespace-nowrap"
+              aria-label={t("Explore our complete portfolio of Real Estate Projects", "আমাদের সম্পূর্ণ রিয়েল এস্টেট প্রকল্প পোর্টফোলিও দেখুন", lang)}
             >
-              {t("View All Projects", "সব প্রকল্প দেখুন", lang)}
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              {t("Explore All Real Estate Projects", "সব রিয়েল এস্টেট প্রকল্প দেখুন", lang)}
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -180,9 +181,14 @@ const FeaturedProjects = () => {
                     </div>
                     <div className="flex items-center justify-between mt-4 pt-4 border-t border-border">
                       <span className="text-xs text-muted-foreground whitespace-nowrap">{project.flatSize}</span>
-                      <span className="text-xs font-medium text-gold-dark flex items-center gap-1 group-hover:gap-2 transition-all whitespace-nowrap">
+                      <span
+                        className="text-xs font-medium text-gold-dark flex items-center gap-1 group-hover:gap-2 transition-all whitespace-nowrap"
+                      >
                         {t("View Details", "বিস্তারিত", lang)}
-                        <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+                        <span className="sr-only">
+                          {t(` for ${project.name}`, ` ${project.nameBn} এর জন্য`, lang)}
+                        </span>
+                        <ArrowRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
                       </span>
                     </div>
                   </div>
@@ -206,9 +212,10 @@ const FeaturedProjects = () => {
           <Link
             to="/projects"
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-gold-dark transition-colors group"
+            aria-label={t("Explore our complete portfolio of Real Estate Projects", "আমাদের সম্পূর্ণ রিয়েল এস্টেট প্রকল্প পোর্টফোলিও দেখুন", lang)}
           >
-            {t("View All Projects", "সব প্রকল্প দেখুন", lang)}
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            {t("Explore All Real Estate Projects", "সব রিয়েল এস্টেট প্রকল্প দেখুন", lang)}
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
           </Link>
         </div>
       </div>

@@ -122,9 +122,16 @@ const BlogList = () => {
                                         <Link
                                             to={`/blog/${post.slug}`}
                                             className="text-primary hover:text-primary/80 transition-colors"
-                                            aria-label={t("Read more", "আরও পড়ুন", lang)}
+                                            aria-label={t(
+                                                `Read the full article: ${post.titleEn}`,
+                                                `সম্পূর্ণ প্রবন্ধটি পড়ুন: ${post.titleBn}`,
+                                                lang
+                                            )}
                                         >
-                                            <ArrowRight className="w-5 h-5" />
+                                            <span className="sr-only">
+                                                {t("Read full article", "সম্পূর্ণ প্রবন্ধটি পড়ুন", lang)}
+                                            </span>
+                                            <ArrowRight className="w-5 h-5" aria-hidden="true" />
                                         </Link>
                                     </div>
                                 </div>
