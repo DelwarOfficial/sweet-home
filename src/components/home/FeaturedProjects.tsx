@@ -84,8 +84,8 @@ const FeaturedProjects = () => {
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
                   className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${activeFilter === filter
-                      ? "bg-primary text-primary-foreground shadow-md"
-                      : "bg-secondary text-foreground hover:bg-secondary/80 border border-border"
+                    ? "bg-primary text-primary-foreground shadow-md"
+                    : "bg-secondary text-foreground hover:bg-secondary/80 border border-border"
                     }`}
                 >
                   {filter}
@@ -137,7 +137,10 @@ const FeaturedProjects = () => {
                         src={project.image}
                         alt={lang === "bn" ? project.nameBn : project.name}
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                        loading={i === 0 ? "eager" : "lazy"}
+                        width="400"
+                        height="500"
+                        decoding="async"
+                        loading="lazy"
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center z-0">

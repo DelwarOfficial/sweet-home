@@ -31,6 +31,9 @@ const TrustBadges = () => {
                   src={badge.img}
                   alt={lang === "bn" ? badge.labelBn : badge.labelEn}
                   className="w-10 h-10 object-contain"
+                  width="40"
+                  height="40"
+                  decoding="async"
                   loading="lazy"
                 />
               </div>
@@ -46,7 +49,7 @@ const TrustBadges = () => {
           ))}
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

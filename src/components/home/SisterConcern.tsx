@@ -109,6 +109,9 @@ const SisterConcern = () => {
                                     src={partner.logo}
                                     alt={partner.name}
                                     className="w-full h-full max-h-16 md:max-h-24 object-contain"
+                                    width="160"
+                                    height="96"
+                                    decoding="async"
                                     loading="lazy"
                                 />
                             </div>

@@ -1,21 +1,25 @@
+import { lazy, Suspense } from "react";
 import HeroSection from "@/components/home/HeroSection";
-import TrustBadges from "@/components/home/TrustBadges";
-import MDMessage from "@/components/home/MDMessage";
-import FeaturedProjects from "@/components/home/FeaturedProjects";
-import EMICalculator from "@/components/home/EMICalculator";
-import SisterConcern from "@/components/home/SisterConcern";
-import StickyCTA from "@/components/home/StickyCTA";
+
+const TrustBadges = lazy(() => import("@/components/home/TrustBadges"));
+const MDMessage = lazy(() => import("@/components/home/MDMessage"));
+const FeaturedProjects = lazy(() => import("@/components/home/FeaturedProjects"));
+const EMICalculator = lazy(() => import("@/components/home/EMICalculator"));
+const SisterConcern = lazy(() => import("@/components/home/SisterConcern"));
+const StickyCTA = lazy(() => import("@/components/home/StickyCTA"));
 
 const Index = () => {
   return (
     <>
       <HeroSection />
-      <TrustBadges />
-      <MDMessage />
-      <FeaturedProjects />
-      <EMICalculator />
-      <SisterConcern />
-      <StickyCTA />
+      <Suspense fallback={<div className="min-h-screen bg-transparent" />}>
+        <TrustBadges />
+        <MDMessage />
+        <FeaturedProjects />
+        <EMICalculator />
+        <SisterConcern />
+        <StickyCTA />
+      </Suspense>
     </>
   );
 };

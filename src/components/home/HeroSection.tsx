@@ -41,8 +41,10 @@ const HeroSection = () => {
           src={heroImage}
           alt="Premium residential building by S & D Sweet Home Developers"
           className="w-full h-full object-cover"
-          loading="eager"
+          width="1920"
+          height="1080"
           fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(15,47,70,0.85) 0%, rgba(10,77,104,0.72) 100%)" }} />
       </div>

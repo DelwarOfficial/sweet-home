@@ -33,9 +33,12 @@ const MDMessage = () => {
                                 <img
                                     src={mdImage}
                                     alt={t("Md. Latif Tapader – Managing Director", "মোঃ লতিফ তপাদার - ব্যবস্থাপনা পরিচালক", lang)}
+                                    width="600"
+                                    height="750"
                                     loading="lazy"
                                     decoding="async"
                                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                                    style={{ aspectRatio: "4/5" }}
                                 />
                             </div>
                         </div>
