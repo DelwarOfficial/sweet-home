@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import HeroSection from "@/components/home/HeroSection";
 
-const TrustBadges = lazy(() => import("@/components/home/TrustBadges"));
 const MDMessage = lazy(() => import("@/components/home/MDMessage"));
 const Certifications = lazy(() => import("@/components/home/Certifications"));
 const FeaturedProjects = lazy(() => import("@/components/home/FeaturedProjects"));
@@ -14,7 +13,6 @@ const Index = () => {
     <>
       <HeroSection />
       <Suspense fallback={<div className="min-h-screen bg-transparent" />}>
-        <TrustBadges />
         <MDMessage />
         <Certifications />
         <FeaturedProjects />
