@@ -142,25 +142,25 @@
   }
 
   .dark {
-    --background: 205 65% 10%;
-    --foreground: 210 40% 98%;
-    --card: 205 65% 12%;
+    --background: 205 65% 5%; /* Darker background for better contrast */
+    --foreground: 210 40% 98%; /* High contrast light text */
+    --card: 205 65% 10%; /* Slightly lighter than background */
     --card-foreground: 210 40% 98%;
-    --popover: 205 65% 12%;
+    --popover: 205 65% 8%; /* Slightly lighter than background */
     --popover-foreground: 210 40% 98%;
-    --primary: 46 68% 47%; /* Gold in dark mode */
-    --primary-foreground: 205 65% 17%;
+    --primary: 46 80% 60%; /* Brighter gold for better contrast */
+    --primary-foreground: 0 0% 100%; /* White text on gold */
     --secondary: 205 65% 15%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary-foreground: 210 40% 95%;
     --muted: 205 65% 15%;
-    --muted-foreground: 215 19% 70%;
-    --accent: 188 90% 31%; /* Teal */
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 205 65% 20%;
-    --input: 205 65% 20%;
-    --ring: 46 68% 47%;
+    --muted-foreground: 215 19% 65%; /* Increased contrast */
+    --accent: 188 90% 40%; /* Brighter teal for better contrast */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70% 40%; /* Brighter red for contrast */
+    --destructive-foreground: 0 0% 100%;
+    --border: 205 65% 25%; /* Lighter border for visibility */
+    --input: 205 65% 15%;
+    --ring: 46 80% 60%; /* Match bright gold */
   }
 
   html[lang="bn"] {
@@ -230,6 +230,21 @@
 
   .dark .shadow-subtle {
     box-shadow: 0 1px 4px rgba(255, 255, 255, 0.03);
+  }
+
+  /* Improved text contrast in dark mode */
+  .dark {
+    --text-primary: 210 40% 98%;
+    --text-secondary: 210 40% 75%;
+    --text-muted: 210 40% 50%;
+  }
+
+  .dark .text-foreground {
+    color: hsl(var(--foreground));
+  }
+
+  .dark .text-muted-foreground {
+    color: hsl(210 40% 65%) !important; /* Higher contrast muted text */
   }
 
   .text-gold-gradient {
