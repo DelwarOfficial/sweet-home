@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Moon, Sun } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLang, t } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 
@@ -20,10 +21,15 @@ const Navbar = () => {
   const { lang, toggle } = useLang();
   const location = useLocation();
 
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     if (document.documentElement.classList.contains("dark")) {
       setTheme("dark");
     }
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const toggleTheme = () => {
@@ -39,7 +45,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b transition-shadow duration-300 ${scrolled ? "border-border shadow-md" : "border-transparent"}`}>
       <div className="container-wide flex items-center justify-between h-16 md:h-20 px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2">
           <img
@@ -95,25 +101,33 @@ const Navbar = () => {
         </div>
       </div>
 
-      {open && (
-        <div className="lg:hidden bg-card border-t border-border">
-          <nav className="container-wide px-4 py-4 flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                onClick={() => setOpen(false)}
-                className={`px-3 py-2.5 text-sm font-medium rounded-md transition-colors ${location.pathname === link.to
-                  ? "text-primary bg-secondary shadow-subtle"
-                  : "text-muted-foreground hover:text-primary hover:bg-secondary"
-                  }`}
-              >
-                {lang === "bn" ? link.labelBn : link.labelEn}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="lg:hidden bg-card border-t border-border overflow-hidden"
+          >
+            <nav className="container-wide px-4 py-4 flex flex-col gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setOpen(false)}
+                  className={`px-3 py-2.5 text-sm font-medium rounded-md transition-colors ${location.pathname === link.to
+                    ? "text-primary bg-secondary shadow-subtle"
+                    : "text-muted-foreground hover:text-primary hover:bg-secondary"
+                    }`}
+                >
+                  {lang === "bn" ? link.labelBn : link.labelEn}
+                </Link>
+              ))}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

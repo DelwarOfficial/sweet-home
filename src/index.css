@@ -137,6 +137,15 @@
     @apply text-slate-300 drop-shadow-sm;
   }
 
+  /* Dark mode card glow */
+  .dark .shadow-premium {
+    box-shadow: 0 4px 20px rgba(201, 162, 39, 0.06), 0 1px 3px rgba(255, 255, 255, 0.04);
+  }
+
+  .dark .shadow-subtle {
+    box-shadow: 0 1px 4px rgba(255, 255, 255, 0.03);
+  }
+
   .text-gold-gradient {
     background: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-light)) 100%);
     -webkit-background-clip: text;

@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -22,26 +23,28 @@ const App = () => (
   <TooltipProvider>
     <Toaster />
     <Sonner />
-    <BrowserRouter>
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:slug" element={<ProjectDetail />} />
-          <Route path="/enterprises" element={<Enterprises />} />
-          <Route path="/media" element={<Media />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/managing-director-message" element={<ManagingDirectorMessage />} />
-          <Route path="/blog" element={<BlogList />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
-      <Footer />
-      <FloatingWhatsApp />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:slug" element={<ProjectDetail />} />
+            <Route path="/enterprises" element={<Enterprises />} />
+            <Route path="/media" element={<Media />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/managing-director-message" element={<ManagingDirectorMessage />} />
+            <Route path="/blog" element={<BlogList />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+        <FloatingWhatsApp />
+      </BrowserRouter>
+    </HelmetProvider>
   </TooltipProvider>
 );
 
