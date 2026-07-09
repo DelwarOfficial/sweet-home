@@ -23,7 +23,7 @@ import BlogPost from "./pages/BlogPost";
 import Landowners from "./pages/Landowners";
 
 const App = () => (
-  <ThemeProvider defaultTheme="dark" storageKey="theme">
+  <ThemeProvider defaultTheme="dark" storageKey="theme" enableSystem={false}>
     <TooltipProvider>
       <Toaster />
       <Sonner />

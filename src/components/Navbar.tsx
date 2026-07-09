@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Moon, Sun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
 import { useLang, t } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 
@@ -16,40 +17,24 @@ const desktopNavLinks = [
   { to: "/contact", labelEn: "Contact", labelBn: "যোগাযোগ" },
 ];
 
-const allNavLinks = [
-  ...desktopNavLinks.slice(0, -1),
-  { to: "/landowners", labelEn: "Landowners", labelBn: "ভূমির মালিকগণ" },
-  desktopNavLinks[desktopNavLinks.length - 1],
-];
+// Mobile menu uses the same links as desktop (Landowners already included)
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [theme, setTheme] = useState("light");
+  const [scrolled, setScrolled] = useState(false);
   const { lang, toggle } = useLang();
   const location = useLocation();
-
-  const [scrolled, setScrolled] = useState(false);
+  // Use next-themes — inherits defaultTheme="dark" from ThemeProvider in App.tsx
+  const { resolvedTheme, setTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
 
   useEffect(() => {
-    if (document.documentElement.classList.contains("dark")) {
-      setTheme("dark");
-    }
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const toggleTheme = () => {
-    const isDark = theme === "dark";
-    const newTheme = isDark ? "light" : "dark";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    if (newTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  };
+  const toggleTheme = () => setTheme(isDark ? "light" : "dark");
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md border-b transition-shadow duration-300 ${scrolled ? "border-border shadow-md" : "border-transparent"}`}>
@@ -84,11 +69,11 @@ const Navbar = () => {
         <div className="flex items-center gap-2">
           <button
             onClick={toggleTheme}
-            aria-label="Toggle dark mode"
-            aria-pressed={theme === "dark"}
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            aria-pressed={isDark}
             className="w-8 h-8 flex items-center justify-center border border-border text-foreground rounded-full hover:bg-secondary hover:shadow-subtle transition-all duration-300 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-hidden"
           >
-            {theme === "light" ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+            {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
           </button>
           <button
             onClick={toggle}
@@ -118,7 +103,7 @@ const Navbar = () => {
             className="lg:hidden bg-card border-t border-border overflow-hidden"
           >
             <nav className="container-wide px-4 py-4 flex flex-col gap-1">
-              {allNavLinks.map((link) => (
+              {desktopNavLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
