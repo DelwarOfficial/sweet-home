@@ -12,6 +12,7 @@ const desktopNavLinks = [
   { to: "/enterprises", labelEn: "Enterprises", labelBn: "এন্টারপ্রাইজ" },
   { to: "/media", labelEn: "Media", labelBn: "মিডিয়া" },
   { to: "/blog", labelEn: "Blog", labelBn: "ব্লগ" },
+  { to: "/landowners", labelEn: "Landowners", labelBn: "ভূমির মালিক" },
   { to: "/contact", labelEn: "Contact", labelBn: "যোগাযোগ" },
 ];
 
@@ -65,12 +66,12 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-0.5">
           {desktopNavLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${location.pathname === link.to
+              className={`px-3 py-2 text-[13px] font-medium rounded-full transition-all duration-300 whitespace-nowrap ${location.pathname === link.to
                 ? "text-primary bg-secondary shadow-subtle font-semibold"
                 : "text-muted-foreground hover:text-primary hover:bg-secondary"
                 }`}
