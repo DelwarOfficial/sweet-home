@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -19,20 +19,52 @@ const Projects = () => {
   const paramStatus = searchParams.get("status");
   const paramSize = searchParams.get("size");
 
-  // Group projects by city
+  // Sync status param to filters on load
+  useEffect(() => {
+    if (paramStatus) {
+      const s = paramStatus.toLowerCase() as Filter;
+      if (["ongoing", "upcoming", "completed"].includes(s)) {
+        setDhakaFilter(s);
+        setChandpurFilter(s);
+      }
+    }
+  }, [paramStatus]);
+
+  // Group projects by city and apply size filter
   const projectsByCity = useMemo(() => {
-    const dhakaProjects = projects.filter(p => 
+    let dhakaProjects = projects.filter(p => 
       p.location.toLowerCase().includes('dhaka') || 
       p.locationBn.toLowerCase().includes('ঢাকা')
     );
     
-    const chandpurProjects = projects.filter(p => 
+    let chandpurProjects = projects.filter(p => 
       p.location.toLowerCase().includes('chandpur') || 
       p.locationBn.toLowerCase().includes('চাঁদপুর')
     );
 
+    if (paramSize) {
+      const matchesSize = (sizeStr: string) => {
+        const projectNums = sizeStr.replace(/,/g, '').match(/\d+/g);
+        const searchNums = paramSize.replace(/,/g, '').match(/\d+/g);
+        if (!projectNums || !searchNums) return false;
+        
+        const pMin = parseInt(projectNums[0], 10);
+        const pMax = projectNums.length > 1 ? parseInt(projectNums[1], 10) : pMin;
+        const sMin = parseInt(searchNums[0], 10);
+        const sMax = searchNums.length > 1 ? parseInt(searchNums[1], 10) : sMin;
+        
+        return Math.max(pMin, sMin) <= Math.min(pMax, sMax);
+      };
+
+      dhakaProjects = dhakaProjects.filter(p => matchesSize(p.flatSize));
+      chandpurProjects = chandpurProjects.filter(p => matchesSize(p.flatSize));
+    }
+
     return { dhaka: dhakaProjects, chandpur: chandpurProjects };
-  }, []);
+  }, [paramSize]);
+
+  const showDhaka = !paramLocation || paramLocation.toLowerCase() === "dhaka";
+  const showChandpur = !paramLocation || paramLocation.toLowerCase() === "chandpur";
 
   // Apply filters to each city
   const filteredProjects = useMemo(() => {
@@ -100,23 +132,24 @@ const Projects = () => {
           )}
 
           {/* Dhaka Projects Section */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-heading font-bold mb-6 text-foreground flex items-center gap-2">
-              <MapPin className="w-5 h-5" />
-              {t("Dhaka Projects", "ঢাকার প্রকল্প", lang)}
-            </h2>
-            
-            <div className="flex flex-wrap gap-2 mb-6">
-              {filters.slice(1).map((f) => (
-                <button
-                  key={`dhaka-${f.key}`}
-                  onClick={() => setDhakaFilter(f.key)}
-                  className={`flex-1 min-w-[110px] h-11 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${getStatusClass(dhakaFilter === f.key)}`}
-                >
-                  {lang === "bn" ? f.labelBn : f.labelEn}
-                </button>
-              ))}
-            </div>
+          {showDhaka && (
+            <div className="mb-12">
+              <h2 className="text-2xl font-heading font-bold mb-6 text-foreground flex items-center gap-2">
+                <MapPin className="w-5 h-5" />
+                {t("Dhaka Projects", "ঢাকার প্রকল্প", lang)}
+              </h2>
+              
+              <div className="grid grid-cols-3 gap-2 mb-6">
+                {filters.slice(1).map((f) => (
+                  <button
+                    key={`dhaka-${f.key}`}
+                    onClick={() => setDhakaFilter(f.key)}
+                    className={`h-11 px-2 rounded-lg text-[13px] sm:text-sm font-medium transition-colors ${getStatusClass(dhakaFilter === f.key)}`}
+                  >
+                    {lang === "bn" ? f.labelBn : f.labelEn}
+                  </button>
+                ))}
+              </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <AnimatePresence>
@@ -186,20 +219,22 @@ const Projects = () => {
               </AnimatePresence>
             </div>
           </div>
+          )}
 
           {/* Chandpur Projects Section */}
+          {showChandpur && (
           <div>
             <h2 className="text-2xl font-heading font-bold mb-6 text-foreground flex items-center gap-2">
               <MapPin className="w-5 h-5" />
               {t("Chandpur Projects", "চাঁদপুরের প্রকল্প", lang)}
             </h2>
             
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="grid grid-cols-3 gap-2 mb-6">
               {filters.slice(1).map((f) => (
                 <button
                   key={`chandpur-${f.key}`}
                   onClick={() => setChandpurFilter(f.key)}
-                  className={`flex-1 min-w-[110px] h-11 px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${getStatusClass(chandpurFilter === f.key)}`}
+                  className={`h-11 px-2 rounded-lg text-[13px] sm:text-sm font-medium transition-colors ${getStatusClass(chandpurFilter === f.key)}`}
                 >
                   {lang === "bn" ? f.labelBn : f.labelEn}
                 </button>
@@ -274,6 +309,7 @@ const Projects = () => {
               </AnimatePresence>
             </div>
           </div>
+          )}
         </div>
       </section>
     </div>
