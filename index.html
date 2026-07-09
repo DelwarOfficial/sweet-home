@@ -32,10 +32,12 @@
   <script>
     (function () {
       try {
-        var theme = localStorage.getItem('theme');
-        var isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        var stored = localStorage.getItem('theme');
+        // Default to dark when no preference stored (matches ThemeProvider defaultTheme="dark")
+        var isDark = stored !== 'light';
         if (isDark) {
           document.documentElement.classList.add('dark');
+          if (!stored) localStorage.setItem('theme', 'dark');
         } else {
           document.documentElement.classList.remove('dark');
         }
