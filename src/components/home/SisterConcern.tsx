@@ -41,9 +41,9 @@ const SisterConcern = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="group flex items-start gap-4 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-[#ffffff] to-[#f8fafc] border border-border shadow-subtle hover:-translate-y-[6px] hover:shadow-premium transition-all duration-250 ease-out dark:from-white/5 dark:to-white/5 dark:border-white/10 dark:hover:border-white/20 dark:hover:shadow-[0_8px_24px_rgba(201,162,39,0.08)]"
+                        className="group flex items-start gap-4 p-6 md:p-8 rounded-2xl bg-linear-to-br from-[#ffffff] to-[#f8fafc] border border-border shadow-subtle hover:-translate-y-[6px] hover:shadow-premium transition-all duration-250 ease-out dark:from-white/5 dark:to-white/5 dark:border-white/10 dark:hover:border-white/20 dark:hover:shadow-[0_8px_24px_rgba(201,162,39,0.08)]"
                     >
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0F2F46] to-[#0A4D68] flex items-center justify-center shrink-0 shadow-inner dark:bg-white/10 dark:from-transparent dark:to-transparent">
+                        <div className="w-12 h-12 rounded-full bg-linear-to-br from-[#0F2F46] to-[#0A4D68] flex items-center justify-center shrink-0 shadow-inner dark:bg-white/10 dark:from-transparent dark:to-transparent">
                             <Building className="w-5 h-5 text-white" />
                         </div>
                         <div>
@@ -66,9 +66,9 @@ const SisterConcern = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="group flex items-start gap-4 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-[#ffffff] to-[#f8fafc] border border-border shadow-subtle hover:-translate-y-[6px] hover:shadow-premium transition-all duration-250 ease-out dark:from-white/5 dark:to-white/5 dark:border-white/10 dark:hover:border-white/20 dark:hover:shadow-[0_8px_24px_rgba(201,162,39,0.08)]"
+                        className="group flex items-start gap-4 p-6 md:p-8 rounded-2xl bg-linear-to-br from-[#ffffff] to-[#f8fafc] border border-border shadow-subtle hover:-translate-y-[6px] hover:shadow-premium transition-all duration-250 ease-out dark:from-white/5 dark:to-white/5 dark:border-white/10 dark:hover:border-white/20 dark:hover:shadow-[0_8px_24px_rgba(201,162,39,0.08)]"
                     >
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0F2F46] to-[#0A4D68] flex items-center justify-center shrink-0 shadow-inner dark:bg-white/10 dark:from-transparent dark:to-transparent">
+                        <div className="w-12 h-12 rounded-full bg-linear-to-br from-[#0F2F46] to-[#0A4D68] flex items-center justify-center shrink-0 shadow-inner dark:bg-white/10 dark:from-transparent dark:to-transparent">
                             <Building className="w-5 h-5 text-white" />
                         </div>
                         <div>

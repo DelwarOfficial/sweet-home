@@ -79,7 +79,7 @@ const Navbar = () => {
             onClick={toggleTheme}
             aria-label="Toggle dark mode"
             aria-pressed={theme === "dark"}
-            className="w-8 h-8 flex items-center justify-center border border-border text-foreground rounded-full hover:bg-secondary hover:shadow-subtle transition-all duration-300 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+            className="w-8 h-8 flex items-center justify-center border border-border text-foreground rounded-full hover:bg-secondary hover:shadow-subtle transition-all duration-300 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-hidden"
           >
             {theme === "light" ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
           </button>
@@ -90,7 +90,7 @@ const Navbar = () => {
             {lang === "en" ? "বাংলা" : "EN"}
           </button>
           <a href="tel:+8801806999979" className="hidden md:flex">
-            <Button size="sm" className="bg-gradient-to-r from-primary to-navy-light text-white hover:opacity-90 shadow-premium gap-1.5 rounded-full px-5">
+            <Button size="sm" className="bg-linear-to-r from-primary to-navy-light text-white hover:opacity-90 shadow-premium gap-1.5 rounded-full px-5">
               <Phone className="w-3.5 h-3.5" />
               {t("Call Now", "কল করুন", lang)}
             </Button>

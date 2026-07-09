@@ -64,7 +64,7 @@ const Certifications = () => {
           <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-foreground mb-2 text-center">
             {t("Certifications & Memberships", "সার্টিফিকেশন ও সদস্যপদ", lang)}
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-gold to-gold-light rounded-full mx-auto mb-8"></div>
+          <div className="w-16 h-1 bg-linear-to-r from-gold to-gold-light rounded-full mx-auto mb-8"></div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {certifications.map((cert, index) => (

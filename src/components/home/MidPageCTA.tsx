@@ -9,7 +9,7 @@ const MidPageCTA = () => {
   return (
     <section className="section-padding relative overflow-hidden">
       {/* Gold gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-navy via-[#0F2F46] to-[#0A4D68]" />
+      <div className="absolute inset-0 bg-linear-to-br from-navy via-[#0F2F46] to-[#0A4D68]" />
       <div
         className="absolute inset-0 opacity-[0.03]"
         style={{
@@ -40,7 +40,7 @@ const MidPageCTA = () => {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-gold to-gold-light rounded-xl text-navy font-bold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-gold/25"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-linear-to-r from-gold to-gold-light rounded-xl text-navy font-bold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-gold/25"
             >
               {t("Explore Projects", "প্রকল্প দেখুন", lang)}
               <ArrowRight className="w-4 h-4" />

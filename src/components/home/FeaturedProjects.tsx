@@ -132,7 +132,7 @@ const FeaturedProjects = () => {
                   className="group block bg-card rounded-2xl border border-border overflow-hidden hover:border-gold/40 hover:shadow-premium hover:-translate-y-[2px] transition-all duration-300 h-full flex flex-col"
                 >
                   <div className="aspect-[4/5] bg-secondary relative overflow-hidden shrink-0">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10 pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent z-10 pointer-events-none"></div>
                     {project.image ? (
                       <img
                         src={project.image}

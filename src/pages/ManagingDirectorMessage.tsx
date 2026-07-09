@@ -150,7 +150,7 @@ const ManagingDirectorMessage = () => {
                             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-foreground mb-6 leading-tight">
                                 {t("Message from the Managing Director", "ব্যবস্থাপনা পরিচালকের বার্তা", lang)}
                             </h1>
-                            <div className="w-20 h-1.5 bg-gradient-to-r from-gold to-gold-light rounded-full mb-10"></div>
+                            <div className="w-20 h-1.5 bg-linear-to-r from-gold to-gold-light rounded-full mb-10"></div>
 
                             {/* Optional H2 block to add structural depth, hidden visually if not explicitly in text, but let's wrap text paragraphs cleanly */}
                             <div className="space-y-6 text-foreground/80 text-base sm:text-lg leading-relaxed font-body">

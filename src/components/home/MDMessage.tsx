@@ -49,7 +49,7 @@ const MDMessage = () => {
                                 <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-foreground mb-3">
                                     {t("Message from the Managing Director", "ব্যবস্থাপনা পরিচালকের বার্তা", lang)}
                                 </h2>
-                                <div className="w-16 h-1 bg-gradient-to-r from-gold to-gold-light rounded-full mb-6"></div>
+                                <div className="w-16 h-1 bg-linear-to-r from-gold to-gold-light rounded-full mb-6"></div>
 
                                 <h3 className="font-heading font-bold text-xl sm:text-2xl text-primary mb-1">
                                     {t("Md. Lotif Topoder", "মোঃ লতীফ তপদার", lang)}
@@ -67,7 +67,7 @@ const MDMessage = () => {
                                 </div>
 
                                 {/* Gradient fade-out overlay when collapsed */}
-                                <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-card to-transparent pointer-events-none"></div>
+                                <div className="absolute bottom-0 left-0 right-0 h-12 bg-linear-to-t from-card to-transparent pointer-events-none"></div>
                             </div>
 
                             <Link

@@ -73,7 +73,7 @@ const ProjectGallery = () => {
                     className="relative overflow-hidden rounded-2xl border border-border bg-card shadow-subtle hover:shadow-premium transition-shadow duration-300"
                   >
                     <div className="aspect-[16/10] relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent z-10" />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent z-10" />
                       <img
                         src={project.image}
                         alt={lang === "bn" ? project.nameBn : project.name}

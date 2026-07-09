@@ -131,7 +131,7 @@ const HeroSection = () => {
           <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 mb-10">
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gold to-gold-light rounded-xl text-navy font-bold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-gold/25"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-linear-to-r from-gold to-gold-light rounded-xl text-navy font-bold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-gold/25"
             >
               {t("Explore Projects", "প্রকল্প দেখুন", lang)}
               <ArrowRight className="w-4 h-4" />
@@ -178,7 +178,7 @@ const HeroSection = () => {
               <select
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                className="bg-transparent text-sm text-foreground w-full outline-none"
+                className="bg-transparent text-sm text-foreground w-full outline-hidden"
               >
                 <option value="">{t("All Locations", "সকল এলাকা", lang)}</option>
                 <option value="Dhaka">Dhaka</option>
@@ -190,7 +190,7 @@ const HeroSection = () => {
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
-                className="bg-transparent text-sm text-foreground w-full outline-none"
+                className="bg-transparent text-sm text-foreground w-full outline-hidden"
               >
                 <option value="">{t("All Status", "সকল স্ট্যাটাস", lang)}</option>
                 <option value="Ongoing">{t("Ongoing", "চলমান", lang)}</option>
@@ -203,7 +203,7 @@ const HeroSection = () => {
               <select
                 value={size}
                 onChange={(e) => setSize(e.target.value)}
-                className="bg-transparent text-sm text-foreground w-full outline-none"
+                className="bg-transparent text-sm text-foreground w-full outline-hidden"
               >
                 <option value="">{t("Any Size", "যেকোনো সাইজ", lang)}</option>
                 <option value="1000-1200">1000-1200 sqft</option>
@@ -214,7 +214,7 @@ const HeroSection = () => {
           </div>
           <button
             onClick={handleSearch}
-            className="w-full sm:w-auto mt-4 px-8 py-3 bg-gradient-to-r from-gold to-gold-light rounded-xl text-navy font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-lg shadow-gold/25"
+            className="w-full sm:w-auto mt-4 px-8 py-3 bg-linear-to-r from-gold to-gold-light rounded-xl text-navy font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-lg shadow-gold/25"
           >
             <Search className="w-4 h-4" />
             {t("Search Properties", "প্রপার্টি খুঁজুন", lang)}
