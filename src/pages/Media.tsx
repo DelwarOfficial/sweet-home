@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, Camera, Newspaper, PartyPopper, Play, X, Clock, Eye } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { useLang, t } from "@/lib/i18n";
 import { reels, getFacebookEmbedUrl, Reel } from "@/data/reels";
 
@@ -17,6 +18,14 @@ const Media = () => {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>{t("Media & Updates | S & D Sweet Home Developers Ltd.", "মিডিয়া ও আপডেট | এস অ্যান্ড ডি সুইট হোম ডেভেলপারস লিমিটেড", lang)}</title>
+        <meta name="description" content={t(
+          "Watch S & D Sweet Home Developers project reels, awards, handover ceremonies, and corporate events.",
+          "এস অ্যান্ড ডি সুইট হোম ডেভেলপারসের প্রকল্প রিল, পুরস্কার, হস্তান্তর অনুষ্ঠান ও কর্পোরেট ইভেন্ট দেখুন।",
+          lang
+        )} />
+      </Helmet>
       <section className="section-padding navy-gradient text-primary-foreground">
         <div className="container-wide">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-3">

@@ -22,7 +22,7 @@ const AnimatedNumber = ({ value, format }: { value: number; format: (n: number) 
 };
 
 // Simple donut chart component
-const DonutChart = ({ principal, interest }: { principal: number; interest: number }) => {
+const DonutChart = ({ principal, interest, lang }: { principal: number; interest: number; lang: "en" | "bn" }) => {
   const total = principal + interest;
   const principalPercent = total > 0 ? (principal / total) * 100 : 50;
   const interestPercent = total > 0 ? (interest / total) * 100 : 50;
@@ -59,7 +59,7 @@ const DonutChart = ({ principal, interest }: { principal: number; interest: numb
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-        <span className="text-[10px] text-white/60 leading-none">Principal</span>
+        <span className="text-[10px] text-white/60 leading-none">{lang === "bn" ? "আসল" : "Principal"}</span>
         <span className="text-xs font-bold text-gold leading-none mt-0.5">{Math.round(principalPercent)}%</span>
       </div>
     </div>
@@ -181,7 +181,7 @@ const EMICalculator = () => {
                 </div>
 
                 {/* Donut Chart */}
-                <DonutChart principal={loanAmount} interest={totalInterest} />
+                <DonutChart principal={loanAmount} interest={totalInterest} lang={lang} />
 
                 {/* Breakdown */}
                 <div className="border-t border-white/10 pt-5 space-y-3 text-sm">

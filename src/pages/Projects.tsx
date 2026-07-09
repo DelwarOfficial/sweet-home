@@ -36,12 +36,9 @@ const Projects = () => {
 
   // Apply filters to each city
   const filteredProjects = useMemo(() => {
-    const filterProjects = (projects: typeof window.projects, filter: Filter) => {
-      if (filter === "all") return projects;
-      
-      return projects.filter(p => 
-        p.status === filter
-      );
+    const filterProjects = (list: typeof projects, filter: Filter) => {
+      if (filter === "all") return list;
+      return list.filter(p => p.status === filter);
     };
 
     return {
