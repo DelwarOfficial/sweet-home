@@ -8,6 +8,7 @@ import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import FloatingMessenger from "@/components/FloatingMessenger";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -19,6 +20,7 @@ import NotFound from "./pages/NotFound";
 import ManagingDirectorMessage from "./pages/ManagingDirectorMessage";
 import BlogList from "./pages/BlogList";
 import BlogPost from "./pages/BlogPost";
+import Landowners from "./pages/Landowners";
 
 const App = () => (
   <ThemeProvider defaultTheme="dark" storageKey="theme">
@@ -40,10 +42,12 @@ const App = () => (
               <Route path="/managing-director-message" element={<ManagingDirectorMessage />} />
               <Route path="/blog" element={<BlogList />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/landowners" element={<Landowners />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />
+          <FloatingMessenger />
           <FloatingWhatsApp />
         </BrowserRouter>
       </HelmetProvider>

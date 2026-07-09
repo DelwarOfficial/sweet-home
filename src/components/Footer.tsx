@@ -39,6 +39,7 @@ const Footer = () => {
               <li><Link to="/about" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("About Us", "আমাদের সম্পর্কে", lang)}</Link></li>
               <li><Link to="/managing-director-message" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("MD's Message", "এমডি'র বার্তা", lang)}</Link></li>
               <li><Link to="/enterprises" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("Enterprises", "এন্টারপ্রাইজ", lang)}</Link></li>
+              <li><Link to="/landowners" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("Landowners", "ভূমির মালিকগণ", lang)}</Link></li>
               <li><Link to="/contact" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("Contact", "যোগাযোগ", lang)}</Link></li>
             </ul>
           </div>

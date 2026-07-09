@@ -5,14 +5,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLang, t } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 
-const navLinks = [
+const desktopNavLinks = [
   { to: "/", labelEn: "Home", labelBn: "হোম" },
   { to: "/about", labelEn: "About Us", labelBn: "আমাদের সম্পর্কে" },
   { to: "/projects", labelEn: "Projects", labelBn: "প্রকল্প" },
   { to: "/enterprises", labelEn: "Enterprises", labelBn: "এন্টারপ্রাইজ" },
-  { to: "/media", labelEn: "Media", labelBn: "মিডিয়া" },
+  { to: "/media", labelEn: "Media", labelBn: "মিডিয়া" },
   { to: "/blog", labelEn: "Blog", labelBn: "ব্লগ" },
   { to: "/contact", labelEn: "Contact", labelBn: "যোগাযোগ" },
+];
+
+const allNavLinks = [
+  ...desktopNavLinks.slice(0, -1),
+  { to: "/landowners", labelEn: "Landowners", labelBn: "ভূমির মালিকগণ" },
+  desktopNavLinks[desktopNavLinks.length - 1],
 ];
 
 const Navbar = () => {
@@ -60,7 +66,7 @@ const Navbar = () => {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">
-          {navLinks.map((link) => (
+          {desktopNavLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
@@ -111,7 +117,7 @@ const Navbar = () => {
             className="lg:hidden bg-card border-t border-border overflow-hidden"
           >
             <nav className="container-wide px-4 py-4 flex flex-col gap-1">
-              {navLinks.map((link) => (
+              {allNavLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
