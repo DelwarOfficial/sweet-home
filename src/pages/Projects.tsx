@@ -19,6 +19,26 @@ const Projects = () => {
   const paramStatus = searchParams.get("status");
   const paramSize = searchParams.get("size");
 
+  const [cityFilter, setCityFilter] = useState<"all" | "dhaka" | "chandpur">(() => {
+    const loc = paramLocation?.toLowerCase();
+    if (loc === "dhaka" || loc === "chandpur") return loc as "dhaka" | "chandpur";
+    return "all";
+  });
+
+  // Sync city filter from URL param location if it changes
+  useEffect(() => {
+    if (paramLocation) {
+      const loc = paramLocation.toLowerCase();
+      if (loc === "dhaka" || loc === "chandpur") {
+        setCityFilter(loc as "dhaka" | "chandpur");
+      } else {
+        setCityFilter("all");
+      }
+    } else {
+      setCityFilter("all");
+    }
+  }, [paramLocation]);
+
   // Sync status param to filters on load
   useEffect(() => {
     if (paramStatus) {
@@ -63,8 +83,8 @@ const Projects = () => {
     return { dhaka: dhakaProjects, chandpur: chandpurProjects };
   }, [paramSize]);
 
-  const showDhaka = !paramLocation || paramLocation.toLowerCase() === "dhaka";
-  const showChandpur = !paramLocation || paramLocation.toLowerCase() === "chandpur";
+  const showDhaka = cityFilter === "all" || cityFilter === "dhaka";
+  const showChandpur = cityFilter === "all" || cityFilter === "chandpur";
 
   // Apply filters to each city
   const filteredProjects = useMemo(() => {
@@ -130,6 +150,40 @@ const Projects = () => {
               </Link>
             </div>
           )}
+
+          {/* City Toggle Buttons */}
+          <div className="flex justify-center gap-3 mb-10 max-w-md mx-auto">
+            <button
+              onClick={() => setCityFilter("all")}
+              className={`flex-1 h-11 px-4 rounded-lg text-sm font-medium transition-colors ${
+                cityFilter === "all"
+                  ? "gold-gradient text-accent-foreground font-bold shadow-md"
+                  : "bg-secondary text-muted-foreground hover:text-foreground border border-border"
+              }`}
+            >
+              {t("All Cities", "সব শহর", lang)}
+            </button>
+            <button
+              onClick={() => setCityFilter("dhaka")}
+              className={`flex-1 h-11 px-4 rounded-lg text-sm font-medium transition-colors ${
+                cityFilter === "dhaka"
+                  ? "gold-gradient text-accent-foreground font-bold shadow-md"
+                  : "bg-secondary text-muted-foreground hover:text-foreground border border-border"
+              }`}
+            >
+              {t("Dhaka", "ঢাকা", lang)}
+            </button>
+            <button
+              onClick={() => setCityFilter("chandpur")}
+              className={`flex-1 h-11 px-4 rounded-lg text-sm font-medium transition-colors ${
+                cityFilter === "chandpur"
+                  ? "gold-gradient text-accent-foreground font-bold shadow-md"
+                  : "bg-secondary text-muted-foreground hover:text-foreground border border-border"
+              }`}
+            >
+              {t("Chandpur", "চাঁদপুর", lang)}
+            </button>
+          </div>
 
           {/* Dhaka Projects Section */}
           {showDhaka && (
