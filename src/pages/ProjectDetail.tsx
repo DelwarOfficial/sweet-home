@@ -39,9 +39,9 @@ const ProjectDetail = () => {
           </Link>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-2">{lang === "bn" ? project.nameBn : project.name}</h1>
-            <p className="flex items-center gap-1 text-lg opacity-80">
-              <MapPin className="w-4 h-4" /> {lang === "bn" ? project.locationBn : project.location}
-            </p>
+              <p className="flex items-center gap-1 text-lg opacity-80">
+                <MapPin className="w-4 h-4" /> {lang === "bn" ? `${project.city === "Dhaka" ? "ঢাকা" : "চাঁদপুর"} > ${project.locationBn}` : `${project.city} > ${project.location}`}
+              </p>
           </motion.div>
         </div>
       </section>

@@ -91,6 +91,11 @@ const FeaturedProjects = () => {
   const latestProject = projects.find((p) => p.slug === latestSlug);
   const carouselProjects = latestProject ? projects.filter((p) => p.slug !== latestSlug) : projects;
 
+  const formatLocation = (p: typeof projects[0]) =>
+    lang === "bn"
+      ? `${p.city === "Dhaka" ? "ঢাকা" : "চাঁদপুর"} > ${p.locationBn}`
+      : `${p.city} > ${p.location}`;
+
   return (
                     <Link
                       key={filter}
@@ -177,7 +182,7 @@ const FeaturedProjects = () => {
                 </h3>
                 <p className="flex items-center gap-1 text-sm text-muted-foreground mt-2">
                   <MapPin className="w-3.5 h-3.5 shrink-0" />
-                  {lang === "bn" ? latestProject.locationBn : latestProject.location}
+                  {formatLocation(latestProject)}
                 </p>
                 {(latestProject.description || latestProject.descriptionBn) && (
                   <p className="text-sm text-muted-foreground leading-relaxed mt-3 line-clamp-3">
@@ -185,7 +190,7 @@ const FeaturedProjects = () => {
                   </p>
                 )}
                 <div className="flex items-center justify-between mt-5 pt-4 border-t border-border">
-                  <span className="text-xs text-muted-foreground whitespace-nowrap">{latestProject.flatSize || t("Details coming soon", "বিস্তারিত শিঘ্রই আসবে", lang)}</span>
+                  <span className="text-xs text-muted-foreground whitespace-nowrap">{latestProject.floors}{latestProject.flatSize ? ` • ${latestProject.flatSize}` : ""}</span>
                   <span className="text-xs font-medium text-gold-dark flex items-center gap-1 group-hover:gap-2 transition-all whitespace-nowrap">
                     {t("View Details", "বিস্তারিত", lang)}
                     <ArrowRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
@@ -267,11 +272,11 @@ const FeaturedProjects = () => {
                       </h3>
                       <p className="flex items-center gap-1 text-sm text-muted-foreground mt-1.5 line-clamp-1">
                         <MapPin className="w-3.5 h-3.5 shrink-0" />
-                        {lang === "bn" ? project.locationBn : project.location}
+                        {formatLocation(project)}
                       </p>
                     </div>
                     <div className="flex items-center justify-between mt-4 pt-4 border-t border-border">
-                      <span className="text-xs text-muted-foreground whitespace-nowrap">{project.flatSize}</span>
+                      <span className="text-xs text-muted-foreground whitespace-nowrap">{project.floors}{project.flatSize ? ` • ${project.flatSize}` : ""}</span>
                       <span
                         className="text-xs font-medium text-gold-dark flex items-center gap-1 group-hover:gap-2 transition-all whitespace-nowrap"
                       >

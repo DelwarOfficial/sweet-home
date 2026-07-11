@@ -119,6 +119,11 @@ const Projects = () => {
       ? "gold-gradient text-accent-foreground"
       : "bg-secondary text-muted-foreground hover:text-foreground";
 
+  const formatLocation = (p: typeof projects[number]) =>
+    lang === "bn"
+      ? `${p.city === "Dhaka" ? "ঢাকা" : "চাঁদপুর"} > ${p.locationBn}`
+      : `${p.city} > ${p.location}`;
+
   const renderCard = (project: typeof projects[number]) => (
     <motion.div
       key={project.slug}
@@ -166,10 +171,10 @@ const Projects = () => {
         <div className="p-5">
           <h3 className="font-heading font-semibold text-lg">{lang === "bn" ? project.nameBn : project.name}</h3>
           <p className="flex items-center gap-1 text-sm text-muted-foreground mt-1">
-            <MapPin className="w-3.5 h-3.5" /> {lang === "bn" ? project.locationBn : project.location}
+            <MapPin className="w-3.5 h-3.5" /> {formatLocation(project)}
           </p>
           <div className="flex items-center justify-between mt-4 pt-3 border-t border-border">
-            <span className="text-xs text-muted-foreground">{project.flatSize}</span>
+            <span className="text-xs text-muted-foreground">{project.floors}{project.flatSize ? ` • ${project.flatSize}` : ""}</span>
             <span className="text-xs font-medium text-gold-dark flex items-center gap-1">
               {t("Details", "বিস্তারিত", lang)} <ArrowRight className="w-3.5 h-3.5" />
             </span>
