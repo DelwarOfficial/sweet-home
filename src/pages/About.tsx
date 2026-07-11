@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Award, Users, Target, Eye, Shield, FileCheck, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { useLang, t } from "@/lib/i18n";
 
 const About = () => {
@@ -8,6 +9,14 @@ const About = () => {
 
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>{t("About Us | S & D Sweet Home Developers Ltd.", "আমাদের সম্পর্কে | এস অ্যান্ড ডি সুইট হোম ডেভেলপারস লিমিটেড", lang)}</title>
+        <meta name="description" content={t(
+          "Learn about S & D Sweet Home Developers Ltd. — a REHAB & RAJUK enlisted real estate developer in Dhaka and Chandpur, Bangladesh.",
+          "এস অ্যান্ড ডি সুইট হোম ডেভেলপারস লিমিটেড সম্পর্কে জানুন — বাংলাদেশের ঢাকা ও চাঁদপুরে রিহ্যাব ও রাজউক তালিকাভুক্ত রিয়েল এস্টেট ডেভেলপার।",
+          lang
+        )} />
+      </Helmet>
       {/* Hero */}
       <section className="section-padding navy-gradient text-primary-foreground">
         <div className="container-wide">

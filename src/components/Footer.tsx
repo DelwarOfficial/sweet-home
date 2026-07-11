@@ -39,6 +39,7 @@ const Footer = () => {
               <li><Link to="/about" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("About Us", "আমাদের সম্পর্কে", lang)}</Link></li>
               <li><Link to="/managing-director-message" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("MD's Message", "এমডি'র বার্তা", lang)}</Link></li>
               <li><Link to="/enterprises" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("Enterprises", "এন্টারপ্রাইজ", lang)}</Link></li>
+              <li><Link to="/landowners" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("Landowners", "ভূমির মালিকগণ", lang)}</Link></li>
               <li><Link to="/contact" className="hover:text-white hover:translate-x-1 inline-block transition-transform duration-300">{t("Contact", "যোগাযোগ", lang)}</Link></li>
             </ul>
           </div>
@@ -48,7 +49,7 @@ const Footer = () => {
               {t("Dhaka Office", "ঢাকা অফিস", lang)}
             </h4>
             <ul className="space-y-4 text-sm text-slate-300">
-              <li className="flex gap-2"><MapPin className="w-4 h-4 mt-0.5 shrink-0" /> Aftabnagar, Dhaka</li>
+              <li className="flex gap-2"><MapPin className="w-4 h-4 mt-0.5 shrink-0" /> {t("House 65, Road 2, Block C, Aftabnagar Badda. Dhaka: 1212", "হাউস ৬৫, রোড ২, ব্লক সি, আফতাবনগর বাড্ডা। ঢাকা: ১২১২", lang)}</li>
               <li className="flex gap-2"><Phone className="w-4 h-4 mt-0.5 shrink-0" /> +880 1806-999979</li>
               <li className="flex gap-2"><Mail className="w-4 h-4 mt-0.5 shrink-0" /> info@sdsweethome.com</li>
             </ul>
@@ -59,7 +60,7 @@ const Footer = () => {
               {t("Chandpur Office", "চাঁদপুর অফিস", lang)}
             </h4>
             <ul className="space-y-4 text-sm text-slate-300">
-              <li className="flex gap-2"><MapPin className="w-4 h-4 mt-0.5 shrink-0" /> Chandpur Sadar, Chandpur</li>
+              <li className="flex gap-2"><MapPin className="w-4 h-4 mt-0.5 shrink-0" /> {t("S & D Majeda Garden, 750 Abdul Karim Patwary Sarok Taltola, Chandpur.", "এস অ্যান্ড ডি মাজেদা গার্ডেন, ৭৫০ আব্দুল করিম পাটওয়ারী সড়ক, তালতলা, চাঁদপুর।", lang)}</li>
               <li className="flex gap-2"><Phone className="w-4 h-4 mt-0.5 shrink-0" /> +880 1806-999979</li>
             </ul>
           </div>

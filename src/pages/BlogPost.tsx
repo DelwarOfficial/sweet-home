@@ -67,7 +67,7 @@ const BlogPost = () => {
                             className="w-full h-full object-cover"
                         />
                         {/* Gradient Overlay for Text Readability */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+                        <div className="absolute inset-0 bg-linear-to-t from-background via-background/80 to-transparent" />
                     </div>
 
                     <div className="container-wide relative z-10 pb-10">

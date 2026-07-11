@@ -1,8 +1,14 @@
 import { Phone, FileDown } from "lucide-react";
 import { useLang, t } from "@/lib/i18n";
+import { useNavigate } from "react-router-dom";
 
 const StickyCTA = () => {
   const { lang } = useLang();
+  const navigate = useNavigate();
+
+  const handleBrochure = () => {
+    navigate("/contact");
+  };
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 bg-card/95 backdrop-blur-md border-t border-border p-3 md:hidden">
@@ -14,7 +20,10 @@ const StickyCTA = () => {
           <Phone className="w-4 h-4" />
           {t("Call Now", "কল করুন", lang)}
         </a>
-        <button className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg gold-gradient text-accent-foreground text-sm font-medium">
+        <button
+          onClick={handleBrochure}
+          className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg gold-gradient text-accent-foreground text-sm font-medium"
+        >
           <FileDown className="w-4 h-4" />
           {t("Brochure", "ব্রোশিউর", lang)}
         </button>

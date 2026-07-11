@@ -1,14 +1,25 @@
 # S & D Sweet Home - Official Showcase
 
 ## Project Overview
-S & D Sweet Home is a premier real estate platform highlighting completed, ongoing, and upcoming residential developments in Dhaka and Chandpur. The project exhibits robust capabilities including multi-language support (English/Bengali), an immersive and dark-mode adaptable UX UI, and fully dynamic routing configurations for dynamic project previews.
+S & D Sweet Home is a premier real estate platform highlighting completed, ongoing, and upcoming residential developments in Dhaka and Chandpur. The project exhibits robust capabilities including multi-language support (English/Bengali), an immersive and dark-mode adaptable UX/UI, and fully dynamic routing configurations for dynamic project previews.
+
+## Key Features
+- **Bilingual Translation System (i18n):** Complete English and Bengali support across all routes and UI elements using a unified Zustand translation store and `t()` helpers.
+- **Dynamic Projects Catalog (`/projects`):** Grouped project listings for Dhaka and Chandpur. Supports seamless client-side location toggling ("All Cities", "Dhaka", "Chandpur") and status filtering ("Ongoing", "Upcoming", "Completed") with smooth Framer Motion layout transitions.
+- **Search Parameter Integration:** Projects page filters dynamically synchronize with search parameters (`location`, `status`, `size`) passed from the homepage search selector.
+- **Landowners Ceremony Page (`/landowners`):** A dedicated, bilingual portal showcasing project signing ceremonies, featuring rich layouts, contextual event images, and translation toggling.
+- **Bilingual EMI Calculator:** Interactive home loan planning calculator with dynamic breakdown tables, bilingual SVG donut chart calculations, and browser share capabilities.
+- **Media & Reels Gallery (`/media`):** Integrates native Facebook reels, award ceremonies, and interactive lightboxes for project progress updates.
+- **Spam-Protected Contact Form (`/contact`):** Custom validated form with bilingual feedback states, honeypot spam protection, and FormSubmit integration.
+- **Strict Dark Theme Default:** Built with tailwindcss dark mode support, defaulting unconditionally to a premium Dark Mode theme using `next-themes` and a custom anti-flicker script.
 
 ## Tech Stack
-- **Framework:** React + Vite (Configured as a Single Page Application)
-- **Routing:** React Router DOM (Dynamic handling for `/projects/:slug` & protected logic)
-- **Styling:** Tailwind CSS + Custom CSS Variables for deep theme adaptation.
-- **Components:** Shadcn UI + Radix Primitives
-- **Animation:** Framer Motion (Optimized for minimal main-thread blocking)
+- **Framework:** React + Vite + TypeScript (Single Page Application)
+- **Routing:** React Router DOM (Dynamic handling for `/projects/:slug` & nested logic)
+- **Styling:** Tailwind CSS + Custom CSS Variables for deep theme adaptation
+- **State Management & i18n:** Zustand (Local store managing bilingual settings)
+- **Theme:** Next-Themes (Optimized for class-attribute targeting and strict dark-mode-first overrides)
+- **Components & Animation:** Shadcn UI + Radix Primitives + Framer Motion
 - **Icons:** Lucide React
 
 ## Folder Structure

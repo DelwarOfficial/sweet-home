@@ -56,13 +56,13 @@ const ProjectDetail = () => {
                 </div>
               ) : (
                 <div className="space-y-4">
-                  <div className="aspect-[4/5] lg:aspect-[5/4] bg-gradient-to-br from-[#0F2F46]/5 to-[#0A4D68]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[rgba(15,47,70,0.10)] relative">
+                  <div className="aspect-[4/5] lg:aspect-[5/4] bg-linear-to-br from-[#0F2F46]/5 to-[#0A4D68]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[rgba(15,47,70,0.10)] relative">
                     <img
                       src={gallery[activeIdx]}
                       alt={lang === "bn" ? project.nameBn : project.name}
                       className="w-full h-full object-contain p-4 drop-shadow-lg transition-opacity duration-300"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(15,47,70,0.05)] pointer-events-none" />
+                    <div className="absolute inset-0 bg-linear-to-b from-transparent to-[rgba(15,47,70,0.05)] pointer-events-none" />
                   </div>
                   {gallery.length > 1 && (
                     <div className="flex gap-3 overflow-x-auto pb-2 px-1 snap-x scrollbar-hide">
@@ -120,7 +120,7 @@ const ProjectDetail = () => {
                   <a
                     href={encodeURI(project.brochure)}
                     download
-                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg bg-gradient-to-r from-[#C9A227] to-[#e0bc46] text-[#0F2F46] shadow-md font-bold text-sm hover:opacity-90 transition-opacity"
+                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg bg-linear-to-r from-[#C9A227] to-[#e0bc46] text-[#0F2F46] shadow-md font-bold text-sm hover:opacity-90 transition-opacity"
                   >
                     <FileDown className="w-4 h-4" /> {t("Download", "ডাউনলোড", lang)}
                   </a>
