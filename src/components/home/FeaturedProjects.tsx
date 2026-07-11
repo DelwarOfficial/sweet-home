@@ -52,6 +52,15 @@ const FeaturedProjects = () => {
     }))
   }), [lang]);
 
+  const latestSlug = "shohodora-palace";
+  const latestProject = projects.find((p) => p.slug === latestSlug);
+  const carouselProjects = latestProject ? projects.filter((p) => p.slug !== latestSlug) : projects;
+
+  const formatLocation = (p: typeof projects[0]) =>
+    lang === "bn"
+      ? `${p.city === "Dhaka" ? "ঢাকা" : "চাঁদপুর"} > ${p.locationBn}`
+      : `${p.city} > ${p.location}`;
+
   return (
     <section className="section-padding bg-background relative overflow-hidden">
       {/* JSON-LD for SEO */}
@@ -87,16 +96,7 @@ const FeaturedProjects = () => {
                   }`;
                 if (isLocationLink) {
                   const cityPath = filter === "Dhaka" ? "dhaka" : "chandpur";
-  const latestSlug = "shohodora-palace";
-  const latestProject = projects.find((p) => p.slug === latestSlug);
-  const carouselProjects = latestProject ? projects.filter((p) => p.slug !== latestSlug) : projects;
-
-  const formatLocation = (p: typeof projects[0]) =>
-    lang === "bn"
-      ? `${p.city === "Dhaka" ? "ঢাকা" : "চাঁদপুর"} > ${p.locationBn}`
-      : `${p.city} > ${p.location}`;
-
-  return (
+                  return (
                     <Link
                       key={filter}
                       to={`/projects/location/${cityPath}`}
