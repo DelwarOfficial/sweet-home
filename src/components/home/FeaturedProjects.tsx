@@ -87,7 +87,11 @@ const FeaturedProjects = () => {
                   }`;
                 if (isLocationLink) {
                   const cityPath = filter === "Dhaka" ? "dhaka" : "chandpur";
-                  return (
+  const latestSlug = "shohodora-palace";
+  const latestProject = projects.find((p) => p.slug === latestSlug);
+  const carouselProjects = latestProject ? projects.filter((p) => p.slug !== latestSlug) : projects;
+
+  return (
                     <Link
                       key={filter}
                       to={`/projects/location/${cityPath}`}
@@ -121,6 +125,77 @@ const FeaturedProjects = () => {
           </div>
         </div>
 
+        {/* Latest Project Slot */}
+        {latestProject && (
+          <div className="mb-12">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full bg-gold text-[#0F2F46] shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#0F2F46] animate-pulse"></span>
+                {t("Latest Project", "সর্বশেষ প্রকল্প", lang)}
+              </span>
+            </div>
+            <Link
+              to={`/projects/${latestProject.slug}`}
+              className="group grid md:grid-cols-2 gap-0 bg-card rounded-2xl border border-border overflow-hidden hover:border-gold/40 hover:shadow-premium transition-all duration-300"
+            >
+              <div className="aspect-[4/3] md:aspect-auto md:min-h-[320px] bg-secondary relative overflow-hidden">
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent z-10 pointer-events-none"></div>
+                {latestProject.image ? (
+                  <img
+                    src={latestProject.image}
+                    alt={lang === "bn" ? latestProject.nameBn : latestProject.name}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center z-0">
+                    <Building className="w-16 h-16 text-muted-foreground/30" />
+                  </div>
+                )}
+                <div className="absolute top-4 left-4 z-20">
+                  {latestProject.status === "ongoing" && (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[11px] sm:text-xs font-semibold rounded-full bg-[#0F2F46] text-white shadow-md">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      {t("Ongoing", "চলমান", lang)}
+                    </span>
+                  )}
+                  {latestProject.status === "completed" && (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[11px] sm:text-xs font-semibold rounded-full bg-[#C9A227] text-white shadow-md">
+                      {t("Completed", "সম্পন্ন", lang)}
+                    </span>
+                  )}
+                  {latestProject.status === "upcoming" && (
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[11px] sm:text-xs font-semibold rounded-full bg-[#088395] text-white shadow-md">
+                      {t("Upcoming", "আসন্ন", lang)}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className="p-6 md:p-8 flex flex-col justify-center">
+                <h3 className="font-heading font-semibold text-2xl text-foreground group-hover:text-gold-dark transition-colors">
+                  {lang === "bn" ? latestProject.nameBn : latestProject.name}
+                </h3>
+                <p className="flex items-center gap-1 text-sm text-muted-foreground mt-2">
+                  <MapPin className="w-3.5 h-3.5 shrink-0" />
+                  {lang === "bn" ? latestProject.locationBn : latestProject.location}
+                </p>
+                {(latestProject.description || latestProject.descriptionBn) && (
+                  <p className="text-sm text-muted-foreground leading-relaxed mt-3 line-clamp-3">
+                    {lang === "bn" ? latestProject.descriptionBn : latestProject.description}
+                  </p>
+                )}
+                <div className="flex items-center justify-between mt-5 pt-4 border-t border-border">
+                  <span className="text-xs text-muted-foreground whitespace-nowrap">{latestProject.flatSize || t("Details coming soon", "বিস্তারিত শিঘ্রই আসবে", lang)}</span>
+                  <span className="text-xs font-medium text-gold-dark flex items-center gap-1 group-hover:gap-2 transition-all whitespace-nowrap">
+                    {t("View Details", "বিস্তারিত", lang)}
+                    <ArrowRight className="w-3.5 h-3.5 shrink-0" aria-hidden="true" />
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </div>
+        )}
+
         {/* Scrollable Rail Wrapper */}
         <div className="relative group">
           {/* Scroll Prev Button (Desktop) */}
@@ -137,7 +212,7 @@ const FeaturedProjects = () => {
             ref={scrollContainerRef}
             className="flex overflow-x-auto gap-5 pb-6 pt-2 snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] -mx-4 px-4 sm:mx-0 sm:px-0"
           >
-            {projects.map((project, i) => (
+            {carouselProjects.map((project, i) => (
               <div
                 key={project.slug}
                 className={`snap-start flex-shrink-0 transition-all duration-300 w-[85vw] sm:w-[calc(50%-10px)] md:w-[calc(33.333%-14px)] lg:w-[calc(28%-16px)] xl:w-[calc(25%-15px)] ${matchesFilter(project, activeFilter) ? "block" : "hidden"
