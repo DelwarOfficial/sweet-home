@@ -114,8 +114,8 @@ const HeroSection = () => {
                 className="bg-transparent text-sm text-foreground w-full outline-none"
               >
                 <option value="">{t("All Locations", "সকল এলাকা", lang)}</option>
-                <option value="Dhaka">Dhaka</option>
-                <option value="Chandpur">Chandpur</option>
+                <option value="Dhaka">{t("Dhaka", "ঢাকা", lang)}</option>
+                <option value="Chandpur">{t("Chandpur", "চাঁদপুর", lang)}</option>
               </select>
             </div>
             <div className="flex items-center gap-2 bg-secondary rounded-lg px-3 py-2.5">

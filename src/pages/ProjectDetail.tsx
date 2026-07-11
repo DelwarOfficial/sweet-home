@@ -27,7 +27,8 @@ const ProjectDetail = () => {
     { icon: Compass, label: t("Facing", "মুখী", lang), value: project.facing },
   ];
 
-  const projectImages = project.images && project.images.length > 0 ? project.images : (project.image ? [project.image] : []);
+  const gallery = project.images && project.images.length > 0 ? project.images : (project.image ? [project.image] : []);
+  const activeIdx = Math.min(activeImage, gallery.length - 1);
 
   return (
     <div className="pt-20">
@@ -49,40 +50,33 @@ const ProjectDetail = () => {
         <div className="container-wide">
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-8">
-              {projectImages.length === 0 ? (
+              {gallery.length === 0 ? (
                 <div className="aspect-[4/5] lg:aspect-[5/4] bg-[#F1F5F9] rounded-2xl flex items-center justify-center border border-[rgba(15,47,70,0.10)]">
                   <Building className="w-16 h-16 text-[#94A3B8]/30" />
-                </div>
-              ) : projectImages.length === 1 ? (
-                <div className="aspect-[4/5] lg:aspect-[5/4] bg-gradient-to-br from-[#0F2F46]/5 to-[#0A4D68]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[rgba(15,47,70,0.10)] relative">
-                  <img
-                    src={projectImages[0]}
-                    alt={lang === "bn" ? project.nameBn : project.name}
-                    className="w-full h-full object-contain p-4 drop-shadow-lg"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(15,47,70,0.05)] pointer-events-none" />
                 </div>
               ) : (
                 <div className="space-y-4">
                   <div className="aspect-[4/5] lg:aspect-[5/4] bg-gradient-to-br from-[#0F2F46]/5 to-[#0A4D68]/10 rounded-2xl flex items-center justify-center overflow-hidden border border-[rgba(15,47,70,0.10)] relative">
                     <img
-                      src={projectImages[activeImage]}
+                      src={gallery[activeIdx]}
                       alt={lang === "bn" ? project.nameBn : project.name}
                       className="w-full h-full object-contain p-4 drop-shadow-lg transition-opacity duration-300"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[rgba(15,47,70,0.05)] pointer-events-none" />
                   </div>
-                  <div className="flex gap-3 overflow-x-auto pb-2 px-1 snap-x scrollbar-hide">
-                    {projectImages.map((img, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setActiveImage(i)}
-                        className={`relative h-20 w-28 shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-300 ${activeImage === i ? 'border-[#C9A227] shadow-md opacity-100 scale-105' : 'border-transparent opacity-50 hover:opacity-100'}`}
-                      >
-                        <img src={img} alt={`Thumbnail ${i}`} className="w-full h-full object-cover" loading="lazy" />
-                      </button>
-                    ))}
-                  </div>
+                  {gallery.length > 1 && (
+                    <div className="flex gap-3 overflow-x-auto pb-2 px-1 snap-x scrollbar-hide">
+                      {gallery.map((img, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setActiveImage(i)}
+                          className={`relative h-20 w-28 shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-300 ${activeIdx === i ? 'border-[#C9A227] shadow-md opacity-100 scale-105' : 'border-transparent opacity-50 hover:opacity-100'}`}
+                        >
+                          <img src={img} alt={`Thumbnail ${i}`} className="w-full h-full object-cover" loading="lazy" />
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
 

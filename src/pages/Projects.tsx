@@ -1,16 +1,23 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
-import { MapPin, ArrowRight, Building } from "lucide-react";
+import { Link, useLocation, useParams } from "react-router-dom";
+import { MapPin, ArrowRight, Building, Search } from "lucide-react";
 import { useLang, t } from "@/lib/i18n";
 import { projects } from "@/lib/projects-data";
 
 type Filter = "all" | "ongoing" | "upcoming" | "completed";
+type LocationFilter = "all" | "Dhaka" | "Chandpur";
 
 const Projects = () => {
   const { lang } = useLang();
+  const { city } = useParams();
   const [filter, setFilter] = useState<Filter>("all");
   const { search } = useLocation();
+
+  const validCity = city === "dhaka" || city === "chandpur";
+  const presetLocation: LocationFilter = city === "dhaka" ? "Dhaka" : city === "chandpur" ? "Chandpur" : "all";
+  const [locationFilter, setLocationFilter] = useState<LocationFilter>(presetLocation);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const searchParams = useMemo(() => new URLSearchParams(search), [search]);
   const paramLocation = searchParams.get("location");
@@ -20,9 +27,14 @@ const Projects = () => {
   const filtered = useMemo(() => {
     let result = projects;
 
-    // Apply Local Tab Filter
+    // Apply Local Tab Filter (status)
     if (filter !== "all") {
       result = result.filter((p) => p.status === filter);
+    }
+
+    // Apply Location Tab Filter
+    if (locationFilter !== "all") {
+      result = result.filter((p) => p.city === locationFilter);
     }
 
     // Apply URL Query String Filters from Hero Search
@@ -40,10 +52,7 @@ const Projects = () => {
     }
 
     if (paramSize) {
-      // Since data holds text like "1000 - 1200 sq.ft", 
-      // a basic string extraction approach for size
       result = result.filter((p) => {
-        // Create regex to extract numbers from project size
         const match = paramSize.match(/(\d+)-(\d+)/);
         if (!match) return true;
 
@@ -56,15 +65,41 @@ const Projects = () => {
       });
     }
 
-    return result;
-  }, [filter, paramLocation, paramStatus, paramSize]);
+    // Apply Free-text Search
+    const q = searchTerm.trim().toLowerCase();
+    if (q) {
+      result = result.filter((p) =>
+        p.name.toLowerCase().includes(q) ||
+        p.nameBn.toLowerCase().includes(q) ||
+        p.location.toLowerCase().includes(q) ||
+        p.locationBn.toLowerCase().includes(q)
+      );
+    }
 
-  const filters: { key: Filter; labelEn: string; labelBn: string }[] = [
+    return result;
+  }, [filter, locationFilter, paramLocation, paramStatus, paramSize, searchTerm]);
+
+  const statusFilters: { key: Filter; labelEn: string; labelBn: string }[] = [
     { key: "all", labelEn: "All", labelBn: "সব" },
     { key: "ongoing", labelEn: "Ongoing", labelBn: "চলমান" },
     { key: "upcoming", labelEn: "Upcoming", labelBn: "আসন্ন" },
     { key: "completed", labelEn: "Completed", labelBn: "সম্পন্ন" },
   ];
+
+  const locationFilters: { key: LocationFilter; labelEn: string; labelBn: string }[] = [
+    { key: "all", labelEn: "All", labelBn: "সব" },
+    { key: "Dhaka", labelEn: "Dhaka", labelBn: "ঢাকা" },
+    { key: "Chandpur", labelEn: "Chandpur", labelBn: "চাঁদপুর" },
+  ];
+
+  if (city && !validCity) {
+    return (
+      <div className="pt-20 section-padding text-center">
+        <h1 className="text-2xl font-heading font-bold">{t("Location not found", "অবস্থান পাওয়া যায়নি", lang)}</h1>
+        <Link to="/projects" className="text-gold-dark mt-4 inline-block">{t("← Back to projects", "← প্রজেক্টে ফিরে যান", lang)}</Link>
+      </div>
+    );
+  }
 
   return (
     <div className="pt-20">
@@ -97,8 +132,22 @@ const Projects = () => {
             </div>
           )}
 
-          <div className="flex flex-wrap gap-2 mb-8">
-            {filters.map((f) => (
+          {/* Search Input */}
+          <div className="relative mb-8 max-w-md">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder={t("Search projects...", "প্রকল্প খুঁজুন...", lang)}
+              className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-secondary border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-gold/50 transition-colors"
+            />
+          </div>
+
+          {/* Status Filter Row */}
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="text-sm font-medium text-muted-foreground mr-1">{t("Status", "অবস্থা", lang)}:</span>
+            {statusFilters.map((f) => (
               <button
                 key={f.key}
                 onClick={() => setFilter(f.key)}
@@ -110,6 +159,29 @@ const Projects = () => {
                 {lang === "bn" ? f.labelBn : f.labelEn}
               </button>
             ))}
+          </div>
+
+          {/* Location Filter Row */}
+          <div className="flex flex-wrap items-center gap-2 mb-8">
+            <span className="text-sm font-medium text-muted-foreground mr-1">{t("Location", "অবস্থান", lang)}:</span>
+            {locationFilters.map((f) => (
+              <button
+                key={f.key}
+                onClick={() => setLocationFilter(f.key)}
+                disabled={validCity && f.key !== presetLocation}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${locationFilter === f.key
+                  ? "gold-gradient text-accent-foreground"
+                  : "bg-secondary text-muted-foreground hover:text-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+                  }`}
+              >
+                {lang === "bn" ? f.labelBn : f.labelEn}
+              </button>
+            ))}
+            {validCity && (
+              <Link to="/projects" className="ml-2 text-sm text-gold hover:text-gold-dark font-medium underline">
+                {t("Clear", "মুছুন", lang)}
+              </Link>
+            )}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

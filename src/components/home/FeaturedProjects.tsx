@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { MapPin, ArrowRight, ArrowLeft, Building } from "lucide-react";
 import { useLang, t } from "@/lib/i18n";
@@ -28,12 +28,12 @@ const FeaturedProjects = () => {
     if (filter === "All") return true;
     if (filter === "Ongoing") return project.status === "ongoing";
     if (filter === "Completed") return project.status === "completed";
-    if (filter === "Dhaka") return project.location.toLowerCase().includes("dhaka");
-    if (filter === "Chandpur") return project.location.toLowerCase().includes("chandpur");
+    if (filter === "Dhaka") return project.city === "Dhaka";
+    if (filter === "Chandpur") return project.city === "Chandpur";
     return true;
   };
 
-  const itemListSchema = {
+  const itemListSchema = useMemo(() => ({
     "@context": "https://schema.org",
     "@type": "ItemList",
     "itemListElement": projects.map((project, index) => ({
@@ -50,7 +50,7 @@ const FeaturedProjects = () => {
         }
       }
     }))
-  };
+  }), [lang]);
 
   return (
     <section className="section-padding bg-background relative overflow-hidden">
@@ -79,18 +79,34 @@ const FeaturedProjects = () => {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:gap-6">
             {/* Filter Chips */}
             <div className="flex flex-wrap items-center gap-2">
-              {filters.map((filter) => (
-                <button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${activeFilter === filter
-                    ? "bg-primary text-primary-foreground shadow-md"
-                    : "bg-secondary text-foreground hover:bg-secondary/80 border border-border"
-                    }`}
-                >
-                  {filter}
-                </button>
-              ))}
+              {filters.map((filter) => {
+                const isLocationLink = filter === "Dhaka" || filter === "Chandpur";
+                const baseClass = `px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${activeFilter === filter
+                  ? "bg-primary text-primary-foreground shadow-md"
+                  : "bg-secondary text-foreground hover:bg-secondary/80 border border-border"
+                  }`;
+                if (isLocationLink) {
+                  const cityPath = filter === "Dhaka" ? "dhaka" : "chandpur";
+                  return (
+                    <Link
+                      key={filter}
+                      to={`/projects/location/${cityPath}`}
+                      className={baseClass}
+                    >
+                      {filter}
+                    </Link>
+                  );
+                }
+                return (
+                  <button
+                    key={filter}
+                    onClick={() => setActiveFilter(filter)}
+                    className={baseClass}
+                  >
+                    {filter}
+                  </button>
+                );
+              })}
             </div>
 
             {/* View All CTA */}
