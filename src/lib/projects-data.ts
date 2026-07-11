@@ -40,7 +40,7 @@ export const projects: Project[] = [
       "/S & D Bondhon Tower/S & D Bondhon Tower Chandpur Top.jpg",
       "/S & D Bondhon Tower/S & D Bondhon Tower Chandpur Night View-.jpg"
     ],
-    brochure: "/S & D Bondhon Tower/Bondhon Tower.pdf",
+    brochure: "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/Bondhon.Tower.pdf",
   },
   {
     slug: "laila-garden",
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     description: "A beautifully completed residential complex in Chandpur offering spacious living in a serene environment.",
     descriptionBn: "চাঁদপুরে একটি সুন্দরভাবে সম্পন্ন আবাসিক কমপ্লেক্স যা শান্ত পরিবেশে প্রশস্ত জীবনযাপনের সুযোগ দেয়।",
     image: "/S&D Laila Garden, Aftabnagar/S&D Laila Garden Aftabnagar.jpg",
-    brochure: "/S&D Laila Garden, Aftabnagar/S & D___Edit.pdf",
+    brochure: "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/S.D___Edit.pdf",
   },
   {
     slug: "fm-tower",
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     description: "Modern urban living with premium finishes and strategic location near key amenities.",
     descriptionBn: "প্রধান সুবিধার কাছে কৌশলগত অবস্থান সহ প্রিমিয়াম ফিনিশিং সহ আধুনিক শহুরে জীবনযাপন।",
     image: "/S & D FM Tower/21_1 - Photo.jpg",
-    brochure: "/S & D FM Tower/FM Tower Brochure.pdf",
+    brochure: "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/FM.Tower.Brochure.pdf",
   },
   {
     slug: "giash-garden",
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     description: "A prestigious completed project offering luxury living with world-class amenities.",
     descriptionBn: "বিশ্বমানের সুবিধা সহ বিলাসবহুল জীবনযাপনের প্রস্তাব দেওয়া একটি মর্যাদাপূর্ণ সম্পন্ন প্রকল্প।",
     image: "/S&D Safura Heights, Aftabnagar/1.6  Regular edited.jpg",
-    brochure: "/S&D Safura Heights, Aftabnagar/Safura Heights-.pdf",
+    brochure: "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/Safura.Heights-.pdf",
   },
   {
     slug: "sardar-palace",
@@ -134,7 +134,7 @@ export const projects: Project[] = [
       "/S & D Sardar Palace,  Chandpur/S & D Sardar Palace Chandpur Top.jpg",
       "/S & D Sardar Palace,  Chandpur/S & D Sardar Palace Chandpur Top NIGHT VIEW.jpg"
     ],
-    brochure: "/S & D Sardar Palace,  Chandpur/Sarder Palace Outline.pdf",
+    brochure: "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/Sarder.Palace.Outline.pdf",
   },
   {
     slug: "didar-box",
@@ -153,7 +153,7 @@ export const projects: Project[] = [
     descriptionBn: "নান্দনিকতার সাথে কার্যকারিতার মিশ্রণকারী একটি আধুনিক আসন্ন প্রকল্প।",
     image: "/S & D Didar Box/Final (1).jpg",
     images: ["/S & D Didar Box/Final (1).jpg"],
-    brochure: "/S & D Didar Box/Didar Box Brochure Final.pdf",
+    brochure: "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/Didar.Box.Brochure.Final.pdf",
   },
   {
     slug: "hossen-vill",
@@ -172,7 +172,7 @@ export const projects: Project[] = [
     descriptionBn: "চাঁদপুরের প্রাণকেন্দ্রে অবস্থিত একটি শান্ত আবাসিক ভিলা।",
     image: "/S & D Hossen Vill/1_2 - Photo01.jpg",
     images: ["/S & D Hossen Vill/1_2 - Photo01.jpg"],
-    brochure: "/S & D Hossen Vill/Broshure SND Mithu Chandpur.pdf",
+    brochure: "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/Broshure.SND.Mithu.Chandpur.pdf",
   },
   {
     slug: "majeda-garden",
@@ -210,7 +210,7 @@ export const projects: Project[] = [
     descriptionBn: "চাঁদপুরে আধুনিক সুযোগ-সুবিধা সহ রাজকীয় জীবনযাপনের অভিজ্ঞতা নিন।",
     image: "/S & D Nurjahan Palace, Chandpur/1_3 - Photo.jpg",
     images: ["/S & D Nurjahan Palace, Chandpur/1_3 - Photo.jpg"],
-    brochure: "/S & D Nurjahan Palace, Chandpur/Nurjahan Palace Outline.pdf",
+    brochure: "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/Nurjahan.Palace.Outline.pdf",
   },
   {
     slug: "shohodora-palace",
@@ -229,7 +229,7 @@ export const projects: Project[] = [
     descriptionBn: "আরাম এবং নিরাপত্তা প্রদানকারী একটি সু-নকশাকৃত সম্পন্ন প্রকল্প।",
     image: "/S & D Shohodora Palace/141.png",
     images: ["/S & D Shohodora Palace/141.png"],
-    brochure: "/S & D Shohodora Palace/Broshure Shohodora Palace.pdf",
+    brochure: "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/Broshure.Shohodora.Palace.pdf",
   },
   {
     slug: "rouf-garden",
