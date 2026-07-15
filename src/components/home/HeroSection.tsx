@@ -178,7 +178,7 @@ const HeroSection = () => {
               <select
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                className="bg-transparent text-sm text-foreground w-full outline-hidden"
+                className="bg-transparent text-sm text-foreground w-full outline-hidden [&>option]:bg-card [&>option]:text-foreground"
               >
                 <option value="">{t("All Locations", "সকল এলাকা", lang)}</option>
                 <option value="Dhaka">{t("Dhaka", "ঢাকা", lang)}</option>
@@ -190,7 +190,7 @@ const HeroSection = () => {
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
-                className="bg-transparent text-sm text-foreground w-full outline-hidden"
+                className="bg-transparent text-sm text-foreground w-full outline-hidden [&>option]:bg-card [&>option]:text-foreground"
               >
                 <option value="">{t("All Status", "সকল স্ট্যাটাস", lang)}</option>
                 <option value="Ongoing">{t("Ongoing", "চলমান", lang)}</option>
