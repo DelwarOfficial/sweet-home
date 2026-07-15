@@ -33,7 +33,7 @@ export const projects: Project[] = [
     facing: "South-East",
     amenities: ["Elevator", "Generator", "Parking", "Rooftop Garden", "Security"],
     description: "A premium residential project in the heart of Aftabnagar with modern amenities and elegant design.",
-    descriptionBn: "আফতাবনগরের প্রাণকেন্দ্রে আধুনিক সুযোগ-সুবিধা ও মার্জিত নকশা সহ একটি প্রিমিয়াম আবাসিক প্রকল্প।",
+    descriptionBn: "আফতাবনগরের প্রাণকেন্দ্রে আধুনিক সুযোগ-সুবিধা ও মার্জিত নকশাসহ একটি প্রিমিয়াম আবাসিক প্রকল্প।",
     image: "/S & D Bondhon Tower/S & D Bondhon Tower Chandpur.jpg",
     images: [
       "/S & D Bondhon Tower/S & D Bondhon Tower Chandpur.jpg",
@@ -45,7 +45,7 @@ export const projects: Project[] = [
   {
     slug: "laila-garden",
     name: "Laila Garden",
-    nameBn: "লাইলা গার্ডেন",
+    nameBn: "লায়লা গার্ডেন",
     location: "Road-02, Block-C, Aftabnagar, Dhaka",
     locationBn: "রোড-০২, ব্লক-সি, আফতাবনগর, ঢাকা",
     city: "Dhaka",
