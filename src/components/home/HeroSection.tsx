@@ -203,12 +203,13 @@ const HeroSection = () => {
               <select
                 value={size}
                 onChange={(e) => setSize(e.target.value)}
-                className="bg-transparent text-sm text-foreground w-full outline-hidden"
+                className="bg-transparent text-sm text-foreground w-full outline-hidden [&>option]:bg-card [&>option]:text-foreground"
               >
                 <option value="">{t("Any Size", "যেকোনো সাইজ", lang)}</option>
-                <option value="1000-1200">1000-1200 sqft</option>
-                <option value="1200-1400">1200-1400 sqft</option>
-                <option value="1400-1600">1400-1600 sqft</option>
+                <option value="850-1100">850–1100 sft</option>
+                <option value="1100-1350">1100–1350 sft</option>
+                <option value="1350-1700">1350–1700 sft</option>
+                <option value="2000-2500">2000+ sft</option>
               </select>
             </div>
           </div>
