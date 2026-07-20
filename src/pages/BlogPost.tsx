@@ -45,7 +45,7 @@ const BlogPost = () => {
                             name: "S & D Sweet Home Developers Ltd.",
                             logo: {
                                 "@type": "ImageObject",
-                                url: "https://sndsweethome.com/sd Logo.webp",
+                                url: "https://sndsweethome.com/images/brand/sd-logo.webp",
                             },
                         },
                         datePublished: post.publishDate,
@@ -160,7 +160,7 @@ const BlogPost = () => {
                                     </h3>
                                     <div className="flex items-center gap-4 mb-4">
                                         <img
-                                            src="/sd Logo.webp"
+                                            src="/images/brand/sd-logo.webp"
                                             alt="Company Logo"
                                             className="w-12 h-12 rounded-full object-contain bg-background"
                                         />
