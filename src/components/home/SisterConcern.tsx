@@ -3,14 +3,14 @@ import { Building, ShieldCheck } from "lucide-react";
 import { useLang, t } from "@/lib/i18n";
 
 const partners = [
-    { name: "GPH Ispat", logo: "/Sister Concern/GPH-ISPAT.png" },
-    { name: "Partex", logo: "/Sister Concern/Partex.png" },
-    { name: "RFL", logo: "/Sister Concern/RFL.png" },
-    { name: "Aman Cement", logo: "/Sister Concern/aman-cement.png.webp" },
-    { name: "Bashundhara Cement", logo: "/Sister Concern/bashundhara-cement.png" },
-    { name: "BTB", logo: "/Sister Concern/btb.png.webp" },
-    { name: "National Polymer", logo: "/Sister Concern/national-polymer.png.webp" },
-    { name: "Supercrete Cement", logo: "/Sister Concern/supercrete-cement.png" },
+    { name: "GPH Ispat", logo: "/images/sister-concern/GPH-ISPAT.png" },
+    { name: "Partex", logo: "/images/sister-concern/Partex.png" },
+    { name: "RFL", logo: "/images/sister-concern/RFL.png" },
+    { name: "Aman Cement", logo: "/images/sister-concern/aman-cement.png.webp" },
+    { name: "Bashundhara Cement", logo: "/images/sister-concern/bashundhara-cement.png" },
+    { name: "BTB", logo: "/images/sister-concern/btb.png.webp" },
+    { name: "National Polymer", logo: "/images/sister-concern/national-polymer.png.webp" },
+    { name: "Supercrete Cement", logo: "/images/sister-concern/supercrete-cement.png" },
 ];
 
 const SisterConcern = () => {

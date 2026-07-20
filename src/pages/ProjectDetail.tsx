@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { useLang, t } from "@/lib/i18n";
 import { projects, getImage, type Project } from "@/lib/projects";
-import { LeadForm } from "@/components/LeadForm";
+import { LeadForm } from "@/components/projects/LeadForm";
 
 /** Site origin used for absolute OG / canonical / JSON-LD URLs. */
 const SITE_ORIGIN =

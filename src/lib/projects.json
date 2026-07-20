@@ -11,17 +11,23 @@
     "landArea": "5 Katha",
     "floors": "G+9",
     "facing": "South-East",
-    "amenities": ["Elevator", "Generator", "Parking", "Rooftop Garden", "Security"],
+    "amenities": [
+      "Elevator",
+      "Generator",
+      "Parking",
+      "Rooftop Garden",
+      "Security"
+    ],
     "description": "A premium residential project in the heart of Aftabnagar with modern amenities and elegant design.",
     "descriptionBn": "আফতাবনগরের প্রাণকেন্দ্রে আধুনিক সুযোগ-সুবিধা ও মার্জিত নকশাসহ একটি প্রিমিয়াম আবাসিক প্রকল্প।",
-    "image": "/S & D Bondhon Tower/S & D Bondhon Tower Chandpur.jpg",
+    "image": "/images/dhaka/ongoing/bondhon-tower/S & D Bondhon Tower Chandpur.jpg",
     "images": [
-      "/S & D Bondhon Tower/S & D Bondhon Tower Chandpur.jpg",
-      "/S & D Bondhon Tower/S & D Bondhon Tower Chandpur Top.jpg",
-      "/S & D Bondhon Tower/S & D Bondhon Tower Chandpur Night View-.jpg"
+      "/images/dhaka/ongoing/bondhon-tower/S & D Bondhon Tower Chandpur.jpg",
+      "/images/dhaka/ongoing/bondhon-tower/S & D Bondhon Tower Chandpur Top.jpg",
+      "/images/dhaka/ongoing/bondhon-tower/S & D Bondhon Tower Chandpur Night View-.jpg"
     ],
     "brochureUrl": "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/Bondhon.Tower.pdf",
-    "coverImage": "/S & D Bondhon Tower/S & D Bondhon Tower Chandpur.jpg",
+    "coverImage": "/images/dhaka/ongoing/bondhon-tower/S & D Bondhon Tower Chandpur.jpg",
     "handover": "Dec 2026",
     "mapEmbedUrl": "https://www.google.com/maps?q=Merul%20Badda%20Dhaka&output=embed"
   },
@@ -37,13 +43,20 @@
     "landArea": "6 Katha",
     "floors": "G+6",
     "facing": "South",
-    "amenities": ["Elevator", "Generator", "Parking", "Community Hall"],
+    "amenities": [
+      "Elevator",
+      "Generator",
+      "Parking",
+      "Community Hall"
+    ],
     "description": "A beautifully completed residential complex offering spacious living in a serene environment.",
     "descriptionBn": "একটি সুন্দরভাবে সম্পন্ন আবাসিক কমপ্লেক্স যা শান্ত পরিবেশে প্রশান্তিময় জীবনযাপনের সুযোগ দেয়।",
-    "image": "/S&D Laila Garden, Aftabnagar/S&D Laila Garden Aftabnagar.jpg",
-    "images": ["/S&D Laila Garden, Aftabnagar/S&D Laila Garden Aftabnagar.jpg"],
+    "image": "/images/dhaka/completed/laila-garden/S&D Laila Garden Aftabnagar.jpg",
+    "images": [
+      "/images/dhaka/completed/laila-garden/S&D Laila Garden Aftabnagar.jpg"
+    ],
     "brochureUrl": "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/S.D___Edit.pdf",
-    "coverImage": "/S&D Laila Garden, Aftabnagar/S&D Laila Garden Aftabnagar.jpg",
+    "coverImage": "/images/dhaka/completed/laila-garden/S&D Laila Garden Aftabnagar.jpg",
     "handover": "Ready",
     "mapEmbedUrl": "https://www.google.com/maps?q=Aftabnagar%20Dhaka&output=embed"
   },
@@ -59,13 +72,21 @@
     "landArea": "4.5 Katha",
     "floors": "G+9",
     "facing": "West",
-    "amenities": ["Elevator", "Generator", "Parking", "Gym", "Security"],
+    "amenities": [
+      "Elevator",
+      "Generator",
+      "Parking",
+      "Gym",
+      "Security"
+    ],
     "description": "Modern urban living with premium finishes and strategic location near key amenities.",
     "descriptionBn": "প্রধান সুবিধার কাছে কৌশলগত অবস্থান সহ প্রিমিয়াম ফিনিশিং সহ আধুনিক শহুরে জীবনযাপন।",
-    "image": "/fm-tower/fm-tower.jpg",
-    "images": ["/fm-tower/fm-tower.jpg"],
+    "image": "/images/chandpur/ongoing/fm-tower/fm-tower.jpg",
+    "images": [
+      "/images/chandpur/ongoing/fm-tower/fm-tower.jpg"
+    ],
     "brochureUrl": "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/FM.Tower.Brochure.pdf",
-    "coverImage": "/fm-tower/fm-tower.jpg",
+    "coverImage": "/images/chandpur/ongoing/fm-tower/fm-tower.jpg",
     "handover": "Jun 2027",
     "mapEmbedUrl": "https://www.google.com/maps?q=Chandpur%20Passport%20Office&output=embed"
   },
@@ -81,13 +102,21 @@
     "landArea": "7 Katha",
     "floors": "G+6",
     "facing": "North-South",
-    "amenities": ["Elevator", "Generator", "Parking", "Playground", "Rooftop Garden"],
+    "amenities": [
+      "Elevator",
+      "Generator",
+      "Parking",
+      "Playground",
+      "Rooftop Garden"
+    ],
     "description": "A landmark project with spacious apartments and lush green surroundings.",
     "descriptionBn": "প্রশস্ত অ্যাপার্টমেন্ট এবং সবুজ পরিবেশসহ একটি ল্যান্ডমার্ক প্রকল্প।",
-    "image": "/S & D Giash Garden/S&D View.jpg",
-    "images": ["/S & D Giash Garden/S&D View.jpg"],
+    "image": "/images/dhaka/completed/giash-garden/S&D View.jpg",
+    "images": [
+      "/images/dhaka/completed/giash-garden/S&D View.jpg"
+    ],
     "brochureUrl": "",
-    "coverImage": "/S & D Giash Garden/S&D View.jpg",
+    "coverImage": "/images/dhaka/completed/giash-garden/S&D View.jpg",
     "handover": "Ready",
     "mapEmbedUrl": "https://www.google.com/maps?q=Aftabnagar%20Dhaka&output=embed"
   },
@@ -103,13 +132,22 @@
     "landArea": "5.5 Katha",
     "floors": "G+6",
     "facing": "East",
-    "amenities": ["Elevator", "Generator", "Parking", "Swimming Pool", "Gym", "Security"],
+    "amenities": [
+      "Elevator",
+      "Generator",
+      "Parking",
+      "Swimming Pool",
+      "Gym",
+      "Security"
+    ],
     "description": "A prestigious completed project offering luxury living with world-class amenities.",
     "descriptionBn": "বিশ্বমানের সুবিধাসহ বিলাসবহুল জীবনযাপনের প্রস্তাব দেওয়া একটি আধুনিক প্রকল্প।",
-    "image": "/S&D Safura Heights, Aftabnagar/1.6  Regular edited.jpg",
-    "images": ["/S&D Safura Heights, Aftabnagar/1.6  Regular edited.jpg"],
+    "image": "/images/dhaka/completed/safura-heights/1.6  Regular edited.jpg",
+    "images": [
+      "/images/dhaka/completed/safura-heights/1.6  Regular edited.jpg"
+    ],
     "brochureUrl": "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/Safura.Heights-.pdf",
-    "coverImage": "/S&D Safura Heights, Aftabnagar/1.6  Regular edited.jpg",
+    "coverImage": "/images/dhaka/completed/safura-heights/1.6  Regular edited.jpg",
     "handover": "Ready",
     "mapEmbedUrl": "https://www.google.com/maps?q=Aftabnagar%20Dhaka&output=embed"
   },
@@ -125,17 +163,22 @@
     "landArea": "6 Katha",
     "floors": "G+6",
     "facing": "South-West",
-    "amenities": ["Elevator", "Generator", "Parking", "Community Hall"],
+    "amenities": [
+      "Elevator",
+      "Generator",
+      "Parking",
+      "Community Hall"
+    ],
     "description": "A regal residential project reflecting elegance and comfort in the heart of Chandpur.",
     "descriptionBn": "চাঁদপুর শহরের প্রাণকেন্দ্রে মনোরম পরিবেশে এবং আরামদায়ক ফ্ল্যাটের এক রাজকীয় আবাসিক প্রকল্প।",
-    "image": "/S & D Sardar Palace,  Chandpur/S & D Sardar Palace Chandpur.jpg",
+    "image": "/images/chandpur/completed/sardar-palace/S & D Sardar Palace Chandpur.jpg",
     "images": [
-      "/S & D Sardar Palace,  Chandpur/S & D Sardar Palace Chandpur.jpg",
-      "/S & D Sardar Palace,  Chandpur/S & D Sardar Palace Chandpur Top.jpg",
-      "/S & D Sardar Palace,  Chandpur/S & D Sardar Palace Chandpur Top NIGHT VIEW.jpg"
+      "/images/chandpur/completed/sardar-palace/S & D Sardar Palace Chandpur.jpg",
+      "/images/chandpur/completed/sardar-palace/S & D Sardar Palace Chandpur Top.jpg",
+      "/images/chandpur/completed/sardar-palace/S & D Sardar Palace Chandpur Top NIGHT VIEW.jpg"
     ],
     "brochureUrl": "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/Sarder.Palace.Outline.pdf",
-    "coverImage": "/S & D Sardar Palace,  Chandpur/S & D Sardar Palace Chandpur.jpg",
+    "coverImage": "/images/chandpur/completed/sardar-palace/S & D Sardar Palace Chandpur.jpg",
     "handover": "Ready",
     "mapEmbedUrl": "https://www.google.com/maps?q=Guakhula%20Road%20Chandpur&output=embed"
   },
@@ -151,13 +194,20 @@
     "landArea": "4 Katha",
     "floors": "G+6",
     "facing": "East",
-    "amenities": ["Elevator", "Generator", "Parking", "Security"],
+    "amenities": [
+      "Elevator",
+      "Generator",
+      "Parking",
+      "Security"
+    ],
     "description": "A modern upcoming project blending functionality with aesthetics.",
     "descriptionBn": "নান্দনিকতার সাথে কার্যকারিতার মিশ্রণকারী একটি আধুনিক আসন্ন প্রকল্প।",
-    "image": "/S & D Didar Box/Final (1).jpg",
-    "images": ["/S & D Didar Box/Final (1).jpg"],
+    "image": "/images/chandpur/ongoing/didar-box/Final (1).jpg",
+    "images": [
+      "/images/chandpur/ongoing/didar-box/Final (1).jpg"
+    ],
     "brochureUrl": "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/Didar.Box.Brochure.Final.pdf",
-    "coverImage": "/S & D Didar Box/Final (1).jpg",
+    "coverImage": "/images/chandpur/ongoing/didar-box/Final (1).jpg",
     "handover": "Dec 2026",
     "mapEmbedUrl": "https://www.google.com/maps?q=Kalibari%20Mor%20Chandpur&output=embed"
   },
@@ -173,13 +223,20 @@
     "landArea": "5 Katha",
     "floors": "G+6",
     "facing": "South",
-    "amenities": ["Elevator", "Generator", "Parking", "Security"],
+    "amenities": [
+      "Elevator",
+      "Generator",
+      "Parking",
+      "Security"
+    ],
     "description": "A serene residential villa located in the heart of Chandpur.",
     "descriptionBn": "চাঁদপুর শহরের প্রাণকেন্দ্রে অবস্থিত একটি শান্ত আবাসিক ভিলা।",
-    "image": "/S & D Hossen Vill/1_2 - Photo01.jpg",
-    "images": ["/S & D Hossen Vill/1_2 - Photo01.jpg"],
+    "image": "/images/chandpur/ongoing/hossen-vill/1_2 - Photo01.jpg",
+    "images": [
+      "/images/chandpur/ongoing/hossen-vill/1_2 - Photo01.jpg"
+    ],
     "brochureUrl": "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/Broshure.SND.Mithu.Chandpur.pdf",
-    "coverImage": "/S & D Hossen Vill/1_2 - Photo01.jpg",
+    "coverImage": "/images/chandpur/ongoing/hossen-vill/1_2 - Photo01.jpg",
     "handover": "Dec 2026",
     "mapEmbedUrl": "https://www.google.com/maps?q=Natun%20Bazar%20Chandpur&output=embed"
   },
@@ -195,13 +252,20 @@
     "landArea": "6 Katha",
     "floors": "G+9",
     "facing": "North",
-    "amenities": ["Elevator", "Generator", "Parking", "Playground"],
+    "amenities": [
+      "Elevator",
+      "Generator",
+      "Parking",
+      "Playground"
+    ],
     "description": "A beautiful residential sanctuary offering lush gardens and premium facilities.",
     "descriptionBn": "বিলাসবহুল বাগান এবং প্রিমিয়াম সুবিধা প্রদানকারী একটি সুন্দর আবাসিক অভয়ারণ্য।",
-    "image": "/S & D Majeda Garden, Chandpur/S & D Majeda Garden Chandpur.jpg",
-    "images": ["/S & D Majeda Garden, Chandpur/S & D Majeda Garden Chandpur.jpg"],
+    "image": "/images/chandpur/completed/majeda-garden/S & D Majeda Garden Chandpur.jpg",
+    "images": [
+      "/images/chandpur/completed/majeda-garden/S & D Majeda Garden Chandpur.jpg"
+    ],
     "brochureUrl": "",
-    "coverImage": "/S & D Majeda Garden, Chandpur/S & D Majeda Garden Chandpur.jpg",
+    "coverImage": "/images/chandpur/completed/majeda-garden/S & D Majeda Garden Chandpur.jpg",
     "handover": "Ready",
     "mapEmbedUrl": "https://www.google.com/maps?q=Taltola%20Chandpur&output=embed"
   },
@@ -217,13 +281,20 @@
     "landArea": "5.5 Katha",
     "floors": "G+6",
     "facing": "West",
-    "amenities": ["Elevator", "Generator", "Parking", "Security"],
+    "amenities": [
+      "Elevator",
+      "Generator",
+      "Parking",
+      "Security"
+    ],
     "description": "Experience royal living with modern amenities in Chandpur.",
     "descriptionBn": "চাঁদপুরে আধুনিক সুযোগ-সুবিধা সহ রাজকীয় জীবনযাপনের অভিজ্ঞতা নিন।",
-    "image": "/S & D Nurjahan Palace, Chandpur/1_3 - Photo.jpg",
-    "images": ["/S & D Nurjahan Palace, Chandpur/1_3 - Photo.jpg"],
+    "image": "/images/chandpur/completed/nurjahan-palace/1_3 - Photo.jpg",
+    "images": [
+      "/images/chandpur/completed/nurjahan-palace/1_3 - Photo.jpg"
+    ],
     "brochureUrl": "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/Nurjahan.Palace.Outline.pdf",
-    "coverImage": "/S & D Nurjahan Palace, Chandpur/1_3 - Photo.jpg",
+    "coverImage": "/images/chandpur/completed/nurjahan-palace/1_3 - Photo.jpg",
     "handover": "Ready",
     "mapEmbedUrl": "https://www.google.com/maps?q=Jor%20Pukur%20Par%20Chandpur&output=embed"
   },
@@ -239,13 +310,20 @@
     "landArea": "4.5 Katha",
     "floors": "G+6",
     "facing": "South-East",
-    "amenities": ["Elevator", "Generator", "Parking", "Community Hall"],
+    "amenities": [
+      "Elevator",
+      "Generator",
+      "Parking",
+      "Community Hall"
+    ],
     "description": "A well-designed project offering comfort and security.",
     "descriptionBn": "আরাম এবং নিরাপত্তা প্রদানকারী একটি সু-নকশাকৃত প্রকল্প।",
-    "image": "/S & D Shohodora Palace/141.png",
-    "images": ["/S & D Shohodora Palace/141.png"],
+    "image": "/images/dhaka/upcoming/shohodora-palace/141.png",
+    "images": [
+      "/images/dhaka/upcoming/shohodora-palace/141.png"
+    ],
     "brochureUrl": "https://github.com/DelwarOfficial/sweet-home/releases/download/v1.0.0-assets/Broshure.Shohodora.Palace.pdf",
-    "coverImage": "/S & D Shohodora Palace/141.png",
+    "coverImage": "/images/dhaka/upcoming/shohodora-palace/141.png",
     "handover": "2028",
     "mapEmbedUrl": "https://www.google.com/maps?q=Nabinbag%20Khilgaon%20Dhaka&output=embed"
   },
@@ -308,10 +386,12 @@
     "amenities": [],
     "description": "An ongoing residential project in Aftabnagar.",
     "descriptionBn": "আফতাবনগরে একটি চলমান আবাসিক প্রকল্প।",
-    "image": "/j-f-tower/j-f-tower.webp",
-    "images": ["/j-f-tower/j-f-tower.webp"],
+    "image": "/images/dhaka/ongoing/j-f-tower/j-f-tower.webp",
+    "images": [
+      "/images/dhaka/ongoing/j-f-tower/j-f-tower.webp"
+    ],
     "brochureUrl": "",
-    "coverImage": "/j-f-tower/j-f-tower.webp",
+    "coverImage": "/images/dhaka/ongoing/j-f-tower/j-f-tower.webp",
     "handover": "2027",
     "mapEmbedUrl": "https://www.google.com/maps?q=Aftabnagar%20Dhaka&output=embed"
   },
@@ -330,10 +410,12 @@
     "amenities": [],
     "description": "An ongoing residential project in Bashundhara.",
     "descriptionBn": "বসুন্ধরায় একটি চলমান আবাসিক প্রকল্প।",
-    "image": "/zahir-mansion/zahir-mansion.webp",
-    "images": ["/zahir-mansion/zahir-mansion.webp"],
+    "image": "/images/dhaka/ongoing/zahir-mansion/zahir-mansion.webp",
+    "images": [
+      "/images/dhaka/ongoing/zahir-mansion/zahir-mansion.webp"
+    ],
     "brochureUrl": "",
-    "coverImage": "/zahir-mansion/zahir-mansion.webp",
+    "coverImage": "/images/dhaka/ongoing/zahir-mansion/zahir-mansion.webp",
     "handover": "2027",
     "mapEmbedUrl": "https://www.google.com/maps?q=Bashundhara%20Dhaka&output=embed"
   },
@@ -374,10 +456,12 @@
     "amenities": [],
     "description": "An ongoing residential project in Chandpur Sadar.",
     "descriptionBn": "চাঁদপুর সদরে একটি চলমান আবাসিক প্রকল্প।",
-    "image": "/sonali-kuitir/sonali-kuitir.webp",
-    "images": ["/sonali-kuitir/sonali-kuitir.webp"],
+    "image": "/images/chandpur/ongoing/sonali-kuitir/sonali-kuitir.webp",
+    "images": [
+      "/images/chandpur/ongoing/sonali-kuitir/sonali-kuitir.webp"
+    ],
     "brochureUrl": "",
-    "coverImage": "/sonali-kuitir/sonali-kuitir.webp",
+    "coverImage": "/images/chandpur/ongoing/sonali-kuitir/sonali-kuitir.webp",
     "handover": "2027",
     "mapEmbedUrl": "https://www.google.com/maps?q=Chandpur%20DC%20Office&output=embed"
   },
@@ -396,10 +480,12 @@
     "amenities": [],
     "description": "An ongoing residential project in Chandpur Sadar.",
     "descriptionBn": "চাঁদপুর সদরে একটি চলমান আবাসিক প্রকল্প।",
-    "image": "/rahima-palace/rahima-palace.webp",
-    "images": ["/rahima-palace/rahima-palace.webp"],
+    "image": "/images/chandpur/ongoing/rahima-palace/rahima-palace.webp",
+    "images": [
+      "/images/chandpur/ongoing/rahima-palace/rahima-palace.webp"
+    ],
     "brochureUrl": "",
-    "coverImage": "/rahima-palace/rahima-palace.webp",
+    "coverImage": "/images/chandpur/ongoing/rahima-palace/rahima-palace.webp",
     "handover": "2027",
     "mapEmbedUrl": "https://www.google.com/maps?q=Chandpur%20Sadar&output=embed"
   }
