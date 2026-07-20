@@ -2,11 +2,113 @@ import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { MapPin, ArrowRight, Building, Search } from "lucide-react";
+import { MapPin, ArrowRight, Building, Search, Maximize, Layers, Ruler } from "lucide-react";
 import { useLang, t } from "@/lib/i18n";
-import { projects } from "@/lib/projects-data";
+import { projects, getImage, type Project } from "@/lib/projects";
 
 type Filter = "all" | "ongoing" | "upcoming" | "completed";
+
+/** Compact stat tile rendered on each project card (At-a-Glance row). */
+const AtAGlance = ({
+  icon,
+  label,
+  value,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}) => (
+  <div className="flex flex-col gap-0.5 min-w-0">
+    <span className="flex items-center gap-1 text-[10px] uppercase tracking-wide text-muted-foreground">
+      <span className="text-gold/80">{icon}</span>
+      {label}
+    </span>
+    <span className="text-xs font-semibold text-foreground truncate" title={value}>
+      {value}
+    </span>
+  </div>
+);
+
+// --- Build-progress heuristic -------------------------------------------------
+// Assume a ~36-month build window ending at the handover date. If we can't
+// parse a date, fall back to status-based defaults so the bar still reflects
+// something truthful.
+const BUILD_WINDOW_MONTHS = 36;
+const MONTHS = [
+  "jan", "feb", "mar", "apr", "may", "jun",
+  "jul", "aug", "sep", "oct", "nov", "dec",
+];
+
+/** Parse loose handover strings ("Dec 2026", "December 2026", "12/2026", "Q4 2026"). */
+function parseHandover(input?: string): Date | null {
+  if (!input) return null;
+  const s = input.trim().toLowerCase();
+  if (!s) return null;
+
+  // "12/2026" or "12-2026" (MM/YYYY)
+  let m = s.match(/^(\d{1,2})[/-](\d{4})$/);
+  if (m) {
+    const d = new Date(Number(m[2]), Number(m[1]) - 1, 1);
+    return isNaN(d.getTime()) ? null : d;
+  }
+  // "Dec 2026" / "December 2026"
+  m = s.match(/^([a-z]{3,})\.?\s+(\d{4})$/);
+  if (m) {
+    const mon = MONTHS.indexOf(m[1].slice(0, 3));
+    if (mon >= 0) {
+      const d = new Date(Number(m[2]), mon, 1);
+      return isNaN(d.getTime()) ? null : d;
+    }
+  }
+  // "Q4 2026" — treat as last month of the quarter
+  m = s.match(/^q([1-4])\s+(\d{4})$/);
+  if (m) {
+    const mon = Number(m[1]) * 3 - 1;
+    const d = new Date(Number(m[2]), mon, 1);
+    return isNaN(d.getTime()) ? null : d;
+  }
+  // Last resort: native Date parse (ISO, etc.)
+  const d = new Date(s);
+  return isNaN(d.getTime()) ? null : d;
+}
+
+/** Map a project onto a 0–100 build-progress percentage. */
+function progressFor(p: Project): number {
+  if (p.status === "completed") return 100;
+  if (p.status === "upcoming") return 12;
+
+  const handover = parseHandover(p.handover);
+  if (!handover) return 55; // ongoing, no date → indeterminate middle
+
+  const DAY = 86400000;
+  const end = handover.getTime();
+  const start = end - BUILD_WINDOW_MONTHS * 30 * DAY;
+  const now = Date.now();
+  if (now <= start) return 5;
+  if (now >= end) return 95;
+  return Math.max(5, Math.min(95, Math.round(((now - start) / (end - start)) * 100)));
+}
+
+/** Thin colored progress bar — color tracks project status. */
+const ProgressBar = ({ value, status }: { value: number; status: Project["status"] }) => {
+  const color =
+    status === "completed"
+      ? "from-[#C9A227] to-[#e0bc46]"
+      : status === "upcoming"
+      ? "from-sky-500 to-sky-400"
+      : "from-emerald-500 to-emerald-400";
+  return (
+    <div className="w-full h-1.5 rounded-full bg-secondary overflow-hidden">
+      <motion.div
+        className={`h-full bg-linear-to-r ${color}`}
+        initial={{ width: 0 }}
+        whileInView={{ width: `${value}%` }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      />
+    </div>
+  );
+};
 
 const Projects = () => {
   const { lang } = useLang();
@@ -63,7 +165,7 @@ const Projects = () => {
       const sMax = searchNums.length > 1 ? parseInt(searchNums[1], 10) : sMin;
       return Math.max(pMin, sMin) <= Math.min(pMax, sMax);
     };
-    const textMatch = (p: typeof projects[number]) =>
+    const textMatch = (p: Project) =>
       !q ||
       p.name.toLowerCase().includes(q) ||
       p.nameBn.toLowerCase().includes(q) ||
@@ -119,12 +221,12 @@ const Projects = () => {
       ? "gold-gradient text-accent-foreground"
       : "bg-secondary text-muted-foreground hover:text-foreground";
 
-  const formatLocation = (p: typeof projects[number]) =>
+  const formatLocation = (p: Project) =>
     lang === "bn"
       ? `${p.city === "Dhaka" ? "ঢাকা" : "চাঁদপুর"} > ${p.locationBn}`
       : `${p.city} > ${p.location}`;
 
-  const renderCard = (project: typeof projects[number]) => (
+  const renderCard = (project: Project) => (
     <motion.div
       key={project.slug}
       initial={{ opacity: 0, y: 20 }}
@@ -137,18 +239,40 @@ const Projects = () => {
         className="group block bg-card rounded-xl border border-border overflow-hidden hover:border-gold/40 hover:shadow-lg transition-all"
       >
         <div className="aspect-[4/3] bg-secondary relative overflow-hidden">
-          {project.image ? (
-            <img
-              src={project.image}
-              alt={lang === "bn" ? project.nameBn : project.name}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-            />
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Building className="w-12 h-12 text-muted-foreground/30" />
-            </div>
-          )}
+          {(() => {
+            const src = getImage(project);
+            if (!src) {
+              return (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Building className="w-12 h-12 text-muted-foreground/30" />
+                </div>
+              );
+            }
+            return (
+              <img
+                src={src}
+                alt={lang === "bn" ? project.nameBn : project.name}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                onError={(e) => {
+                  // If the cover 404s or fails to decode, swap to placeholder
+                  // icon so the card never shows a broken-image glyph.
+                  const el = e.currentTarget;
+                  el.style.display = "none";
+                  const parent = el.parentElement;
+                  if (parent && !parent.querySelector("[data-fallback-icon]")) {
+                    const fallback = document.createElement("div");
+                    fallback.setAttribute("data-fallback-icon", "");
+                    fallback.className =
+                      "absolute inset-0 flex items-center justify-center";
+                    fallback.innerHTML =
+                      '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground/30"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg>';
+                    parent.appendChild(fallback);
+                  }
+                }}
+              />
+            );
+          })()}
           <div className="absolute top-4 left-4 z-20">
             {project.status === "ongoing" && (
               <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[11px] sm:text-xs font-semibold rounded-full bg-[#0F2F46]/90 text-white shadow-md backdrop-blur-sm transition-all duration-300">
@@ -173,8 +297,58 @@ const Projects = () => {
           <p className="flex items-center gap-1 text-sm text-muted-foreground mt-1">
             <MapPin className="w-3.5 h-3.5" /> {formatLocation(project)}
           </p>
-          <div className="flex items-center justify-between mt-4 pt-3 border-t border-border">
-            <span className="text-xs text-muted-foreground">{project.floors}{project.flatSize ? ` • ${project.flatSize}` : ""}</span>
+
+          {/* Build progress bar — always visible, color tracks status */}
+          <div className="mt-4 space-y-1.5">
+            <div className="flex items-center justify-between text-[10px] uppercase tracking-wide text-muted-foreground">
+              <span>{t("Progress", "অগ্রগতি", lang)}</span>
+              <span className="font-semibold text-foreground">
+                {project.status === "completed"
+                  ? t("Ready", "সম্পন্ন", lang)
+                  : `${progressFor(project)}%`}
+              </span>
+            </div>
+            <ProgressBar value={progressFor(project)} status={project.status} />
+          </div>
+
+          {/* At-a-Glance: revealed on hover (tap on touch) */}
+          <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-out mt-3">
+            <div className="overflow-hidden">
+              <div className="grid grid-cols-3 gap-2 pt-3 border-t border-border">
+                <AtAGlance
+                  icon={<Maximize className="w-3.5 h-3.5" />}
+                  label={t("Land", "জমি", lang)}
+                  value={
+                    project.landSize
+                      ? `${project.landSize.value} ${project.landSize.unit}`
+                      : project.landArea || "—"
+                  }
+                />
+                <AtAGlance
+                  icon={<Layers className="w-3.5 h-3.5" />}
+                  label={t("Floors", "তলা", lang)}
+                  value={
+                    project.buildingHeight != null
+                      ? `G+${project.buildingHeight}`
+                      : project.floors || "—"
+                  }
+                />
+                <AtAGlance
+                  icon={<Ruler className="w-3.5 h-3.5" />}
+                  label={t("Flats", "ফ্ল্যাট", lang)}
+                  value={
+                    project.flatSizes && project.flatSizes.length
+                      ? project.flatSizes.length === 1
+                        ? `${project.flatSizes[0]}`
+                        : `${Math.min(...project.flatSizes)}–${Math.max(...project.flatSizes)}`
+                      : project.flatSize || "—"
+                  }
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-end mt-3 pt-3 border-t border-border">
             <span className="text-xs font-medium text-gold-dark flex items-center gap-1">
               {t("Details", "বিস্তারিত", lang)} <ArrowRight className="w-3.5 h-3.5" />
             </span>

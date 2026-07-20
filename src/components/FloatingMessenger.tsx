@@ -4,6 +4,20 @@ import { MessageSquare } from "lucide-react";
 // Facebook Page ID for sdsweethome — update this constant to change the linked page
 const FB_PAGE_ID = "sdsweethome";
 
+// Shape of the FB SDK globals we touch. Declared on `Window` so casts stay
+// type-safe instead of going through `Record<string, unknown>`.
+interface FBXFBML {
+  parse: (el: HTMLElement) => void;
+}
+interface FBSdk {
+  XFBML?: FBXFBML;
+}
+declare global {
+  interface Window {
+    FB?: FBSdk;
+  }
+}
+
 const FloatingMessenger = () => {
   const [sdkLoaded, setSdkLoaded] = useState(false);
   const pluginRef = useRef<HTMLDivElement>(null);
@@ -18,13 +32,12 @@ const FloatingMessenger = () => {
       el.setAttribute("data-size", "large");
       el.setAttribute("data-colortheme", "light");
       // Re-parse XFBML after attributes are set
-      const fb = (window as Record<string, unknown>).FB as { XFBML?: { parse: (el: HTMLElement) => void } } | undefined;
-      fb?.XFBML?.parse(el);
+      window.FB?.XFBML?.parse(el);
     }
   }, [sdkLoaded]);
 
   const loadSDK = useCallback(() => {
-    if ((window as Record<string, unknown>).FB) return;
+    if (window.FB) return;
 
     const script = document.createElement("script");
     script.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0";
@@ -49,7 +62,7 @@ const FloatingMessenger = () => {
   }, [loadSDK]);
 
   const handleClick = () => {
-    if (!(window as Record<string, unknown>).FB) {
+    if (!window.FB) {
       loadSDK();
     }
   };

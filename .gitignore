@@ -24,3 +24,10 @@ dist-ssr
 *.sw?
 .vercel
 .env*
+
+# Brochure extraction source (local only, PDFs stored externally)
+brochures-source/
+
+# `src/lib/projects.json` and `public/covers/` ARE committed so Vercel can
+# build without running the extractor. Generate/regenerate them with
+# `npm run extract -- --local` (PDFs stay out of git via brochures-source/).

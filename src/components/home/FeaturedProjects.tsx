@@ -2,7 +2,7 @@ import { useState, useRef, useCallback, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { MapPin, ArrowRight, ArrowLeft, Building } from "lucide-react";
 import { useLang, t } from "@/lib/i18n";
-import { projects } from "@/lib/projects-data";
+import { projects, getImage, type Project } from "@/lib/projects";
 
 const FeaturedProjects = () => {
   const { lang } = useLang();
@@ -43,7 +43,7 @@ const FeaturedProjects = () => {
         "@type": "Place",
         "name": lang === "bn" ? project.nameBn : project.name,
         "url": `${window.location.origin}/projects/${project.slug}`,
-        "image": project.image ? `${window.location.origin}${project.image}` : undefined,
+        "image": getImage(project) ? `${window.location.origin}${getImage(project)}` : undefined,
         "address": {
           "@type": "PostalAddress",
           "addressLocality": lang === "bn" ? project.locationBn : project.location
@@ -56,7 +56,7 @@ const FeaturedProjects = () => {
   const latestProject = projects.find((p) => p.slug === latestSlug);
   const carouselProjects = latestProject ? projects.filter((p) => p.slug !== latestSlug) : projects;
 
-  const formatLocation = (p: typeof projects[0]) =>
+  const formatLocation = (p: Project) =>
     lang === "bn"
       ? `${p.city === "Dhaka" ? "ঢাকা" : "চাঁদপুর"} > ${p.locationBn}`
       : `${p.city} > ${p.location}`;
@@ -145,18 +145,28 @@ const FeaturedProjects = () => {
             >
               <div className="aspect-[4/3] md:aspect-auto md:min-h-[320px] bg-secondary relative overflow-hidden">
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent z-10 pointer-events-none"></div>
-                {latestProject.image ? (
-                  <img
-                    src={latestProject.image}
-                    alt={lang === "bn" ? latestProject.nameBn : latestProject.name}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center z-0">
-                    <Building className="w-16 h-16 text-muted-foreground/30" />
-                  </div>
-                )}
+                {(() => {
+                  const src = getImage(latestProject);
+                  if (!src) {
+                    return (
+                      <div className="absolute inset-0 flex items-center justify-center z-0">
+                        <Building className="w-16 h-16 text-muted-foreground/30" />
+                      </div>
+                    );
+                  }
+                  return (
+                    <img
+                      src={src}
+                      alt={lang === "bn" ? latestProject.nameBn : latestProject.name}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      loading="lazy"
+                      onError={(e) => {
+                        const el = e.currentTarget;
+                        el.style.display = "none";
+                      }}
+                    />
+                  );
+                })()}
                 <div className="absolute top-4 left-4 z-20">
                   {latestProject.status === "ongoing" && (
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[11px] sm:text-xs font-semibold rounded-full bg-[#0F2F46] text-white shadow-md">
@@ -229,21 +239,31 @@ const FeaturedProjects = () => {
                 >
                   <div className="aspect-[4/5] bg-secondary relative overflow-hidden shrink-0">
                     <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent z-10 pointer-events-none"></div>
-                    {project.image ? (
-                      <img
-                        src={project.image}
-                        alt={lang === "bn" ? project.nameBn : project.name}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                        width="400"
-                        height="500"
-                        decoding="async"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center z-0">
-                        <Building className="w-12 h-12 text-muted-foreground/30" />
-                      </div>
-                    )}
+                    {(() => {
+                      const src = getImage(project);
+                      if (!src) {
+                        return (
+                          <div className="absolute inset-0 flex items-center justify-center z-0">
+                            <Building className="w-12 h-12 text-muted-foreground/30" />
+                          </div>
+                        );
+                      }
+                      return (
+                        <img
+                          src={src}
+                          alt={lang === "bn" ? project.nameBn : project.name}
+                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                          width="400"
+                          height="500"
+                          decoding="async"
+                          loading="lazy"
+                          onError={(e) => {
+                            const el = e.currentTarget;
+                            el.style.display = "none";
+                          }}
+                        />
+                      );
+                    })()}
 
                     {/* Status Badge */}
                     <div className="absolute top-4 left-4 z-20">

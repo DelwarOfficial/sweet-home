@@ -56,6 +56,28 @@ public/              // Heavily compressed static assets (brochures, partner log
 
 ## Development & Build Commands
 
+- **Extract Brochure Data (LOCAL ONLY):**
+  Extracts project data from PDF brochures and generates optimized cover images.
+  ⚠️ Must be run locally before `npm run build`. PDFs are stored externally (Vercel Blob / GitHub Releases),
+  not in `public/`. Set `GEMINI_API_KEY` environment variable for AI-powered data extraction.
+
+  Required env vars (set in `.env.local`):
+  - `GEMINI_API_KEY` — required, used to structure brochure text into the `ProjectBrochure` schema.
+  - `BLOB_BASE_URL` — optional, e.g. `https://your-blob-store.vercel-storage.com/brochures`. Used as the host for `brochureUrl`. Defaults to the Vercel Blob pattern.
+  - `GITHUB_BLOB_URLS` — optional, JSON map `{"slug": "https://...pdf"}` of remote PDFs used when a local file is missing from `brochures-source/`.
+
+  Workflow:
+  1. Drop `*.pdf` files into `brochures-source/` (gitignored, local-only).
+  2. Run `npm run extract`. It reads each PDF, extracts text via `pdfjs-dist`,
+     asks Gemini to produce structured JSON, renders a <300KB `.webp` cover to
+     `public/covers/`, and writes the catalog to `src/lib/projects.json`.
+     The full PDFs are **never** copied to `public/` or `dist/`; only `brochureUrl`
+     (the external Blob / GitHub Releases URL) is recorded.
+  3. Optionally set `GITHUB_BLOB_URLS` to fetch source PDFs from a GitHub release
+     when the local file isn't present.
+  ```bash
+  npm run extract
+  ```
 - **Run Dev Server:**
   Starts the local development server at `http://localhost:8080`
   ```bash
@@ -63,6 +85,8 @@ public/              // Heavily compressed static assets (brochures, partner log
   ```
 - **Build Production Bundle:**
   Compiles the TypeScript and processes styles down to a highly optimized `dist/` directory.
+  > ⚠️ Run `npm run extract` locally first if `src/lib/projects.json` or `public/covers/`
+  > are missing — the build does not generate them. (Both are gitignored.)
   ```bash
   npm run build
   ```
